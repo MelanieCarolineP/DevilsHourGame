@@ -12,9 +12,8 @@ class Entity {
                   // CAN walk on it
 
   /* Constructor */
-  Entity();
+  Entity( float x, float y, float w, float h);
 
-  void update();
 };
 
 #endif /* _ENTITY_H_ */
