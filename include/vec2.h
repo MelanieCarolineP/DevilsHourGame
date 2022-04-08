@@ -7,11 +7,13 @@
 template <class T>
 class vec2 {
     public:
-     
+
+        
         T x, y; 
         vec2() :x(0), y(0){}
         vec2(T x, T y) : x(x), y(y) {}
         vec2 (const vec2& v) : x( v.x), y( v.y){}
+
 
         vec2& operator= (const vec2& v){
             x = v.x;
@@ -77,11 +79,23 @@ class vec2 {
             return *this; 
         }
 
+        /**
+         * @brief Sets the values for the vec2
+         * 
+         * @param x x-position  
+         * @param y y-position
+         */
         void set( T x, T y){
             this -> x = x;
             this -> y = y;
         }
 
+        /**
+         * @brief distance of the vec2 to another using euclidean distance.
+         * 
+         * @param v 2nd vector
+         * @return float distance between the two vec2 
+         */
         float dist (vec2 v) const {
             return std::sqrt ( std::pow((this -> x - x), 2.0 )+ std::pow((this -> y - y), 2.0 ) );
         }
