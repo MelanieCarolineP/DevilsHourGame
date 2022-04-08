@@ -87,6 +87,9 @@ int main(int argc, char** argv)
   // While application is running
   while( running )
   {
+    // loop start time
+    Uint32 start_ticks = SDL_GetTicks();
+    
     // Handle events on queue
     while( SDL_PollEvent( &e ) != 0 )
     {
@@ -104,6 +107,9 @@ int main(int argc, char** argv)
         if( e.key.keysym.sym == SDLK_h ) current_room = Hallway;
         
       }
+      // current time 
+      Uint32 current_time = SDL_GetTicks();
+
       switch (current_room){
         case Front_Foyer:
           image = load_bitmap(IMG_Load("../resource/FFoyerRoom.png"));
@@ -122,6 +128,9 @@ int main(int argc, char** argv)
       SDL_RenderCopy( renderer, texture, NULL, NULL);
       SDL_RenderPresent( renderer );
     }
+    // Gets end time of the loop 
+    Unit32 end_time = SDL_GetTicks(); 
+    
   }
 
   /*** Clean Up ***/
