@@ -9,6 +9,8 @@ class Room : public Entity {
  public:
   /* constructor */
   Room();
+  Room(Vec2d vec);
+  Room(Vec2d vec, std::vector<Entity*>& entityList);
 
   /* Members */
   Vec2d size;
@@ -16,6 +18,6 @@ class Room : public Entity {
 
   /* Get entity list from xml file */
   void getEntities();
-}
+};
 
 #endif /* _ROOM_H_ */
