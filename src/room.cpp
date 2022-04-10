@@ -12,4 +12,15 @@ Room::Room(Vec2d size, std::vector<Entity*>& entityList) {
   this->entityList = entityList;
 }
 
-void Room::getEntities() { return; }
+void Room::getEntities(Rooms r) {
+  switch (r) {
+    case Rooms::bathroom:
+      generateEntityList("../data/rooms/bathroom.xml");
+      break;
+
+    default:
+      break;
+  }
+}
+
+void Room::generateEntityList(const char* s) { return; }

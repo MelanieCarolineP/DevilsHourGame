@@ -3,6 +3,7 @@
 
 #include <vector>
 
+#include "constants.h"
 #include "entity.h"
 
 class Room : public Entity {
@@ -17,7 +18,10 @@ class Room : public Entity {
   std::vector<Entity*> entityList;
 
   /* Get entity list from xml file */
-  void getEntities();
+  void getEntities(Rooms r);
+
+ private:
+  void generateEntityList(const char* s);
 };
 
 #endif /* _ROOM_H_ */
