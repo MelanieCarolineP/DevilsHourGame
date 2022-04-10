@@ -2,24 +2,31 @@
 #define _INVENTORY_H_
 
 #include <vector>
+#include "item.h"
 
 class Inventory {
 
+    int selectedPosition;
+
+    vector< Item > items;  /**< holds the items */
+
     public:
-        vector< string* > items;  /**< holds the items */
-        getSelectedItem(); /**< gets the selected item */
-        changeSelectedItem(); /**< change the selected item*/
-        
+
+        Item getSelectedItem(); /**< gets the selected item */
+
+        void changeSelectedItem(); /**< change the selected item*/
+
         /**
-         * @brief handeles the use of items 
-         * 
+         * @brief uses the item at the selectedPosition
+         *
          */
-        useItem(item, position);
+        void useItem();
+
         /**
          * @brief Construct a new Inventory object
-         * 
+         *
          */
-        Inventory Inventory();
+        Inventory();
 
 };
 #endif
