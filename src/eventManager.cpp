@@ -25,7 +25,7 @@ void EventManager::handle_event (SDL_Event * event, float deltaTime, float time,
             case SDLK_a:
                 playerMovement(event,deltaTime, 2);
                 break;
-        }   case SDLK_s:
+           case SDLK_s:
                 playerMovement(event,deltaTime, 1);
                 break;
             case SDLK_d:
@@ -37,6 +37,7 @@ void EventManager::handle_event (SDL_Event * event, float deltaTime, float time,
             case SDLK_i:
                 inventoryChange(event,time);
                 break;
+        }
     }
 }
 
