@@ -3,6 +3,7 @@
 #include <SDL_image.h>
 #include <iostream>
 #include <stdio.h>
+#include "eventManager.h"
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 1024;
@@ -80,9 +81,11 @@ int main(int argc, char** argv)
   
   /*** Main Loop ***/
   bool running = true;
+  EventMangager eventManager;
   SDL_Event e;
   rooms current_room;
   current_room = Front_Foyer;
+  Uint16 current_time = 0; 
 
   // While application is running
   while( running )
@@ -93,22 +96,26 @@ int main(int argc, char** argv)
     // Handle events on queue
     while( SDL_PollEvent( &e ) != 0 )
     {
-      // User requests quit
-      if( e.type == SDL_QUIT ) running = false;
+      // // User requests quit
+      // if( e.type == SDL_QUIT ) running = false;
 
-      // User presses a key
-      if( e.type == SDL_KEYDOWN )
-      {
-        if( e.key.keysym.sym == SDLK_q ) running = false;
-        if( e.key.keysym.sym == SDLK_f ) current_room = Front_Foyer;
-        if( e.key.keysym.sym == SDLK_a ) current_room = Bathroom;
-        if( e.key.keysym.sym == SDLK_b ) current_room = Bedroom;
-        if( e.key.keysym.sym == SDLK_k ) current_room = Kitchen;
-        if( e.key.keysym.sym == SDLK_h ) current_room = Hallway;
+      // // User presses a key
+      // if( e.type == SDL_KEYDOWN )
+      // {
+      //   if( e.key.keysym.sym == SDLK_q ) running = false;
+      //   if( e.key.keysym.sym == SDLK_f ) current_room = Front_Foyer;
+      //   if( e.key.keysym.sym == SDLK_a ) current_room = Bathroom;
+      //   if( e.key.keysym.sym == SDLK_b ) current_room = Bedroom;
+      //   if( e.key.keysym.sym == SDLK_k ) current_room = Kitchen;
+      //   if( e.key.keysym.sym == SDLK_h ) current_room = Hallway;
+        Uint16 delta_time  = (start_ticks - current_time);
         
+        eventManager.handle_event(e, delta_time, start_ticks, &running);
+
+
       }
       // current time 
-      Uint32 current_time = SDL_GetTicks();
+      current_time = SDL_GetTicks();
 
       switch (current_room){
         case Front_Foyer:
