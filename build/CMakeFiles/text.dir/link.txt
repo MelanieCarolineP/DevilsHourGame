@@ -1,0 +1,1 @@
+/usr/local/bin/x86_64-apple-darwin21-g++-11  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/text.dir/bin/text.cpp.o -o text  libDevilsHour_core.a 

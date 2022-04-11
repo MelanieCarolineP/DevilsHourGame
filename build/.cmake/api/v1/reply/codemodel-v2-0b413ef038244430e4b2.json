@@ -1,0 +1,87 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-DEBUG-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "DEBUG",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "csci437",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "DevilsHour::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-DevilsHour-DEBUG-c5ccc0ee4fb5ff6335f3.json",
+					"name" : "DevilsHour",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "DevilsHour_core::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-DevilsHour_core-DEBUG-73c69fee388ea7aab4e2.json",
+					"name" : "DevilsHour_core",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "helloworld::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-helloworld-DEBUG-105107c9a35f081da2a2.json",
+					"name" : "helloworld",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "text::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-text-DEBUG-6327fdd625504995cc6d.json",
+					"name" : "text",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/andywang/projects/cs437/DevilsHour/build",
+		"source" : "/Users/andywang/projects/cs437/DevilsHour"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

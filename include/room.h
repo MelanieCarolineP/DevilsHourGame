@@ -1,10 +1,12 @@
 #ifndef _ROOM_H_
 #define _ROOM_H_
 
+#include <string>
 #include <vector>
 
 #include "constants.h"
 #include "entity.h"
+#include "tinyxml2.h"
 
 class Room : public Entity {
  public:
@@ -21,7 +23,7 @@ class Room : public Entity {
   void getEntities(Rooms r);
 
  private:
-  void generateEntityList(const char* s);
+  int generateEntityList(std::string& s);
 };
 
 #endif /* _ROOM_H_ */

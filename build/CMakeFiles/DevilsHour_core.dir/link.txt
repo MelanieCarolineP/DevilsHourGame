@@ -1,0 +1,2 @@
+/usr/bin/ar qc libDevilsHour_core.a CMakeFiles/DevilsHour_core.dir/src/room.cpp.o CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.o
+/usr/bin/ranlib libDevilsHour_core.a
