@@ -4,7 +4,7 @@
 # compile CXX with /usr/local/bin/x86_64-apple-darwin21-g++-11
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/andywang/projects/cs437/DevilsHour/include
+CXX_INCLUDES = -I/Users/andywang/projects/cs437/DevilsHour/include -isystem /Library/Frameworks/SDL2.framework/Headers -isystem /usr/local/include/SDL2
 
 CXX_FLAGS =  -std=c++11 -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk
 

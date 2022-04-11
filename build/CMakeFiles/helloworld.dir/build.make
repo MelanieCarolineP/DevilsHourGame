@@ -92,7 +92,16 @@ helloworld_EXTERNAL_OBJECTS =
 
 helloworld: CMakeFiles/helloworld.dir/bin/helloworld.cpp.o
 helloworld: CMakeFiles/helloworld.dir/build.make
+helloworld: /usr/local/lib/libSDL2_image.dylib
+helloworld: /usr/local/lib/libSDL2_gfx.dylib
+helloworld: /usr/local/lib/libSDL2_ttf.dylib
+helloworld: /usr/local/lib/libSDL2_mixer.dylib
 helloworld: libDevilsHour_core.a
+helloworld: /usr/local/lib/libSDL2_image.dylib
+helloworld: /usr/local/lib/libSDL2_gfx.dylib
+helloworld: /usr/local/lib/libSDL2_ttf.dylib
+helloworld: /usr/local/lib/libSDL2_mixer.dylib
+helloworld: /Library/Frameworks/SDL2.framework
 helloworld: CMakeFiles/helloworld.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable helloworld"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/helloworld.dir/link.txt --verbose=$(VERBOSE)

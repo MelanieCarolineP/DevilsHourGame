@@ -1,12 +1,13 @@
 #ifndef _ROOM_H_
 #define _ROOM_H_
 
+#include <tinyxml2.h>
+
 #include <string>
 #include <vector>
 
 #include "constants.h"
 #include "entity.h"
-#include "tinyxml2.h"
 
 class Room : public Entity {
  public:

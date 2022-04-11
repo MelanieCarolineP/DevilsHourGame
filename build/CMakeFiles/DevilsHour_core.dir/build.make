@@ -69,10 +69,24 @@ include CMakeFiles/DevilsHour_core.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DevilsHour_core.dir/flags.make
 
+CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o: CMakeFiles/DevilsHour_core.dir/flags.make
+CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o: ../src/entity.cpp
+CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o: CMakeFiles/DevilsHour_core.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o"
+	/usr/local/bin/x86_64-apple-darwin21-g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o -MF CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o.d -o CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o -c /Users/andywang/projects/cs437/DevilsHour/src/entity.cpp
+
+CMakeFiles/DevilsHour_core.dir/src/entity.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DevilsHour_core.dir/src/entity.cpp.i"
+	/usr/local/bin/x86_64-apple-darwin21-g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/andywang/projects/cs437/DevilsHour/src/entity.cpp > CMakeFiles/DevilsHour_core.dir/src/entity.cpp.i
+
+CMakeFiles/DevilsHour_core.dir/src/entity.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DevilsHour_core.dir/src/entity.cpp.s"
+	/usr/local/bin/x86_64-apple-darwin21-g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/andywang/projects/cs437/DevilsHour/src/entity.cpp -o CMakeFiles/DevilsHour_core.dir/src/entity.cpp.s
+
 CMakeFiles/DevilsHour_core.dir/src/room.cpp.o: CMakeFiles/DevilsHour_core.dir/flags.make
 CMakeFiles/DevilsHour_core.dir/src/room.cpp.o: ../src/room.cpp
 CMakeFiles/DevilsHour_core.dir/src/room.cpp.o: CMakeFiles/DevilsHour_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DevilsHour_core.dir/src/room.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DevilsHour_core.dir/src/room.cpp.o"
 	/usr/local/bin/x86_64-apple-darwin21-g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DevilsHour_core.dir/src/room.cpp.o -MF CMakeFiles/DevilsHour_core.dir/src/room.cpp.o.d -o CMakeFiles/DevilsHour_core.dir/src/room.cpp.o -c /Users/andywang/projects/cs437/DevilsHour/src/room.cpp
 
 CMakeFiles/DevilsHour_core.dir/src/room.cpp.i: cmake_force
@@ -86,7 +100,7 @@ CMakeFiles/DevilsHour_core.dir/src/room.cpp.s: cmake_force
 CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o: CMakeFiles/DevilsHour_core.dir/flags.make
 CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o: ../src/spriteSheet.cpp
 CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o: CMakeFiles/DevilsHour_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o"
 	/usr/local/bin/x86_64-apple-darwin21-g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o -MF CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o.d -o CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o -c /Users/andywang/projects/cs437/DevilsHour/src/spriteSheet.cpp
 
 CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.s: cmake_force
 CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o: CMakeFiles/DevilsHour_core.dir/flags.make
 CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o: ../src/tinyxml2.cpp
 CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o: CMakeFiles/DevilsHour_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o"
 	/usr/local/bin/x86_64-apple-darwin21-g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o -MF CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o.d -o CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o -c /Users/andywang/projects/cs437/DevilsHour/src/tinyxml2.cpp
 
 CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.s: cmake_force
 CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.o: CMakeFiles/DevilsHour_core.dir/flags.make
 CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.o: ../src/vec2d.cpp
 CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.o: CMakeFiles/DevilsHour_core.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.o"
 	/usr/local/bin/x86_64-apple-darwin21-g++-11 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.o -MF CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.o.d -o CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.o -c /Users/andywang/projects/cs437/DevilsHour/src/vec2d.cpp
 
 CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.i: cmake_force
@@ -127,6 +141,7 @@ CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.s: cmake_force
 
 # Object files for target DevilsHour_core
 DevilsHour_core_OBJECTS = \
+"CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o" \
 "CMakeFiles/DevilsHour_core.dir/src/room.cpp.o" \
 "CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o" \
 "CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o" \
@@ -135,13 +150,14 @@ DevilsHour_core_OBJECTS = \
 # External object files for target DevilsHour_core
 DevilsHour_core_EXTERNAL_OBJECTS =
 
+libDevilsHour_core.a: CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o
 libDevilsHour_core.a: CMakeFiles/DevilsHour_core.dir/src/room.cpp.o
 libDevilsHour_core.a: CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o
 libDevilsHour_core.a: CMakeFiles/DevilsHour_core.dir/src/tinyxml2.cpp.o
 libDevilsHour_core.a: CMakeFiles/DevilsHour_core.dir/src/vec2d.cpp.o
 libDevilsHour_core.a: CMakeFiles/DevilsHour_core.dir/build.make
 libDevilsHour_core.a: CMakeFiles/DevilsHour_core.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libDevilsHour_core.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libDevilsHour_core.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/DevilsHour_core.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DevilsHour_core.dir/link.txt --verbose=$(VERBOSE)
 

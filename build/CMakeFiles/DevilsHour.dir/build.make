@@ -92,7 +92,16 @@ DevilsHour_EXTERNAL_OBJECTS =
 
 DevilsHour: CMakeFiles/DevilsHour.dir/bin/DevilsHour.cpp.o
 DevilsHour: CMakeFiles/DevilsHour.dir/build.make
+DevilsHour: /usr/local/lib/libSDL2_image.dylib
+DevilsHour: /usr/local/lib/libSDL2_gfx.dylib
+DevilsHour: /usr/local/lib/libSDL2_ttf.dylib
+DevilsHour: /usr/local/lib/libSDL2_mixer.dylib
 DevilsHour: libDevilsHour_core.a
+DevilsHour: /usr/local/lib/libSDL2_image.dylib
+DevilsHour: /usr/local/lib/libSDL2_gfx.dylib
+DevilsHour: /usr/local/lib/libSDL2_ttf.dylib
+DevilsHour: /usr/local/lib/libSDL2_mixer.dylib
+DevilsHour: /Library/Frameworks/SDL2.framework
 DevilsHour: CMakeFiles/DevilsHour.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable DevilsHour"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DevilsHour.dir/link.txt --verbose=$(VERBOSE)

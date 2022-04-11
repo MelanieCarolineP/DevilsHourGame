@@ -155,10 +155,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "CXX compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "/usr/local/bin/x86_64-apple-darwin21-g++-11"
 		},
 		{
@@ -283,10 +283,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "No help, variable specified on the command line."
+					"value" : "C compiler"
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "STRING",
 			"value" : "/usr/local/bin/x86_64-apple-darwin21-gcc-11"
 		},
 		{
@@ -427,7 +427,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/usr/local/Cellar/cmake/3.22.3/bin/ccmake"
+			"value" : "/usr/local/Cellar/cmake/3.23.0/bin/ccmake"
 		},
 		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
@@ -1182,6 +1182,54 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SDL2",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding SDL2"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[/Library/Frameworks/SDL2.framework][/Library/Frameworks/SDL2.framework/Headers][v2.0.20()]"
+		},
+		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SDL2_gfx",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding SDL2_gfx"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[/usr/local/lib/libSDL2_gfx.dylib][/usr/local/include/SDL2][v1.0.4()]"
+		},
+		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SDL2_image",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding SDL2_image"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[/usr/local/lib/libSDL2_image.dylib][/usr/local/include/SDL2][v2.0.5()]"
+		},
+		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SDL2_mixer",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding SDL2_mixer"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[/usr/local/lib/libSDL2_mixer.dylib][/usr/local/include/SDL2][v2.0.4()]"
+		},
+		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SDL2_ttf",
 			"properties" : 
 			[
@@ -1194,16 +1242,292 @@
 			"value" : "[/usr/local/lib/libSDL2_ttf.dylib][/usr/local/include/SDL2][v2.0.18()]"
 		},
 		{
-			"name" : "SDL2_DIR",
+			"name" : "SDL2MAIN_LIBRARY",
 			"properties" : 
 			[
 				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
 					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for SDL2."
+					"value" : "(This variable does not exist and should not be used)"
+				}
+			],
+			"type" : "UNINITIALIZED",
+			"value" : ""
+		},
+		{
+			"name" : "SDL2_BUILDING_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "(This variable does not exist and should not be used)"
+				}
+			],
+			"type" : "UNINITIALIZED",
+			"value" : ""
+		},
+		{
+			"name" : "SDL2_GFX_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2_gfx headers can be found"
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/local/lib/cmake/SDL2"
+			"value" : "/usr/local/include/SDL2"
+		},
+		{
+			"name" : "SDL2_GFX_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2_gfx Library can be found"
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/usr/local/lib/libSDL2_gfx.dylib"
+		},
+		{
+			"name" : "SDL2_GFX_NO_DEFAULT_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Disable search SDL2_gfx Library in default path"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "SDL2_GFX_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Custom SDL2_gfx Library path"
+				}
+			],
+			"type" : "STRING",
+			"value" : ""
+		},
+		{
+			"name" : "SDL2_IMAGE_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2_image headers can be found"
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/local/include/SDL2"
+		},
+		{
+			"name" : "SDL2_IMAGE_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2_image Library can be found"
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/usr/local/lib/libSDL2_image.dylib"
+		},
+		{
+			"name" : "SDL2_IMAGE_NO_DEFAULT_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Disable search SDL2_image Library in default path"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "SDL2_IMAGE_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Custom SDL2_image Library path"
+				}
+			],
+			"type" : "STRING",
+			"value" : ""
+		},
+		{
+			"name" : "SDL2_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2 headers can be found"
+				}
+			],
+			"type" : "PATH",
+			"value" : "/Library/Frameworks/SDL2.framework/Headers"
+		},
+		{
+			"name" : "SDL2_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2 Library can be found"
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/Library/Frameworks/SDL2.framework"
+		},
+		{
+			"name" : "SDL2_MIXER_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2_mixer headers can be found"
+				}
+			],
+			"type" : "PATH",
+			"value" : "/usr/local/include/SDL2"
+		},
+		{
+			"name" : "SDL2_MIXER_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Where the SDL2_mixer Library can be found"
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "/usr/local/lib/libSDL2_mixer.dylib"
+		},
+		{
+			"name" : "SDL2_MIXER_NO_DEFAULT_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Disable search SDL2_mixer Library in default path"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "SDL2_MIXER_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Custom SDL2_mixer Library path"
+				}
+			],
+			"type" : "STRING",
+			"value" : ""
+		},
+		{
+			"name" : "SDL2_NO_DEFAULT_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Disable search SDL2 Library in default path"
+				}
+			],
+			"type" : "BOOL",
+			"value" : "OFF"
+		},
+		{
+			"name" : "SDL2_PATH",
+			"properties" : 
+			[
+				{
+					"name" : "ADVANCED",
+					"value" : "1"
+				},
+				{
+					"name" : "HELPSTRING",
+					"value" : "Custom SDL2 Library path"
+				}
+			],
+			"type" : "STRING",
+			"value" : ""
 		},
 		{
 			"name" : "SDL2_TTF_INCLUDE_DIR",
@@ -1268,30 +1592,6 @@
 			],
 			"type" : "STRING",
 			"value" : ""
-		},
-		{
-			"name" : "SDL2_image_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for SDL2_image."
-				}
-			],
-			"type" : "PATH",
-			"value" : "SDL2_image_DIR-NOTFOUND"
-		},
-		{
-			"name" : "SDL2_ttf_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for SDL2_ttf."
-				}
-			],
-			"type" : "PATH",
-			"value" : "SDL2_ttf_DIR-NOTFOUND"
 		},
 		{
 			"name" : "csci437_BINARY_DIR",

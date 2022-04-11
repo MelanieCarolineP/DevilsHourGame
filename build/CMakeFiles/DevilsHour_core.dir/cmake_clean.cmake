@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o"
+  "CMakeFiles/DevilsHour_core.dir/src/entity.cpp.o.d"
   "CMakeFiles/DevilsHour_core.dir/src/room.cpp.o"
   "CMakeFiles/DevilsHour_core.dir/src/room.cpp.o.d"
   "CMakeFiles/DevilsHour_core.dir/src/spriteSheet.cpp.o"

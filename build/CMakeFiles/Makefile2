@@ -87,12 +87,12 @@ clean: CMakeFiles/text.dir/clean
 CMakeFiles/DevilsHour_core.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DevilsHour_core.dir/build.make CMakeFiles/DevilsHour_core.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DevilsHour_core.dir/build.make CMakeFiles/DevilsHour_core.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=3,4,5,6,7 "Built target DevilsHour_core"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=3,4,5,6,7,8 "Built target DevilsHour_core"
 .PHONY : CMakeFiles/DevilsHour_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/DevilsHour_core.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DevilsHour_core.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 0
 .PHONY : CMakeFiles/DevilsHour_core.dir/rule
@@ -118,7 +118,7 @@ CMakeFiles/DevilsHour.dir/all: CMakeFiles/DevilsHour_core.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/DevilsHour.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DevilsHour.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 0
 .PHONY : CMakeFiles/DevilsHour.dir/rule
@@ -139,12 +139,12 @@ CMakeFiles/DevilsHour.dir/clean:
 CMakeFiles/helloworld.dir/all: CMakeFiles/DevilsHour_core.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloworld.dir/build.make CMakeFiles/helloworld.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=8,9 "Built target helloworld"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=9,10 "Built target helloworld"
 .PHONY : CMakeFiles/helloworld.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/helloworld.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/helloworld.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 0
 .PHONY : CMakeFiles/helloworld.dir/rule
@@ -165,12 +165,12 @@ CMakeFiles/helloworld.dir/clean:
 CMakeFiles/text.dir/all: CMakeFiles/DevilsHour_core.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/text.dir/build.make CMakeFiles/text.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/text.dir/build.make CMakeFiles/text.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=10,11 "Built target text"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles --progress-num=11,12 "Built target text"
 .PHONY : CMakeFiles/text.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/text.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/text.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/andywang/projects/cs437/DevilsHour/build/CMakeFiles 0
 .PHONY : CMakeFiles/text.dir/rule

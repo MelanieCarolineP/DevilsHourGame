@@ -1,5 +1,5 @@
-using namespace tinyxml2;
 #include "room.h"
+using namespace tinyxml2;
 
 /**
  * @brief Construct a new Room:: Room object
@@ -91,7 +91,7 @@ int Room::generateEntityList(std::string& f) {
 
     const char* attributeText = pListElement->Attribute("name");
     if (!attributeText) return 0;
-    std::string name = attributeText;
+    name = attributeText;
 
     pElement = pListElement->FirstChildElement("w");
     if (!pElement) return 0;
