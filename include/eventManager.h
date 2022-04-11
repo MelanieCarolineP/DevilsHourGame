@@ -3,21 +3,26 @@
 
 #include <SDL.h>
 
-#include <iostream>
 
-class EventManager {
- public:
-  EventManager();
-  void handle_event(SDL_Event* event, float deltaTime, float time,
-                    bool* running);
-  void playerMovement(SDL_Event* event, float deltaTime, int direction);
-  void playerInteraction(SDL_Event* event, float delaTime);
-  void pauseGame(SDL_Event* event, float time);
-  void roomChange(SDL_Event* event, float time);
-  void demonMovement(SDL_Event* event, float deltaTime);
-  void inventoryChange(SDL_Event* event, float deltaTime);
+class EventMangager {
 
-  void exitEvent(SDL_Event* event, float time, bool* running);
+
+public:
+    EventMangager();
+    void handle_event (SDL_Event * event, float deltaTime, float time, bool *running);
+    void playerMovement (SDL_Event * event, float deltaTime, int direction);
+    void playerInteraction( SDL_Event * event, float delaTime);
+    void pauseGame (SDL_Event * event , float time);
+    void roomChange (SDL_Event * event, float time);
+    void demonMovement (SDL_Event * event , float deltaTime);
+    void inventoryChange ( SDL_Event* event , float deltaTime);
+    
+
+    void exitEvent(SDL_Event* event, float time, bool *running);
 };
 
 #endif
+
+
+
+
