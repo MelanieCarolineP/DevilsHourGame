@@ -85,13 +85,13 @@ int Room::generateEntityList(std::string& f) {
   XMLElement* pListElement = pRoot->FirstChildElement("entity");
   while (pListElement) {
     // Query w, h, x, y
-    std::string name;
     int w, h, x, y;
     bool isEntity;
 
-    const char* attributeText = pListElement->Attribute("name");
-    if (!attributeText) return 0;
-    name = attributeText;
+    pElement = pListElement->FirstChildElement("name");
+    if (!pElement) return 0;
+    const char* s = pElement->GetText();
+    std::string name(s);
 
     pElement = pListElement->FirstChildElement("w");
     if (!pElement) return 0;
