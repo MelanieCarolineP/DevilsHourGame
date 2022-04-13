@@ -40,12 +40,11 @@ void EventManager::handle_event(SDL_Event event, float deltaTime, float time,
     }
   }
 }
-
+/* Moves and draws the main character on the screen */
 void EventManager::playerMovement(float deltaTime, direction direction,
                                   SDL_Renderer* renderer) {
-  // std::cout << "Not implemented";
   mainActor.move(direction, deltaTime);
-  gameView.drawActor(renderer, mainActor.getX(), mainActor.getY(), direction);
+  gameView.drawActor(renderer, mainActor.position, mainActor.size, direction);
 }
 
 void EventManager::playerInteraction(SDL_Event event, float deltaTime) {

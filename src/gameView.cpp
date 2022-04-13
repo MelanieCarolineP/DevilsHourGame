@@ -1,21 +1,19 @@
 #include "gameview.h"
 
-GameView::GameView() {
-  // man.storeImage("../resource/sprite_sheet_man.png", 4, 4);
-}
+GameView::GameView() {}
 
 /* Method will animate the movements of the two actor types */
-void GameView::drawActor(SDL_Renderer *renderer, float x, float y,
-                         direction dir) {  // vec2D position
+void GameView::drawActor(SDL_Renderer *renderer, Vec2d position, Vec2d size,
+                         direction direction) {  // vec2D position
   man.storeImage("../resource/sprite_sheet_man.png", 4, 4);
   SDL_Rect dstrect;
-  dstrect.x = x;
-  dstrect.y = y;  // get x, y from position
-  dstrect.w = 150;
-  dstrect.h = 150;
+  rect.x = position.x;
+  rect.y = position.y;  // get x, y from position
+  rect.w = 230;
+  rect.h = 240;
 
   // use actor to find cur direction facing and coordinates
-  switch (dir) {
+  switch (direction) {
     case direction::UP:
       man.selectSprite(0, 3);
       break;
@@ -29,6 +27,9 @@ void GameView::drawActor(SDL_Renderer *renderer, float x, float y,
       man.selectSprite(0, 2);
       break;
   }
-  man.drawSprite(renderer, &dstrect);
-  // man.clearSprite();
+  man.drawSprite(renderer, &rect);
 }
+// Given a sprite sheet reference, it will draw for us, we delegate which one
+// to use We will animate in this class
+// given delta time divide this by 2 to animate the movement (two frame
+// changes within the delta time)

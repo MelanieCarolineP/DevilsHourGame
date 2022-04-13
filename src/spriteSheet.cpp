@@ -5,31 +5,38 @@
    row 1: facing left
    row 2: facing right
    row 3: facing away
-
 */
+// Modify to texture
 
 /* constructor */
-SpriteSheet::SpriteSheet(char const *image_path, int row, int col) {
-  // surface holding image
-  this->spriteSheetImage = load_bitmap(
-      IMG_Load("../resource/sprite_sheet_man.png"));  // Hardcoded for debugging
-                                                      // // should be image_path
-  /* surface-> sets size dimensions of a frame */
+SpriteSheet::SpriteSheet() {}
+
+/* Destructor to avoid memory leak*/
+SpriteSheet::~SpriteSheet() {
+  SDL_FreeSurface(spriteSheetImage);
+  spriteSheetImage = NULL;
+}
+/* stores the entire sprite image */
+void SpriteSheet::storeImage(char const *image_path, int row, int col) {
+  spriteSheetImage = IMG_Load(image_path);
+  // surface-> sets size dimensions of a frame
   frame_rect.h = spriteSheetImage->h / row;
   frame_rect.w = spriteSheetImage->w / col;
 }
 
-/* Destructor to avoid memory leak*/
-SpriteSheet::~SpriteSheet() { SDL_FreeSurface(spriteSheetImage); }
-
-/* given the frame's position (4x4) on the sprite sheet, select the sprite*/
+/* given the frame's position on the sprite sheet, select the sprite (zero
+ * indexing) */
 void SpriteSheet::selectSprite(int row, int col) {
   // calculate the coordinate of the top left of selected frame
-  frame_rect.x = row * spriteSheetImage.w;
-  frame_rect.h = col * spriteSheetImage.h;
+  frame_rect.x = row * frame_rect.w;
+  frame_rect.y = col * frame_rect.h;
 }
-/* draws a sprite on the window given a position */
-void SpriteSheet::drawSprite(SDL_Surface *gameSurface, SDL_Rect *position) {
-  // fast surface copy to a dest surface
-  SDL_BlitSurface(spriteSheetImage, &frame_rect, gameSurface, position);
+
+/* draws a sprite on the renderer given a RECT position */
+void SpriteSheet::drawSprite(SDL_Renderer *renderer, SDL_Rect *position) {
+  spriteTexture = SDL_CreateTextureFromSurface(renderer, spriteSheetImage);
+  SDL_RenderCopy(renderer, spriteTexture, &frame_rect, position);
+  SDL_DestroyTexture(spriteTexture);
+  spriteTexture = NULL;
+  SDL_RenderPresent(renderer);
 }
