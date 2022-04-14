@@ -84,6 +84,8 @@ int main(int argc, char** argv) {
 
   /*** Main Loop ***/
   bool running = true;
+  bool start = false;
+
   EventManager eventManager;
   SDL_Event e;
   rooms current_room;
@@ -96,23 +98,10 @@ int main(int argc, char** argv) {
     // loop start time
     // Uint32_t start_ticks = SDL_GetTicks();
     startTime = SDL_GetTicks();
+
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
-      // // User requests quit
-      // if( e.type == SDL_QUIT ) running = false;
-
-      // // User presses a key
-      // if( e.type == SDL_KEYDOWN )
-      // {
-      //   if( e.key.keysym.sym == SDLK_q ) running = false;
-      //   if( e.key.keysym.sym == SDLK_f ) current_room = Front_Foyer;
-      //   if( e.key.keysym.sym == SDLK_a ) current_room = Bathroom;
-      //   if( e.key.keysym.sym == SDLK_b ) current_room = Bfdroom;
-      //   if( e.key.keysym.sym == SDLK_k ) current_room = Kitchen;
-      //   if( e.key.keysym.sym == SDLK_h ) current_room = Hallway;
-
       eventManager.handle_event(e, deltaTime, startTime, &running, renderer);
-
       switch (current_room) {
         case Front_Foyer:
           image = load_bitmap(IMG_Load("../resource/bathroom-pixel.png"));
