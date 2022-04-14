@@ -135,6 +135,26 @@ int main(int argc, char** argv) {
       deltaTime = (endTime - startTime) / 1.0f;
       // std::cout << " deltaTime: " << deltaTime;
     }
+    // current time
+    current_time = SDL_GetTicks();
+
+    switch (current_room) {
+      case Front_Foyer:
+        image = load_bitmap(IMG_Load("../resource/FFoyerRoom.png"));
+        texture = convert_image_to_texture(renderer, image);
+        break;
+      case Bedroom:
+        image = load_bitmap(IMG_Load("../resource/bitmap.png"));
+        texture = convert_image_to_texture(renderer, image);
+        break;
+    }
+
+    // render
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+    SDL_SetTextureColorMod(texture, red * 255, green * 255, blue * 255);
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderPresent(renderer);
   }
   // Gets end time of the loop
   Uint32 end_time = SDL_GetTicks();
