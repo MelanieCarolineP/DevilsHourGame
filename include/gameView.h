@@ -1,6 +1,8 @@
 #ifndef _GAMEVIEW_H_
 #define _GAMEVIEW_H_
 
+#include <iostream>
+
 #include "enum.h"
 #include "spritesheet.h"
 #include "vec2d.h"
@@ -11,6 +13,7 @@ class GameView {
   GameView();
 
   /* methods to draw element */
+  void drawStartScreen(SDL_Renderer *renderer);
   void drawUI();
   void drawRoom();
   void drawActor(SDL_Renderer *renderer, Vec2d position, Vec2d size,
@@ -21,7 +24,7 @@ class GameView {
  private:
   /* helper function for drawInventory() */
   void drawItem();
-  SpriteSheet man;
+  SpriteSheet sprite;
   SDL_Rect rect;
 };
 
