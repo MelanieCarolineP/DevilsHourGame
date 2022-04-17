@@ -1,10 +1,11 @@
-#include "gameview.h"
+#include "gameView.h"
 
 GameView::GameView() {}
 
 /* Method will animate the movements of the two actor types */
 void GameView::drawActor(SDL_Renderer *renderer, Vec2d position, Vec2d size,
                          direction direction) {  // vec2D position
+  SpriteSheet man;
   man.storeImage("../resource/sprite_sheet_man.png", 4, 4);
   SDL_Rect dstrect;
   rect.x = position.x;

@@ -92,7 +92,7 @@ int main(int argc, char** argv) {
   current_room = Front_Foyer;
   float deltaTime = 0.0f;
   uint32_t startTime, endTime;
-  // Uint16 current_time = 0;
+  Uint16 current_time = 0;
   // While application is running
   while (running) {
     // loop start time
@@ -103,11 +103,11 @@ int main(int argc, char** argv) {
     while (SDL_PollEvent(&e) != 0) {
       eventManager.handle_event(e, deltaTime, startTime, &running, renderer);
       switch (current_room) {
-        case Front_Foyer:
+        case rooms::Front_Foyer:
           image = load_bitmap(IMG_Load("../resource/bathroom-pixel.png"));
           texture = convert_image_to_texture(renderer, image);
           break;
-        case Bedroom:
+        case rooms::Bedroom:
           image = load_bitmap(IMG_Load("../resource/bitmap.png"));
           texture = convert_image_to_texture(renderer, image);
           break;

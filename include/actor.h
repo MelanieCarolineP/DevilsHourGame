@@ -1,5 +1,7 @@
 #ifndef _ACTOR_H_
 #define _ACTOR_H_
+#include <iostream>
+
 #include "entity.h"
 #include "enum.h"
 
@@ -23,7 +25,8 @@ class Actor : public Entity {
 
   void checkWithinWalls();
 
-  void collision(); /**< handles when the actor in in contact with something */
+  bool collision(Entity entity); /**< handles when the actor in in contact with
+                                    something */
 
   direction getDirection() { return curDir; }
 

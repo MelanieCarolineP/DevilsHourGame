@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "enum.h"
-#include "spritesheet.h"
+#include "spriteSheet.h"
 #include "vec2d.h"
 
 class GameView {
