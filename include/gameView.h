@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include "enum.h"
+#include "room.h"
 #include "spriteSheet.h"
 #include "vec2d.h"
 
@@ -15,7 +16,7 @@ class GameView {
   /* methods to draw element */
   void drawStartScreen(SDL_Renderer *renderer);
   void drawUI();
-  void drawRoom();
+  void drawRoom(SDL_Renderer *renderer, Room r);
   void drawActor(SDL_Renderer *renderer, Vec2d position, Vec2d size,
                  direction direction);
   void drawDoor();

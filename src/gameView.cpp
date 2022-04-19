@@ -3,7 +3,7 @@
 GameView::GameView() {}
 
 /* Method will animate the movements of the two actor types */
-void GameView::drawActor(SDL_Renderer *renderer, Vec2d position, Vec2d size,
+void GameView::drawActor(SDL_Renderer* renderer, Vec2d position, Vec2d size,
                          direction direction) {  // vec2D position
   SpriteSheet man;
   man.storeImage("../resource/sprite_sheet_man.png", 4, 4);
@@ -34,3 +34,5 @@ void GameView::drawActor(SDL_Renderer *renderer, Vec2d position, Vec2d size,
 // to use We will animate in this class
 // given delta time divide this by 2 to animate the movement (two frame
 // changes within the delta time)
+
+void GameView::drawRoom(SDL_Renderer* renderer, Room r) {}

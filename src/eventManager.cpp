@@ -57,15 +57,30 @@ void EventManager::pauseGame(SDL_Event event, float time) {
 
 void EventManager::roomChange(SDL_Event event, float time) {
   // std::cout << "Not implemented";
-}
+  if (event.type == SDL_KEYDOWN) {
+    switch (event.key.keysym.sym) {
+      case SDLK_h:
+        curRoom = Room(Rooms::bedroom);
+        break;
+      case SDLK_j:
+        curRoom = Room(Rooms::kitchen);
+        break;
+      case SDLK_k:
+        curRoom = Room(Rooms::bathroom);
+        break;
+      case SDLK_l:
+        curRoom = Room(Rooms::foyer);
+        break;
+    }
+  }
 
-void EventManager::demonMovement(SDL_Event event, float deltaTime) {
-  // std::cout << "Not implemented";
-}
-void EventManager::inventoryChange(SDL_Event event, float deltaTime) {
-  // std::cout << "Not implemented";
-}
+  void EventManager::demonMovement(SDL_Event event, float deltaTime) {
+    // std::cout << "Not implemented";
+  }
+  void EventManager::inventoryChange(SDL_Event event, float deltaTime) {
+    // std::cout << "Not implemented";
+  }
 
-void EventManager::exitEvent(SDL_Event event, float time, bool* running) {
-  *running = false;
-}
+  void EventManager::exitEvent(SDL_Event event, float time, bool* running) {
+    *running = false;
+  }
