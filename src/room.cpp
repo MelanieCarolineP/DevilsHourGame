@@ -28,6 +28,13 @@ Room::Room(Vec2d size, std::vector<Entity*>& entityList) {
 }
 
 /**
+ * @brief Construct a new Room:: Room object
+ *
+ * @param r : room enum
+ */
+Room::Room(Rooms r) { getEntities(r); }
+
+/**
  * @brief Get entity list according to the room type
  *
  * @param r : room type
@@ -67,12 +74,18 @@ int Room::generateEntityList(std::string& f) {
   xmlDoc.LoadFile(f.c_str());
 
   // find root
-  XMLNode* pRoot = xmlDoc.FirstChild();
-  if (!pRoot) return 0;
+  XMLElement* pRoot = xmlDoc.FirstChildElement("room");
+  if (!pRoot) {
+    std::cout << "No XML root!" << std::endl;
+    return 0;
+  }
 
   // find width and height
   XMLElement* pElement = pRoot->FirstChildElement("width");
-  if (!pElement) return 0;
+  if (!pElement) {
+    std::cout << "No width element" << std::endl;
+    return 0;
+  }
   int width;
   pElement->QueryIntText(&width);
   pElement = pRoot->FirstChildElement("height");

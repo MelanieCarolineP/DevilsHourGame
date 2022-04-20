@@ -3,6 +3,7 @@
 
 #include <tinyxml2.h>
 
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -15,6 +16,7 @@ class Room : public Entity {
   Room();
   Room(Vec2d vec);
   Room(Vec2d vec, std::vector<Entity*>& entityList);
+  Room(Rooms r);
 
   /* Members */
   Vec2d size;

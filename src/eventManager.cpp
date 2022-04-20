@@ -1,5 +1,7 @@
 #include "eventManager.h"
 
+EventManager::EventManager() {}
+
 /**
  * @brief Takes in the events from the SDL event queue and processes it within
  * the game
@@ -8,26 +10,26 @@
  * @param deltaTime - the time change between events last event
  */
 
-void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
-                                bool* running) {
-  if (event->type == SDL_QUIT) {
+void EventManager::handle_event(SDL_Event event, float deltaTime, float time,
+                                bool* running, SDL_Renderer* renderer) {
+  if (event.type == SDL_QUIT) {
     exitEvent(event, time, running);
-  } else if (event->type == SDL_KEYDOWN) {
-    switch (event->key.keysym.sym) {
+  } else if (event.type == SDL_KEYDOWN) {
+    switch (event.key.keysym.sym) {
       case SDLK_q:
         exitEvent(event, time, running);
         break;
       case SDLK_w:
-        playerMovement(event, deltaTime, 0);
+        playerMovement(deltaTime, direction::UP, renderer);
         break;
       case SDLK_a:
-        playerMovement(event, deltaTime, 2);
+        playerMovement(deltaTime, direction::LEFT, renderer);
         break;
       case SDLK_s:
-        playerMovement(event, deltaTime, 1);
+        playerMovement(deltaTime, direction::DOWN, renderer);
         break;
       case SDLK_d:
-        playerMovement(event, deltaTime, 3);
+        playerMovement(deltaTime, direction::RIGHT, renderer);
         break;
       case SDLK_e:
         playerInteraction(event, deltaTime);
@@ -38,31 +40,47 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
     }
   }
 }
-
-void EventManager::playerMovement(SDL_Event* event, float deltaTime,
-                                  int direction) {
-  std::cout << "Not implemented";
+/* Moves and draws the main character on the screen */
+void EventManager::playerMovement(float deltaTime, direction direction,
+                                  SDL_Renderer* renderer) {
+  mainActor.move(direction, deltaTime);
+  gameView.drawActor(renderer, mainActor.position, mainActor.size, direction);
 }
 
-void EventManager::playerInteraction(SDL_Event* event, float deltaTime) {
-  std::cout << "Not implemented";
+void EventManager::playerInteraction(SDL_Event event, float deltaTime) {
+  // std::cout << "Not implemented";
 }
 
-void EventManager::pauseGame(SDL_Event* event, float time) {
-  std::cout << "Not implemented";
+void EventManager::pauseGame(SDL_Event event, float time) {
+  // std::cout << "Not implemented";
 }
 
-void EventManager::roomChange(SDL_Event* event, float time) {
-  std::cout << "Not implemented";
-}
+void EventManager::roomChange(SDL_Event event, float time) {
+  // std::cout << "Not implemented";
+  if (event.type == SDL_KEYDOWN) {
+    switch (event.key.keysym.sym) {
+      case SDLK_h:
+        curRoom = Room(Rooms::bedroom);
+        break;
+      case SDLK_j:
+        curRoom = Room(Rooms::kitchen);
+        break;
+      case SDLK_k:
+        curRoom = Room(Rooms::bathroom);
+        break;
+      case SDLK_l:
+        curRoom = Room(Rooms::foyer);
+        break;
+    }
+  }
 
-void EventManager::demonMovement(SDL_Event* event, float deltaTime) {
-  std::cout << "Not implemented";
-}
-void EventManager::inventoryChange(SDL_Event* event, float deltaTime) {
-  std::cout << "Not implemented";
-}
+  void EventManager::demonMovement(SDL_Event event, float deltaTime) {
+    // std::cout << "Not implemented";
+  }
+  void EventManager::inventoryChange(SDL_Event event, float deltaTime) {
+    // std::cout << "Not implemented";
+  }
 
-void EventManager::exitEvent(SDL_Event* event, float time, bool* running) {
-  *running = false;
-}
+  void EventManager::exitEvent(SDL_Event event, float time, bool* running) {
+    *running = false;
+  }
