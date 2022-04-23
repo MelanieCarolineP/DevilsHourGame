@@ -1,18 +1,20 @@
 #ifndef _STATEMONITOR_H_
 #define _STATEMONITOR_H_
 
+#include <string>
+
 class StateMonitor {
  public:
   /* constructor */
   StateMonitor();
 
   /* returns current game state */
-  int getState();
+  std::string& getState();
   /* update current game state */
-  void update();
+  void update(std::string& s);
 
  private:
-  int currentState;
+  std::string currentState;
 };
 
 #endif /* _STATEMONITOR_H_ */
