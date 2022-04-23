@@ -73,14 +73,14 @@ void EventManager::roomChange(SDL_Event event, float time) {
         break;
     }
   }
+}
+void EventManager::demonMovement(SDL_Event event, float deltaTime) {
+  // std::cout << "Not implemented";
+}
+void EventManager::inventoryChange(SDL_Event event, float deltaTime) {
+  // std::cout << "Not implemented";
+}
 
-  void EventManager::demonMovement(SDL_Event event, float deltaTime) {
-    // std::cout << "Not implemented";
-  }
-  void EventManager::inventoryChange(SDL_Event event, float deltaTime) {
-    // std::cout << "Not implemented";
-  }
-
-  void EventManager::exitEvent(SDL_Event event, float time, bool* running) {
-    *running = false;
-  }
+void EventManager::exitEvent(SDL_Event event, float time, bool* running) {
+  *running = false;
+}
