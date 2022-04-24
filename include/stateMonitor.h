@@ -3,17 +3,18 @@
 
 #include <string>
 
+#include "constants.h"
+
 class StateMonitor {
  public:
   /* constructor */
   StateMonitor();
 
-  /* returns current game state */
-  std::string& getState();
   /* update current game state */
   void update(std::string& s);
 
- private:
+  bool isRoomLocked();
+
   std::string currentState;
 };
 
