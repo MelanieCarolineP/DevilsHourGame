@@ -4,6 +4,8 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+#include <iostream>
+
 class SpriteSheet {
  public:
   /* constructor is given an image and how many rows and columns it has */
@@ -13,7 +15,6 @@ class SpriteSheet {
   void storeImage(char const *image_path, int row, int col);
   void selectSprite(int row, int col);
   void drawSprite(SDL_Renderer *renderer, SDL_Rect *position);
-  void clearSprite();
 
  private:
   /* will the partitions within the sprite image */
