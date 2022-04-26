@@ -14,17 +14,11 @@ class Actor : public Entity {
    * @brief contructor
    */
   Actor();
-
-  float velocity; /**< how fast they move */
-
+  /* members */
   void move(direction, float deltaTime); /**< handles movement */
 
-  void checkWithinWalls();
-
-  bool collision(Entity entity); /**< handles when the actor in in contact with
-                                    something */
-
  private:
+  float velocity; /**< how fast they move */
   direction curDir;
 };
 

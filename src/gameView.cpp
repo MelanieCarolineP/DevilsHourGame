@@ -2,20 +2,10 @@
 
 GameView::GameView() {}
 
-void GameView::drawStartScreen(SDL_Renderer *renderer) {
-  rect.x, rect.y = 0;
-  rect.w = SCREEN_WIDTH;
-  rect.h = SCREEN_HEIGHT;
-  sprite.storeImage("../resource/start.png", 1, 1);
-  sprite.selectSprite(0, 0);
-  sprite.drawSprite(renderer, NULL);
-}
-
 /* Method will animate the movements of the two actor types */
 void GameView::drawActor(SDL_Renderer *renderer, Vec2d position, Vec2d size,
                          direction direction) {  // vec2D position
   sprite.storeImage("../resource/mainActorSprite.png", 4, 4);
-  // SDL_Rect dstrect;
   rect.x = position.x;
   rect.y = position.y;  // get x, y from position
   rect.w = size.x;
