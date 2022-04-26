@@ -1,26 +1,37 @@
 #ifndef _ACTOR_H_
 #define _ACTOR_H_
+#include <iostream>
 
 #include "entity.h"
+#include "enum.h"
 
 /**
  * @brief Actor handles all the enities in the game that move independently
- * 
+ *
  */
 class Actor : public Entity {
-    
-    public:
-        /**
-         * @brief contructor
-         * 
-         * @return Actor 
-         */
-        Actor Actor();
-        float velocity; /**< how fast they move */
-        void move(); /**< handles movement */
-        void collision(); /**< handles when the actor in in contact with something */
+ public:
+  /**
+   * @brief contructor
+   */
+  Actor();
 
+  float velocity; /**< how fast they move */
 
+  int getX() { return position.x; }
+  int getY() { return position.y; }
+
+  void move(direction, float deltaTime); /**< handles movement */
+
+  void checkWithinWalls();
+
+  bool collision(Entity entity); /**< handles when the actor in in contact with
+                                    something */
+
+  direction getDirection() { return curDir; }
+
+ private:
+  direction curDir;
 };
 
 #endif /* _ACTOR_H_ */
