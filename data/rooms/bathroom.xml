@@ -4,7 +4,7 @@
   <!-- room settings -->
   <name>bathroom</name>
   <width>1080</width>
-  <height>720</height>
+  <height>768</height>
   <!-- entity list -->
   <entity>
     <name>shelf_left</name>
