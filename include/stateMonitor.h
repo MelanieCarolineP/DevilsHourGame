@@ -16,6 +16,7 @@ class StateMonitor {
   bool isRoomLocked();
 
   std::string currentState;
+  bool isPaused;
 };
 
 #endif /* _STATEMONITOR_H_ */

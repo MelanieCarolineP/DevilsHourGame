@@ -7,6 +7,7 @@
 #include "enum.h"
 #include "gameView.h"
 #include "room.h"
+#include "stateMonitor.h"
 #include "vec2d.h"
 
 class EventManager {
@@ -29,6 +30,8 @@ class EventManager {
   GameView gameView;
   Actor mainActor;
   Room curRoom;
+  StateMonitor stateMonitor;
+  Rooms currRoomName;
 };
 
 #endif

@@ -1,6 +1,9 @@
 #include "gameView.h"
 
-GameView::GameView() {}
+GameView::GameView(SDL_Renderer* renderer) {
+  this->renderer = renderer;
+  pauseMenu = PauseMenu(this->renderer);
+}
 
 /* Method will animate the movements of the two actor types */
 void GameView::drawActor(SDL_Renderer* renderer, Vec2d position, Vec2d size,
@@ -35,4 +38,40 @@ void GameView::drawActor(SDL_Renderer* renderer, Vec2d position, Vec2d size,
 // given delta time divide this by 2 to animate the movement (two frame
 // changes within the delta time)
 
-void GameView::drawRoom(SDL_Renderer* renderer, Room r) {}
+void GameView::drawRoom(SDL_Renderer* renderer, Room r, Rooms roomName) {
+  SDL_RenderClear(renderer);
+  SDL_Surface roomImage;
+
+  if (this->currentRoom != roomName) {
+    switch (roomName) {
+      case Rooms::bedroom:
+        this->currentRoom = Room::bedroom;
+        // roomImage = IMG_Load(" ");
+        break;
+
+      case Rooms::bathroom:
+        this->currentRoom = Room::bathroom;
+        // roomImage = IMG_Load(" ");
+        break;
+      case Rooms::kitchen:
+        this->currentRoom = Room::kitchen;
+        // roomImage = IMG_Load(" ");
+        break;
+      case Rooms::foyer:
+        this->currentRoom = Room::foyer;
+        // roomImage = IMG_Load(" ");
+        break;
+      default:
+        break;
+    }
+    // roomTexture = SDL_CreateTextureFromSurface(renderer, roomImage);
+    // SDL_RenderClear(renderer);
+    // SDL_RenderCopy(renderer, roomTexture, NULL, NULL);
+    // SDL_FreeSurface(roomImage);
+  }
+}
+
+void GameView::drawPauseMenu(void) {
+  SDL_RenderClear(renderer);
+  SDL_RenderCopy(renderer, pauseMenu.returnTexture(), NULL, NULL);
+}

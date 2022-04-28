@@ -15,28 +15,40 @@ void EventManager::handle_event(SDL_Event event, float deltaTime, float time,
   if (event.type == SDL_QUIT) {
     exitEvent(event, time, running);
   } else if (event.type == SDL_KEYDOWN) {
-    switch (event.key.keysym.sym) {
-      case SDLK_q:
-        exitEvent(event, time, running);
-        break;
-      case SDLK_w:
-        playerMovement(deltaTime, direction::UP, renderer);
-        break;
-      case SDLK_a:
-        playerMovement(deltaTime, direction::LEFT, renderer);
-        break;
-      case SDLK_s:
-        playerMovement(deltaTime, direction::DOWN, renderer);
-        break;
-      case SDLK_d:
-        playerMovement(deltaTime, direction::RIGHT, renderer);
-        break;
-      case SDLK_e:
-        playerInteraction(event, deltaTime);
-        break;
-      case SDLK_i:
-        inventoryChange(event, time);
-        break;
+    if (stateMonitor.isPaused == false) {
+      switch (event.key.keysym.sym) {
+        case SDLK_w:
+          playerMovement(deltaTime, direction::UP, renderer);
+          break;
+        case SDLK_a:
+          playerMovement(deltaTime, direction::LEFT, renderer);
+          break;
+        case SDLK_s:
+          playerMovement(deltaTime, direction::DOWN, renderer);
+          break;
+        case SDLK_d:
+          playerMovement(deltaTime, direction::RIGHT, renderer);
+          break;
+        case SDLK_e:
+          playerInteraction(event, deltaTime);
+          break;
+        case SDLK_i:
+          inventoryChange(event, time);
+          break;
+        case SDLK_ESCAPE:
+          pauseGame(event, time);
+          break;
+      }
+    } else {
+      switch (event.key.keysym.sym) {
+        case SDLK_q:
+          exitEvent(event, time, running);
+          break;
+        case SDLK_r:
+          stateMonitor.isPaused = false;
+          gameView.drawRoom(curRoom, currRoomName);
+          break;
+      }
     }
   }
 }
@@ -52,7 +64,8 @@ void EventManager::playerInteraction(SDL_Event event, float deltaTime) {
 }
 
 void EventManager::pauseGame(SDL_Event event, float time) {
-  // std::cout << "Not implemented";
+  stateMonitor.isPaused = true;
+  gameView.drawPauseMenu();
 }
 
 void EventManager::roomChange(SDL_Event event, float time) {
@@ -61,15 +74,23 @@ void EventManager::roomChange(SDL_Event event, float time) {
     switch (event.key.keysym.sym) {
       case SDLK_h:
         curRoom = Room(Rooms::bedroom);
+        currRoomName = Rooms::bedroom;
+        gameView.drawRoom(curRoom, Rooms::bedroom);
         break;
       case SDLK_j:
         curRoom = Room(Rooms::kitchen);
+        currRoomName = Rooms::kitchen;
+        gameView.drawRoom(curRoom, Rooms::kitchen);
         break;
       case SDLK_k:
         curRoom = Room(Rooms::bathroom);
+        currRoomName = Rooms::bathroom;
+        gameView.drawRoom(curRoom, Rooms::bathroom);
         break;
       case SDLK_l:
         curRoom = Room(Rooms::foyer);
+        currRoomName = Rooms::foyer;
+        gameView.drawRoom(curRoom, Rooms::foyer);
         break;
     }
   }
