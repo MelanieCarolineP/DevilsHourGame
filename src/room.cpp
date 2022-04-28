@@ -22,7 +22,7 @@ Room::Room(Vec2d size) { this->size = size; }
  * @param size
  * @param entityList
  */
-Room::Room(Vec2d size, std::vector<Entity*>& entityList) {
+Room::Room(Vec2d size, std::vector<Entity>& entityList) {
   this->size = size;
   this->entityList = entityList;
 }
@@ -128,7 +128,7 @@ int Room::generateEntityList(std::string& f) {
 
     // Push entity into the list
     Entity e(x, y, w, h, name, isEntity);
-    this->entityList.push_back(&e);
+    this->entityList.push_back(e);
 
     // Move pointer to next sibling
     pListElement = pListElement->NextSiblingElement("entity");
