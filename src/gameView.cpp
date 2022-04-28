@@ -48,7 +48,7 @@ void GameView::drawUI(SDL_Renderer* renderer) {
 
   // draw UI
   SDL_RenderCopy(renderer, uiTx, NULL, &dstR);
-  SDL_RenderPresent(renderer);
+  // SDL_RenderPresent(renderer);
 }
 
 void GameView::drawInventory(SDL_Renderer* renderer, int k) {
@@ -67,5 +67,43 @@ void GameView::drawInventory(SDL_Renderer* renderer, int k) {
 
   // draw UI
   SDL_RenderCopy(renderer, ivTx, NULL, &dstR);
-  SDL_RenderPresent(renderer);
+  // SDL_RenderPresent(renderer);
+}
+
+void GameView::drawRoom(SDL_Renderer* renderer, Room r) {
+  std::string dir;
+  switch (r.type) {
+    case Rooms::bedroom:
+      dir = "../resources/rooms/bedroom-pixel.png";
+      break;
+    case Rooms::kitchen:
+      dir = "../resources/rooms/kitchen-pixel.png";
+      break;
+    case Rooms::bathroom:
+      dir = "../resources/rooms/bathroom-pixel.png";
+      break;
+      // case Rooms::foyer:
+      //   dir = "../resources/rooms/foyer-pixel.png";
+      //   break;
+
+    default:
+      dir = "../resources/rooms/bedroom-pixel.png";
+      break;
+  }
+
+  SDL_Surface* loadingSurf = IMG_Load(dir.c_str());
+  SDL_Texture* roomTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
+  SDL_FreeSurface(loadingSurf);
+
+  // specify size & loc
+  SDL_Rect srcR{0, 0, 1024, 768};
+  SDL_Rect dstR;
+  dstR.x = 410;
+  dstR.y = 10;
+  dstR.w = 1024;
+  dstR.h = 768;
+
+  // draw UI
+  SDL_RenderCopy(renderer, roomTx, &srcR, &dstR);
+  // SDL_RenderPresent(renderer);
 }

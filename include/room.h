@@ -19,6 +19,7 @@ class Room : public Entity {
   Room(Rooms r);
 
   /* Members */
+  Rooms type;
   Vec2d size;
   std::vector<Entity> entityList;
 
