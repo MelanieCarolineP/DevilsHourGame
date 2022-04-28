@@ -35,7 +35,7 @@ void EventManager::handle_event(SDL_Event event, float deltaTime, float time,
         playerInteraction(event, deltaTime);
         break;
       case SDLK_i:
-        inventoryChange(event, time);
+        inventoryChange(event, time, renderer);
         break;
     }
   }
@@ -77,8 +77,12 @@ void EventManager::roomChange(SDL_Event event, float time) {
 void EventManager::demonMovement(SDL_Event event, float deltaTime) {
   // std::cout << "Not implemented";
 }
-void EventManager::inventoryChange(SDL_Event event, float deltaTime) {
+void EventManager::inventoryChange(SDL_Event event, float deltaTime,
+                                   SDL_Renderer* renderer) {
   // std::cout << "Not implemented";
+  curItem += 1;
+  curItem %= 8;
+  gameView.drawInventory(renderer, curItem + 1);
 }
 
 void EventManager::exitEvent(SDL_Event event, float time, bool* running) {

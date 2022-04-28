@@ -21,7 +21,8 @@ class EventManager {
   void pauseGame(SDL_Event event, float time);
   void roomChange(SDL_Event event, float time);
   void demonMovement(SDL_Event event, float deltaTime);
-  void inventoryChange(SDL_Event event, float deltaTime);
+  void inventoryChange(SDL_Event event, float deltaTime,
+                       SDL_Renderer* renderer);
 
   void exitEvent(SDL_Event event, float time, bool* running);
 
@@ -29,6 +30,7 @@ class EventManager {
   GameView gameView;
   Actor mainActor;
   Room curRoom;
+  int curItem = 0;
 };
 
 #endif
