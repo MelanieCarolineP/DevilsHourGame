@@ -41,18 +41,20 @@ void GameView::drawUI(SDL_Renderer* renderer) {
 
   // specify size & loc
   SDL_Rect dstR;
-  dstR.x = 300;
+  dstR.x = 400;
   dstR.y = 0;
   dstR.w = 1100;
   dstR.h = 800;
 
   // draw UI
   SDL_RenderCopy(renderer, uiTx, NULL, &dstR);
+  SDL_RenderPresent(renderer);
 }
 
 void GameView::drawInventory(SDL_Renderer* renderer, int k) {
-  SDL_Surface* loadingSurf = IMG_Load("../resource/ui/inventory/inventory_" +
-                                      std::to_string(k).c_str() + ".png");
+  std::string s =
+      "../resource/ui/inventory/inventory_" + std::to_string(k) + ".png";
+  SDL_Surface* loadingSurf = IMG_Load(s.c_str());
   SDL_Texture* ivTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
   SDL_FreeSurface(loadingSurf);
 
@@ -65,4 +67,5 @@ void GameView::drawInventory(SDL_Renderer* renderer, int k) {
 
   // draw UI
   SDL_RenderCopy(renderer, ivTx, NULL, &dstR);
+  SDL_RenderPresent(renderer);
 }

@@ -25,12 +25,12 @@ class EventManager {
                        SDL_Renderer* renderer);
 
   void exitEvent(SDL_Event event, float time, bool* running);
+  int curItem = 0;
 
  private:
   GameView gameView;
   Actor mainActor;
   Room curRoom;
-  int curItem = 0;
 };
 
 #endif
