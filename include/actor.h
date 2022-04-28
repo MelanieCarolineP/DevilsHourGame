@@ -1,37 +1,36 @@
 #ifndef _ACTOR_H_
 #define _ACTOR_H_
 #include <iostream>
+#include <vector>
 
 #include "entity.h"
 #include "enum.h"
-
+#include "room.h"
 /**
  * @brief Actor handles all the enities in the game that move independently
  *
  */
 class Actor : public Entity {
  public:
-  /**
-   * @brief contructor
-   */
+  /* constructor */
   Actor();
-
-  float velocity; /**< how fast they move */
-
-  int getX() { return position.x; }
-  int getY() { return position.y; }
+  /* methods */
 
   void move(direction, float deltaTime); /**< handles movement */
+  bool collision(const std::vector<Entity> entityList);
 
-  void checkWithinWalls();
-
-  bool collision(Entity entity); /**< handles when the actor in in contact with
-                                    something */
-
-  direction getDirection() { return curDir; }
+  /**
+   * @brief returns entity most recently in contact with
+   * @returns object in room
+   */
+  Entity interact() { return entity; }
 
  private:
+  /* members */
+  float velocity; /**< how fast they move */
   direction curDir;
+  Entity entity;  // entity collided into last
+  bool canWalkOnCollision(const Entity entity);
 };
 
 #endif /* _ACTOR_H_ */
