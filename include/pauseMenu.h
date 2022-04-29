@@ -10,17 +10,16 @@
 #include <vector>
 
 #include "constants.h"
-#include "eventManager.h"
+#include "enum.h"
 #include "vec2d.h"
 
 class PauseMenu {
  public:
+  PauseMenu(){};
   PauseMenu(SDL_Renderer* renderer);
-  // PauseSelection onButtonPress(float x, float y);
-  SDL_Texture* returnTexture(void) { return this->menuTexture; }
+  SDL_Texture* returnTexture(void) { return this->menuTexture; };
 
  private:
-  EventManager* manager;
   SDL_Texture* menuTexture;
   SDL_Rect resumeButton;
   SDL_Rect exitButton;

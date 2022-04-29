@@ -15,12 +15,12 @@ class Room : public Entity {
   /* constructor */
   Room();
   Room(Vec2d vec);
-  Room(Vec2d vec, std::vector<Entity*>& entityList);
+  Room(Vec2d vec, std::vector<Entity>& entityList);
   Room(Rooms r);
 
   /* Members */
   Vec2d size;
-  std::vector<Entity*> entityList;
+  std::vector<Entity> entityList;
 
   /* Get entity list from xml file */
   void getEntities(Rooms r);

@@ -1,4 +1,6 @@
 #include "dialog.h"
+
+#include "speechBox.h"
 using namespace tinyxml2;
 
 /**

@@ -36,7 +36,4 @@ void SpriteSheet::selectSprite(int row, int col) {
 void SpriteSheet::drawSprite(SDL_Renderer *renderer, SDL_Rect *position) {
   spriteTexture = SDL_CreateTextureFromSurface(renderer, spriteSheetImage);
   SDL_RenderCopy(renderer, spriteTexture, &frame_rect, position);
-  SDL_DestroyTexture(spriteTexture);
-  spriteTexture = NULL;
-  SDL_RenderPresent(renderer);
 }

@@ -5,14 +5,14 @@
 
 #include <iostream>
 
-#include "constants.h"
-#include "enum.h"
 #include "eventManager.h"
-#include "pauseMenu.h"
 
 // Screen dimension constants
 // static const int SCREEN_WIDTH = 1024;
 // static const int SCREEN_HEIGHT = 768;
+
+// Room enummerations
+enum rooms { Front_Foyer, Bedroom, Bathroom, Kitchen, Hallway };
 
 void csci437_error(const std::string& msg) {
   std::cerr << msg << " (" << SDL_GetError() << ")" << std::endl;
@@ -41,6 +41,7 @@ SDL_Texture* convert_image_to_texture(SDL_Renderer* renderer,
 
   return texture;
 }
+
 int main(int argc, char** argv) {
   /*** Initialization ***/
 
@@ -65,8 +66,7 @@ int main(int argc, char** argv) {
       SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
   if (renderer == NULL) csci437_error("Unable to create renderer!");
 
-  SDL_Surface* image =
-      load_bitmap(IMG_Load("../resource/rooms/bathroom-pixel.png"));
+  SDL_Surface* image = load_bitmap(IMG_Load("../resource/bathroom-pixel.png"));
 
   // convert to texture
   SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image);
@@ -87,16 +87,13 @@ int main(int argc, char** argv) {
   bool running = true;
   bool start = false;
 
-  GameView gameView = GameView(renderer);
-  EventManager eventManager = EventManager(&gameView);
+  EventManager eventManager;
   SDL_Event e;
-  Rooms current_room;
-  current_room = Rooms::bedroom;
+  rooms current_room;
+  current_room = rooms::Bathroom;
   float deltaTime = 0.0f;
   uint32_t startTime, endTime;
   Uint16 current_time = 0;
-  eventManager.startGame();
-
   // While application is running
   while (running) {
     // loop start time
@@ -106,18 +103,56 @@ int main(int argc, char** argv) {
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
       eventManager.handle_event(e, deltaTime, startTime, &running, renderer);
+      switch (current_room) {
+        case rooms::Front_Foyer:
+          image = load_bitmap(IMG_Load("../resource/bathroom-pixel.png"));
+          texture = convert_image_to_texture(renderer, image);
+          break;
+        case rooms::Bathroom:
+          image = load_bitmap(IMG_Load("../resource/bathroom-pixel.png"));
+          texture = convert_image_to_texture(renderer, image);
+          break;
+        case rooms::Bedroom:
+          image = load_bitmap(IMG_Load("../resource/bitmap.png"));
+          texture = convert_image_to_texture(renderer, image);
+          break;
+      }
+
+      // render
+      SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+      SDL_RenderClear(renderer);
+      // SDL_SetTextureColorMod(texture, red * 255, green * 255, blue * 255);
+      SDL_RenderCopy(renderer, texture, NULL, NULL);
+      // SDL_RenderPresent(renderer);
 
       endTime = SDL_GetTicks();
       deltaTime = (endTime - startTime) / 1.0f;
       // std::cout << " deltaTime: " << deltaTime;
     }
-
     // current time
     current_time = SDL_GetTicks();
 
-    // Gets end time of the loop
-    Uint32 end_time = SDL_GetTicks();
+    switch (current_room) {
+      case Front_Foyer:
+        image = load_bitmap(IMG_Load("../resource/FFoyerRoom.png"));
+        texture = convert_image_to_texture(renderer, image);
+        break;
+      case Bedroom:
+        image = load_bitmap(IMG_Load("../resource/bitmap.png"));
+        texture = convert_image_to_texture(renderer, image);
+        break;
+    }
+
+    // render
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+    SDL_RenderClear(renderer);
+    SDL_SetTextureColorMod(texture, red * 255, green * 255, blue * 255);
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderPresent(renderer);
   }
+  // Gets end time of the loop
+  Uint32 end_time = SDL_GetTicks();
+
   /*** Clean Up ***/
 
   // Destroy texture

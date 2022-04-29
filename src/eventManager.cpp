@@ -1,6 +1,9 @@
 #include "eventManager.h"
 
-EventManager::EventManager() {}
+EventManager::EventManager(GameView* gameView) {
+  this->curRoom.getEntities(Rooms::bathroom);
+  this->gameView = gameView;
+}
 
 /**
  * @brief Takes in the events from the SDL event queue and processes it within
@@ -46,7 +49,7 @@ void EventManager::handle_event(SDL_Event event, float deltaTime, float time,
           break;
         case SDLK_r:
           stateMonitor.isPaused = false;
-          gameView.drawRoom(curRoom, currRoomName);
+          returnToGame();
           break;
       }
     }
@@ -56,16 +59,32 @@ void EventManager::handle_event(SDL_Event event, float deltaTime, float time,
 void EventManager::playerMovement(float deltaTime, direction direction,
                                   SDL_Renderer* renderer) {
   mainActor.move(direction, deltaTime);
-  gameView.drawActor(renderer, mainActor.position, mainActor.size, direction);
+  mainActor.collision(curRoom.entityList);
+  std::cout << "gamedis \n";
+  gameView->displayGame(&mainActor);
+  std::cout << "display game done \n";
+
+  gameView->presentScreen();
 }
 
 void EventManager::playerInteraction(SDL_Event event, float deltaTime) {
-  // std::cout << "Not implemented";
+  // interact returns entity only if character is colliding with an object
+  if (mainActor.collision(curRoom.entityList)) mainActor.interact();
+  // otherwise do nothing
 }
 
 void EventManager::pauseGame(SDL_Event event, float time) {
   stateMonitor.isPaused = true;
-  gameView.drawPauseMenu();
+  gameView->drawPauseMenu();
+  gameView->presentScreen();
+}
+void EventManager::startGame(void) {
+  Room foyer = Room();
+  this->curRoom = foyer;
+  this->currRoomName = Rooms::foyer;
+  gameView->drawRoom(&curRoom, Rooms::foyer);
+  gameView->drawActor(mainActor.position, mainActor.size, direction::RIGHT);
+  gameView->presentScreen();
 }
 
 void EventManager::roomChange(SDL_Event event, float time) {
@@ -75,26 +94,33 @@ void EventManager::roomChange(SDL_Event event, float time) {
       case SDLK_h:
         curRoom = Room(Rooms::bedroom);
         currRoomName = Rooms::bedroom;
-        gameView.drawRoom(curRoom, Rooms::bedroom);
+        gameView->drawRoom(&curRoom, Rooms::bedroom);
         break;
       case SDLK_j:
         curRoom = Room(Rooms::kitchen);
         currRoomName = Rooms::kitchen;
-        gameView.drawRoom(curRoom, Rooms::kitchen);
+        gameView->drawRoom(&curRoom, Rooms::kitchen);
         break;
       case SDLK_k:
         curRoom = Room(Rooms::bathroom);
         currRoomName = Rooms::bathroom;
-        gameView.drawRoom(curRoom, Rooms::bathroom);
+        gameView->drawRoom(&curRoom, Rooms::bathroom);
         break;
       case SDLK_l:
         curRoom = Room(Rooms::foyer);
         currRoomName = Rooms::foyer;
-        gameView.drawRoom(curRoom, Rooms::foyer);
+        gameView->drawRoom(&curRoom, Rooms::foyer);
         break;
     }
   }
 }
+void EventManager::returnToGame(void) {
+  gameView->clearScreen();
+  gameView->drawRoom(&this->curRoom, this->currRoomName);
+  gameView->drawActor(mainActor.position, mainActor.size, direction::RIGHT);
+  gameView->presentScreen();
+}
+
 void EventManager::demonMovement(SDL_Event event, float deltaTime) {
   // std::cout << "Not implemented";
 }

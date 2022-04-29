@@ -36,7 +36,7 @@ void PauseMenu::createTexture(void) {
   SDL_SetRenderTarget(renderer, menuTexture);
   SDL_RenderFillRect(renderer, NULL);
   SDL_SetRenderDrawColor(this->renderer, SILVER.r, SILVER.g, SILVER.b, 255);
-  SDL_RenderDrawRect(renderer, &this->resumeButton);
-  SDL_RenderDrawRect(renderer, &this->exitButton);
+  SDL_RenderFillRect(renderer, &this->resumeButton);
+  SDL_RenderFillRect(renderer, &this->exitButton);
   SDL_SetRenderTarget(renderer, NULL);
 }
