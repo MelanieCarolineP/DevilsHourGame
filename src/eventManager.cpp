@@ -1,6 +1,6 @@
 #include "eventManager.h"
 
-EventManager::EventManager() {}
+EventManager::EventManager() { curRoom.getEntities(Rooms::bedroom); }
 
 /**
  * @brief Takes in the events from the SDL event queue and processes it within
@@ -44,11 +44,14 @@ void EventManager::handle_event(SDL_Event event, float deltaTime, float time,
 void EventManager::playerMovement(float deltaTime, direction direction,
                                   SDL_Renderer* renderer) {
   mainActor.move(direction, deltaTime);
+  mainActor.collision(curRoom.entityList);
   gameView.drawActor(renderer, mainActor.position, mainActor.size, direction);
 }
 
 void EventManager::playerInteraction(SDL_Event event, float deltaTime) {
-  // std::cout << "Not implemented";
+  // interact returns entity only if character is colliding with an object
+  if (mainActor.collision(curRoom.entityList)) mainActor.interact();
+  // otherwise do nothing
 }
 
 void EventManager::pauseGame(SDL_Event event, float time) {
