@@ -28,7 +28,6 @@ class EventManager {
   int curItem = 0;
 
  private:
-  GameView gameView;
   Actor mainActor;
   Room curRoom;
 };

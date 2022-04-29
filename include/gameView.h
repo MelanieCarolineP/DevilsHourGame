@@ -12,20 +12,20 @@
 class GameView {
  public:
   /* constructor */
-  GameView();
+  GameView(SDL_Renderer* renderer);
 
   /* methods to draw element */
-  void drawStartScreen(SDL_Renderer *renderer);
-  void drawRoom(SDL_Renderer *renderer, Room r);
-  void drawUI(SDL_Renderer *renderer);
-  void drawActor(SDL_Renderer *renderer, Vec2d position, Vec2d size,
-                 direction direction);
+  void drawStartScreen();
+  void drawRoom(Room r);
+  void drawUI();
+  void drawActor(Vec2d position, Vec2d size, direction direction);
   void drawDoor();
-  void drawInventory(SDL_Renderer *renderer, int k);
+  void drawInventory(int k);
 
  private:
   /* helper function for drawInventory() */
   void drawItem();
+  SDL_Renderer* renderer;
   SpriteSheet sprite;
   SDL_Rect rect;
 };

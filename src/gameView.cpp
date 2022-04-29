@@ -1,9 +1,9 @@
 #include "gameView.h"
 
-GameView::GameView() {}
+GameView::GameView(SDL_Renderer* renderer) { this->renderer = renderer; }
 
 /* Method will animate the movements of the two actor types */
-void GameView::drawActor(SDL_Renderer* renderer, Vec2d position, Vec2d size,
+void GameView::drawActor(Vec2d position, Vec2d size,
                          direction direction) {  // vec2D position
   sprite.storeImage("../resource/mainActorSprite.png", 4, 4);
   rect.x = position.x;
@@ -38,7 +38,7 @@ void GameView::drawActor(SDL_Renderer* renderer, Vec2d position, Vec2d size,
  *
  * @param renderer
  */
-void GameView::drawUI(SDL_Renderer* renderer) {
+void GameView::drawUI() {
   // load image
   SDL_Surface* loadingSurf = IMG_Load("../resource/ui/ui_background.png");
   SDL_Texture* uiTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
@@ -62,7 +62,7 @@ void GameView::drawUI(SDL_Renderer* renderer) {
  * @param renderer
  * @param k
  */
-void GameView::drawInventory(SDL_Renderer* renderer, int k) {
+void GameView::drawInventory(int k) {
   std::string s =
       "../resource/ui/inventory/inventory_" + std::to_string(k) + ".png";
   SDL_Surface* loadingSurf = IMG_Load(s.c_str());
@@ -87,7 +87,7 @@ void GameView::drawInventory(SDL_Renderer* renderer, int k) {
  * @param renderer
  * @param r : current room
  */
-void GameView::drawRoom(SDL_Renderer* renderer, Room r) {
+void GameView::drawRoom(Room r) {
   SDL_Surface* loadingSurf;
   switch (r.type) {
     case Rooms::bedroom:

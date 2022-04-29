@@ -95,7 +95,7 @@ int main(int argc, char** argv) {
   float deltaTime = 0.0f;
   uint32_t startTime, endTime;
 
-  GameView gameView;
+  GameView gameView(renderer);
 
   Room room(Rooms::bathroom);
   SDL_RenderClear(renderer);
@@ -110,9 +110,9 @@ int main(int argc, char** argv) {
       SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
       SDL_RenderClear(renderer);
 
-      gameView.drawUI(renderer);
-      gameView.drawInventory(renderer, eventManager.curItem + 1);
-      gameView.drawRoom(renderer, room);
+      gameView.drawUI();
+      gameView.drawInventory(eventManager.curItem + 1);
+      gameView.drawRoom(room);
       // gameView.drawRoom(renderer, room);
 
       eventManager.handle_event(e, deltaTime, startTime, &running, renderer);

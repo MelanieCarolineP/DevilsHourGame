@@ -45,7 +45,7 @@ void EventManager::playerMovement(float deltaTime, direction direction,
                                   SDL_Renderer* renderer) {
   mainActor.move(direction, deltaTime);
   mainActor.collision(curRoom.entityList);
-  gameView.drawActor(renderer, mainActor.position, mainActor.size, direction);
+  // gameView.drawActor(mainActor.position, mainActor.size, direction);
 }
 
 void EventManager::playerInteraction(SDL_Event event, float deltaTime) {
@@ -85,7 +85,7 @@ void EventManager::inventoryChange(SDL_Event event, float deltaTime,
   // std::cout << "Not implemented";
   curItem += 1;
   curItem %= 8;
-  gameView.drawInventory(renderer, curItem + 1);
+  // gameView.drawInventory(curItem + 1);
 }
 
 void EventManager::exitEvent(SDL_Event event, float time, bool* running) {
