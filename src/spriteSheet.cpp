@@ -1,4 +1,4 @@
-#include "spritesheet.h"
+#include "spriteSheet.h"
 
 /* May be used for a single image 1x1 sprite sheets or for animation 4x4
    row 0: facing towards
@@ -36,5 +36,4 @@ void SpriteSheet::selectSprite(int row, int col) {
 void SpriteSheet::drawSprite(SDL_Renderer *renderer, SDL_Rect *position) {
   spriteTexture = SDL_CreateTextureFromSurface(renderer, spriteSheetImage);
   SDL_RenderCopy(renderer, spriteTexture, &frame_rect, position);
-  SDL_RenderPresent(renderer);
 }

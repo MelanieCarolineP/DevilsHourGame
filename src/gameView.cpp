@@ -1,9 +1,12 @@
-#include "gameview.h"
+#include "gameView.h"
 
-GameView::GameView() {}
+GameView::GameView(SDL_Renderer* renderer) {
+  this->renderer = renderer;
+  pauseMenu = PauseMenu(this->renderer);
+}
 
 /* Method will animate the movements of the two actor types */
-void GameView::drawActor(SDL_Renderer *renderer, Vec2d position, Vec2d size,
+void GameView::drawActor(Vec2d position, Vec2d size,
                          direction direction) {  // vec2D position
   sprite.storeImage("../resource/mainActorSprite.png", 4, 4);
   rect.x = position.x;
@@ -32,3 +35,59 @@ void GameView::drawActor(SDL_Renderer *renderer, Vec2d position, Vec2d size,
 // to use We will animate in this class
 // given delta time divide this by 2 to animate the movement (two frame
 // changes within the delta time)
+
+void GameView::drawRoom(Room* r, Rooms roomName) {
+  this->currentR = r;
+  // std::cout << this->currentRoom << "/n";
+
+  SDL_Surface* roomImage;
+
+  std::cout << " equal \n";
+  switch (roomName) {
+    case Rooms::bedroom:
+      this->currentRoom = Rooms::bedroom;
+      roomImage = IMG_Load("../resource/rooms/bedroom-pixel.png");
+      break;
+
+    case Rooms::bathroom:
+      this->currentRoom = Rooms::bathroom;
+      roomImage = IMG_Load("../resource/rooms/bathroom_pixel.png");
+      break;
+    case Rooms::kitchen:
+      this->currentRoom = Rooms::kitchen;
+      roomImage = IMG_Load("../resource/rooms/kitchen-pixel.png");
+      break;
+    case Rooms::foyer:
+      std::cout << "foyer \n";
+      this->currentRoom = Rooms::foyer;
+      roomImage = IMG_Load("../resource/rooms/FFoyerRoom.png");
+      break;
+    default:
+      break;
+  }
+
+  roomTexture = SDL_CreateTextureFromSurface(renderer, roomImage);
+
+  SDL_RenderCopy(renderer, roomTexture, NULL, NULL);
+  SDL_FreeSurface(roomImage);
+
+  this->currentRoom = roomName;
+}
+void GameView::displayGame(Actor* actor) {
+  clearScreen();
+  std::cout << "to draw room\n";
+  drawRoom(currentR, currentRoom);
+  std::cout << "after draw room\n";
+  drawActor(actor->position, actor->size, actor->getDirection());
+}
+
+void GameView::drawPauseMenu(void) {
+  clearScreen();
+  SDL_RenderCopy(renderer, pauseMenu.returnTexture(), NULL, NULL);
+}
+void GameView::clearScreen(void) {
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+  SDL_RenderClear(renderer);
+}
+
+void GameView::presentScreen(void) { SDL_RenderPresent(renderer); }
