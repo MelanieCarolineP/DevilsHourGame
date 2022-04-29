@@ -42,6 +42,7 @@ SDL_Texture* convert_image_to_texture(SDL_Renderer* renderer,
 
   return texture;
 }
+
 int main(int argc, char** argv) {
   /*** Initialization ***/
 
@@ -51,7 +52,7 @@ int main(int argc, char** argv) {
   // Create window
   SDL_Window* window =
       SDL_CreateWindow("Devil's Hour", SDL_WINDOWPOS_CENTERED,
-                       SDL_WINDOWPOS_CENTERED, 1500, 800, SDL_WINDOW_SHOWN);
+                       SDL_WINDOWPOS_CENTERED, 1400, 800, SDL_WINDOW_SHOWN);
   if (window == NULL) csci437_error("Window could not be created!");
 
   // Init Bitmap loading
@@ -97,6 +98,7 @@ int main(int argc, char** argv) {
   GameView gameView;
 
   Room room(Rooms::bathroom);
+  SDL_RenderClear(renderer);
 
   // While application is running
   while (running) {
@@ -105,6 +107,9 @@ int main(int argc, char** argv) {
 
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
+      SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+      SDL_RenderClear(renderer);
+
       gameView.drawUI(renderer);
       gameView.drawInventory(renderer, eventManager.curItem + 1);
       gameView.drawRoom(renderer, room);
@@ -112,22 +117,9 @@ int main(int argc, char** argv) {
 
       eventManager.handle_event(e, deltaTime, startTime, &running, renderer);
 
-      // switch (current_room) {
-      //   case Front_Foyer:
-      //     image =
-      //     load_bitmap(IMG_Load("../resource/rooms/bedroom-pixel.png"));
-      //     roomTx = convert_image_to_texture(renderer, image);
-      //     break;
-      //   case Bedroom:
-      //     image = load_bitmap(IMG_Load("../resource/bathroom.png"));
-      //     roomTx = convert_image_to_texture(renderer, image);
-      //     break;
-      // }
-
-      //// render
       // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
       // SDL_RenderClear(renderer);
-      //// SDL_SetTextureColorMod(texture, red * 255, green * 255, blue *
+      // SDL_SetTextureColorMod(texture, red * 255, green * 255, blue *
       // 255);
       // SDL_RenderCopy(renderer, roomTx, NULL, &dst);
       SDL_RenderPresent(renderer);

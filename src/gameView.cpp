@@ -33,6 +33,11 @@ void GameView::drawActor(SDL_Renderer* renderer, Vec2d position, Vec2d size,
 // given delta time divide this by 2 to animate the movement (two frame
 // changes within the delta time)
 
+/**
+ * @brief Draw the UI of the game
+ *
+ * @param renderer
+ */
 void GameView::drawUI(SDL_Renderer* renderer) {
   // load image
   SDL_Surface* loadingSurf = IMG_Load("../resource/ui/ui_background.png");
@@ -41,7 +46,7 @@ void GameView::drawUI(SDL_Renderer* renderer) {
 
   // specify size & loc
   SDL_Rect dstR;
-  dstR.x = 400;
+  dstR.x = 300;
   dstR.y = 0;
   dstR.w = 1100;
   dstR.h = 800;
@@ -51,6 +56,12 @@ void GameView::drawUI(SDL_Renderer* renderer) {
   // SDL_RenderPresent(renderer);
 }
 
+/**
+ * @brief Draw the inventory
+ *
+ * @param renderer
+ * @param k
+ */
 void GameView::drawInventory(SDL_Renderer* renderer, int k) {
   std::string s =
       "../resource/ui/inventory/inventory_" + std::to_string(k) + ".png";
@@ -61,49 +72,58 @@ void GameView::drawInventory(SDL_Renderer* renderer, int k) {
   // specify size & loc
   SDL_Rect dstR;
   dstR.x = 0;
-  dstR.y = 0;
-  dstR.w = 400;
-  dstR.h = 800;
+  dstR.y = 200;
+  dstR.w = 300;
+  dstR.h = 600;
 
   // draw UI
   SDL_RenderCopy(renderer, ivTx, NULL, &dstR);
   // SDL_RenderPresent(renderer);
 }
 
+/**
+ * @brief Draw the room screen
+ *
+ * @param renderer
+ * @param r : current room
+ */
 void GameView::drawRoom(SDL_Renderer* renderer, Room r) {
-  std::string dir;
+  SDL_Surface* loadingSurf;
   switch (r.type) {
     case Rooms::bedroom:
-      dir = "../resources/rooms/bedroom-pixel.png";
+      loadingSurf = IMG_Load("../resource/rooms/bedroom-pixel.png");
+      // std::cout << "Loaded bedroom image" << std::endl;
       break;
     case Rooms::kitchen:
-      dir = "../resources/rooms/kitchen-pixel.png";
+      loadingSurf = IMG_Load("../resource/rooms/kitchen-pixel.png");
+      // std::cout << "Loaded kitchen image" << std::endl;
       break;
     case Rooms::bathroom:
-      dir = "../resources/rooms/bathroom-pixel.png";
+      loadingSurf = IMG_Load("../resource/rooms/bathroom-pixel.png");
+      // std::cout << "Loaded bathroom image" << std::endl;
       break;
       // case Rooms::foyer:
       //   dir = "../resources/rooms/foyer-pixel.png";
       //   break;
 
     default:
-      dir = "../resources/rooms/bedroom-pixel.png";
+      loadingSurf = IMG_Load("../resource/rooms/bedroom-pixel.png");
       break;
   }
+  // SDL_Surface* loadingSurf = IMG_Load("../resource/rooms/bedroom-pixel.png");
+  if (!loadingSurf) std::cout << "Fail to load room pic!" << std::endl;
 
-  SDL_Surface* loadingSurf = IMG_Load(dir.c_str());
   SDL_Texture* roomTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
   SDL_FreeSurface(loadingSurf);
 
   // specify size & loc
-  SDL_Rect srcR{0, 0, 1024, 768};
   SDL_Rect dstR;
-  dstR.x = 410;
-  dstR.y = 10;
+  dstR.x = 335;
+  dstR.y = 15;
   dstR.w = 1024;
   dstR.h = 768;
 
   // draw UI
-  SDL_RenderCopy(renderer, roomTx, &srcR, &dstR);
+  SDL_RenderCopy(renderer, roomTx, NULL, &dstR);
   // SDL_RenderPresent(renderer);
 }
