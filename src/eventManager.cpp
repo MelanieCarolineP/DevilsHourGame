@@ -19,7 +19,6 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
     exitEvent(event, time, running);
   } else if (event->type == SDL_KEYDOWN) {
     if (isPaused == false) {
-      displayGame();
       switch (event->key.keysym.sym) {
         case SDLK_w:
           playerMovement(deltaTime, direction::UP, renderer);
@@ -43,6 +42,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
           pauseGame(time);
           break;
       }
+      if (!isPaused) displayGame();
     } else {
       switch (event->key.keysym.sym) {
         case SDLK_q:
