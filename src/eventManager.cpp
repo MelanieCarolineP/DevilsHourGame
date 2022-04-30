@@ -19,6 +19,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
     exitEvent(event, time, running);
   } else if (event->type == SDL_KEYDOWN) {
     if (isPaused == false) {
+      displayGame();
       switch (event->key.keysym.sym) {
         case SDLK_w:
           playerMovement(deltaTime, direction::UP, renderer);
@@ -48,7 +49,9 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
           exitEvent(event, time, running);
           break;
         case SDLK_r:
-          isPaused = false;
+          returnToGame();
+          break;
+        case SDLK_ESCAPE:
           returnToGame();
           break;
       }
@@ -82,9 +85,11 @@ void EventManager::pauseGame(float time) {
   gameView->presentScreen();
 }
 void EventManager::startGame(void) {
-  Room foyer = Room();
-  this->curRoom = foyer;
-  this->currRoomName = Rooms::foyer;
+  // Room foyer = Room();
+  this->curRoom = Room(Rooms::bedroom);
+  gameView->clearScreen();
+  gameView->drawUI();
+  gameView->drawInventory(curItem + 1);
   gameView->drawRoom(curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, direction::RIGHT);
   gameView->presentScreen();
@@ -118,9 +123,13 @@ void EventManager::roomChange(SDL_Event* event, float time) {
   }
 }
 void EventManager::returnToGame(void) {
+  isPaused = false;
+  std::cout << "resume game" << std::endl;
   gameView->clearScreen();
+  gameView->drawUI();
+  gameView->drawInventory(curItem + 1);
   gameView->drawRoom(this->curRoom);
-  gameView->drawActor(mainActor.position, mainActor.size, direction::RIGHT);
+  gameView->drawActor(mainActor.position, mainActor.size, curDir);
   gameView->presentScreen();
 }
 
@@ -131,9 +140,17 @@ void EventManager::inventoryChange() {
   // std::cout << "Not implemented";
   curItem += 1;
   curItem %= 8;
-  // gameView.drawInventory(curItem + 1);
 }
 
 void EventManager::exitEvent(SDL_Event* event, float time, bool* running) {
   *running = false;
+}
+
+void EventManager::displayGame() {
+  gameView->clearScreen();
+  gameView->drawUI();
+  gameView->drawInventory(curItem + 1);
+  gameView->drawRoom(this->curRoom);
+  gameView->drawActor(mainActor.position, mainActor.size, curDir);
+  gameView->presentScreen();
 }

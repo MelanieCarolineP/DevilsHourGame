@@ -107,12 +107,12 @@ int main(int argc, char** argv) {
     while (SDL_PollEvent(&e) != 0) {
       eventManager.handle_event(&e, deltaTime, startTime, &running, renderer);
 
-      // render
-      SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-      SDL_RenderClear(renderer);
-      // SDL_SetTextureColorMod(texture, red * 255, green * 255, blue * 255);
-      SDL_RenderCopy(renderer, texture, NULL, NULL);
-      // SDL_RenderPresent(renderer);
+      // // render
+      // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+      // SDL_RenderClear(renderer);
+      // // SDL_SetTextureColorMod(texture, red * 255, green * 255, blue * 255);
+      // SDL_RenderCopy(renderer, texture, NULL, NULL);
+      // // SDL_RenderPresent(renderer);
 
       endTime = SDL_GetTicks();
       deltaTime = (endTime - startTime) / 1.0f;

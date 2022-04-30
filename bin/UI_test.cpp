@@ -67,20 +67,20 @@ int main(int argc, char** argv) {
       SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
   if (renderer == NULL) csci437_error("Unable to create renderer!");
 
-    /*** Main Loop ***/
+  /*** Main Loop ***/
   bool running = true;
   bool start = false;
 
-  EventManager eventManager;
+  GameView gameView(renderer);
+  EventManager eventManager(&gameView);
   SDL_Event e;
-  rooms current_room;
-  current_room = Front_Foyer;
+  Rooms current_room;
+  current_room = Rooms::bedroom;
   float deltaTime = 0.0f;
   uint32_t startTime, endTime;
+  Uint16 current_time = 0;
+  eventManager.startGame();
 
-  GameView gameView(renderer);
-
-  Room room(Rooms::bathroom);
   SDL_RenderClear(renderer);
 
   // While application is running
@@ -90,14 +90,13 @@ int main(int argc, char** argv) {
 
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
-      SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-      SDL_RenderClear(renderer);
+      // gameView.clearScreen();
 
-      gameView.drawUI();
-      gameView.drawInventory(eventManager.curItem + 1);
-      gameView.drawRoom(room);
-      gameView.drawActor(eventManager.mainActor.position,
-                         eventManager.mainActor.size, eventManager.curDir);
+      // gameView.drawUI();
+      // gameView.drawInventory(eventManager.curItem + 1);
+      // gameView.drawRoom(room);
+      // gameView.drawActor(eventManager.mainActor.position,
+      //  eventManager.mainActor.size, eventManager.curDir);
 
       eventManager.handle_event(&e, deltaTime, startTime, &running, renderer);
 
@@ -106,7 +105,7 @@ int main(int argc, char** argv) {
       // SDL_SetTextureColorMod(texture, red * 255, green * 255, blue *
       // 255);
       // SDL_RenderCopy(renderer, roomTx, NULL, &dst);
-      SDL_RenderPresent(renderer);
+      // SDL_RenderPresent(renderer);
 
       endTime = SDL_GetTicks();
       deltaTime = (endTime - startTime) / 1.0f;
