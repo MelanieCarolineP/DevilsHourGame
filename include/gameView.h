@@ -30,6 +30,7 @@ class GameView {
   void drawPauseMenu(void);
 
   void drawInventory(int k);
+  void roomToPosition(void);
   void presentScreen(void);
   void clearScreen(void);
 
@@ -43,6 +44,7 @@ class GameView {
   Room *currentR;
   Rooms currentRoom;
   SDL_Texture *roomTexture;
+  SDL_Rect roomDest;
 };
 
 #endif /* _GAMEVIEW_H_ */

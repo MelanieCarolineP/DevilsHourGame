@@ -19,7 +19,6 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
     exitEvent(event, time, running);
   } else if (event->type == SDL_KEYDOWN) {
     if (isPaused == false) {
-      displayGame();
       switch (event->key.keysym.sym) {
         case SDLK_w:
           playerMovement(deltaTime, direction::UP, renderer);
@@ -43,6 +42,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
           pauseGame(time);
           break;
       }
+      displayGame();
     } else {
       switch (event->key.keysym.sym) {
         case SDLK_q:
@@ -92,6 +92,7 @@ void EventManager::startGame(void) {
   gameView->drawInventory(curItem + 1);
   gameView->drawRoom(curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, direction::RIGHT);
+  gameView->roomToPosition();
   gameView->presentScreen();
 }
 
@@ -130,6 +131,7 @@ void EventManager::returnToGame(void) {
   gameView->drawInventory(curItem + 1);
   gameView->drawRoom(this->curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
+  gameView->roomToPosition();
   gameView->presentScreen();
 }
 
@@ -152,5 +154,6 @@ void EventManager::displayGame() {
   gameView->drawInventory(curItem + 1);
   gameView->drawRoom(this->curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
+  gameView->roomToPosition();
   gameView->presentScreen();
 }

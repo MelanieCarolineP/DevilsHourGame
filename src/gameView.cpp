@@ -3,6 +3,13 @@
 GameView::GameView(SDL_Renderer* renderer) {
   this->renderer = renderer;
   this->pauseMenu = PauseMenu(renderer);
+  this->roomTexture =
+      SDL_CreateTexture(this->renderer, SDL_PIXELFORMAT_RGBA8888,
+                        SDL_TEXTUREACCESS_TARGET, SCREEN_WIDTH, SCREEN_HEIGHT);
+  this->roomDest.x = 335;
+  this->roomDest.y = 15;
+  this->roomDest.w = 1024;
+  this->roomDest.h = 768;
 }
 
 /* Method will animate the movements of the two actor types */
@@ -29,7 +36,9 @@ void GameView::drawActor(Vec2d position, Vec2d size,
       sprite.selectSprite(0, 2);
       break;
   }
+  SDL_SetRenderTarget(renderer, roomTexture);
   sprite.drawSprite(renderer, &rect);
+  SDL_SetRenderTarget(renderer, NULL);
 }
 // Given a sprite sheet reference, it will draw for us, we delegate which one
 // to use We will animate in this class
@@ -116,26 +125,29 @@ void GameView::drawRoom(Room r) {
   }
   if (!loadingSurf) std::cout << "Fail to load room pic!" << std::endl;
 
+  SDL_SetRenderTarget(renderer, this->roomTexture);
   SDL_Texture* roomTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
   SDL_FreeSurface(loadingSurf);
 
   // specify size & loc
-  SDL_Rect dstR;
-  dstR.x = 335;
-  dstR.y = 15;
-  dstR.w = 1024;
-  dstR.h = 768;
+  // SDL_Rect dstR;
+  // dstR.x = 335;
+  // dstR.y = 15;
+  // dstR.w = 1024;
+  // dstR.h = 768;
 
   // draw UI
-  SDL_RenderCopy(renderer, roomTx, NULL, &dstR);
+  SDL_RenderCopy(renderer, roomTx, NULL, NULL);
+  SDL_SetRenderTarget(renderer, NULL);
   // SDL_RenderPresent(renderer);
 }
 
+void GameView::roomToPosition(void) {
+  SDL_RenderCopy(renderer, this->roomTexture, NULL, &this->roomDest);
+}
 void GameView::displayGame(Actor* actor) {
   clearScreen();
-  // std::cout << "to draw room\n";
-  // drawRoom(currentR, currentRoom);
-  // std::cout << "after draw room\n";
+
   drawActor(actor->position, actor->size, actor->getDirection());
 }
 
