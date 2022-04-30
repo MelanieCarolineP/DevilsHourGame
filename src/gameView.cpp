@@ -10,6 +10,9 @@ GameView::GameView(SDL_Renderer* renderer) {
   this->roomDest.y = 15;
   this->roomDest.w = 1024;
   this->roomDest.h = 768;
+
+  this->clockFont = TTF_OpenFont("../resource/fonts/digital-7.ttf", 24);
+  if (!clockFont) std::cout << "Font not loaded" << std::endl;
 }
 
 /* Method will animate the movements of the two actor types */
@@ -88,7 +91,6 @@ void GameView::drawInventory(int k) {
   dstR.w = 300;
   dstR.h = 600;
 
-  // draw UI
   SDL_RenderCopy(renderer, ivTx, NULL, &dstR);
   // SDL_RenderPresent(renderer);
 }
@@ -162,3 +164,16 @@ void GameView::clearScreen(void) {
 }
 
 void GameView::presentScreen(void) { SDL_RenderPresent(renderer); }
+
+void GameView::displayTime(std::string time) {
+  // std::cout << time << std::endl;
+  SDL_Color red = {255, 0, 0};
+  SDL_Surface* loadingSurf = TTF_RenderText_Solid(clockFont, time.c_str(), red);
+  if (!loadingSurf) std::cout << "Font surface not initialized" << std::endl;
+  SDL_Texture* timeTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
+  if (!timeTx) std::cout << "Time texture not initialized" << std::endl;
+  SDL_FreeSurface(loadingSurf);
+  SDL_Rect dstRect = {30, 40, 240, 120};
+  SDL_RenderCopy(renderer, timeTx, NULL, &dstRect);
+  // presentScreen();
+}

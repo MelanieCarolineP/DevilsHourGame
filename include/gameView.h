@@ -30,6 +30,7 @@ class GameView {
   void drawPauseMenu(void);
 
   void drawInventory(int k);
+  void displayTime(std::string s);
   void roomToPosition(void);
   void presentScreen(void);
   void clearScreen(void);
@@ -45,6 +46,7 @@ class GameView {
   Rooms currentRoom;
   SDL_Texture *roomTexture;
   SDL_Rect roomDest;
+  TTF_Font *clockFont;
 };
 
 #endif /* _GAMEVIEW_H_ */
