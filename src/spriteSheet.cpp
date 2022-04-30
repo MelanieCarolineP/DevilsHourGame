@@ -1,4 +1,4 @@
-#include "spritesheet.h"
+#include "spriteSheet.h"
 
 /* May be used for a single image 1x1 sprite sheets or for animation 4x4
    row 0: facing towards

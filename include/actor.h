@@ -25,6 +25,8 @@ class Actor : public Entity {
    */
   Entity interact() { return entity; }
 
+  direction getDirection(void) { return curDir; }
+
  private:
   /* members */
   float velocity; /**< how fast they move */

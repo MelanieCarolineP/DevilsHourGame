@@ -67,24 +67,7 @@ int main(int argc, char** argv) {
       SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
   if (renderer == NULL) csci437_error("Unable to create renderer!");
 
-  // SDL_Surface* image =
-  //     load_bitmap(IMG_Load("../resource/rooms/bedroom-pixel.png"));
-
-  // // convert to texture
-  // SDL_Texture* roomTx = SDL_CreateTextureFromSurface(renderer, image);
-  // if (roomTx == NULL) csci437_error("Could not create texture from
-  // surface!");
-
-  // // delete image
-  // SDL_FreeSurface(image);
-  // image = NULL;
-
-  // bool red = true, green = true, blue = true;
-  // float angle = 0;
-
-  // SDL_Rect dst = {410, 10, 1024, 768};
-
-  /*** Main Loop ***/
+    /*** Main Loop ***/
   bool running = true;
   bool start = false;
 

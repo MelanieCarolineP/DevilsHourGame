@@ -1,6 +1,9 @@
 #include "gameView.h"
 
-GameView::GameView(SDL_Renderer* renderer) { this->renderer = renderer; }
+GameView::GameView(SDL_Renderer* renderer) {
+  this->renderer = renderer;
+  pauseMenu = PauseMenu(this->renderer);
+}
 
 /* Method will animate the movements of the two actor types */
 void GameView::drawActor(Vec2d position, Vec2d size,
@@ -127,3 +130,22 @@ void GameView::drawRoom(Room r) {
   SDL_RenderCopy(renderer, roomTx, NULL, &dstR);
   // SDL_RenderPresent(renderer);
 }
+
+void GameView::displayGame(Actor* actor) {
+  clearScreen();
+  // std::cout << "to draw room\n";
+  // drawRoom(currentR, currentRoom);
+  // std::cout << "after draw room\n";
+  drawActor(actor->position, actor->size, actor->getDirection());
+}
+
+void GameView::drawPauseMenu(void) {
+  clearScreen();
+  SDL_RenderCopy(renderer, pauseMenu.returnTexture(), NULL, NULL);
+}
+void GameView::clearScreen(void) {
+  SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+  SDL_RenderClear(renderer);
+}
+
+void GameView::presentScreen(void) { SDL_RenderPresent(renderer); }

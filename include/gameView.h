@@ -4,30 +4,46 @@
 #include <iostream>
 #include <string>
 
+#include "actor.h"
+#include "constants.h"
 #include "enum.h"
+#include "pauseMenu.h"
 #include "room.h"
 #include "spriteSheet.h"
+#include "stdio.h"
 #include "vec2d.h"
 
 class GameView {
  public:
   /* constructor */
-  GameView(SDL_Renderer* renderer);
+  GameView(){};
+
+  GameView(SDL_Renderer *renderer);
 
   /* methods to draw element */
-  void drawStartScreen();
-  void drawRoom(Room r);
+  void drawStartScreen(SDL_Renderer *renderer);
+  void displayGame(Actor *actor);
   void drawUI();
+  void drawRoom(Room r);
   void drawActor(Vec2d position, Vec2d size, direction direction);
   void drawDoor();
+  void drawPauseMenu(void);
+
   void drawInventory(int k);
+  void presentScreen(void);
+  void clearScreen(void);
 
  private:
   /* helper function for drawInventory() */
   void drawItem();
-  SDL_Renderer* renderer;
+  SDL_Renderer *renderer;
   SpriteSheet sprite;
   SDL_Rect rect;
+  PauseMenu pauseMenu;
+  SDL_Renderer *renderer;
+  Room *currentR;
+  Rooms currentRoom;
+  SDL_Texture *roomTexture;
 };
 
 #endif /* _GAMEVIEW_H_ */
