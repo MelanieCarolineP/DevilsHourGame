@@ -1,6 +1,6 @@
 #include "eventManager.h"
 
-EventManager::EventManager() {}
+EventManager::EventManager() { curRoom.getEntities(Rooms::bedroom); }
 
 /**
  * @brief Takes in the events from the SDL event queue and processes it within
@@ -10,12 +10,12 @@ EventManager::EventManager() {}
  * @param deltaTime - the time change between events last event
  */
 
-void EventManager::handle_event(SDL_Event event, float deltaTime, float time,
+void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
                                 bool* running, SDL_Renderer* renderer) {
-  if (event.type == SDL_QUIT) {
+  if (event->type == SDL_QUIT) {
     exitEvent(event, time, running);
-  } else if (event.type == SDL_KEYDOWN) {
-    switch (event.key.keysym.sym) {
+  } else if (event->type == SDL_KEYDOWN) {
+    switch (event->key.keysym.sym) {
       case SDLK_q:
         exitEvent(event, time, running);
         break;
@@ -35,7 +35,7 @@ void EventManager::handle_event(SDL_Event event, float deltaTime, float time,
         playerInteraction(event, deltaTime);
         break;
       case SDLK_i:
-        inventoryChange(event, time);
+        inventoryChange(event, time, renderer);
         break;
     }
   }
@@ -44,21 +44,25 @@ void EventManager::handle_event(SDL_Event event, float deltaTime, float time,
 void EventManager::playerMovement(float deltaTime, direction direction,
                                   SDL_Renderer* renderer) {
   mainActor.move(direction, deltaTime);
-  gameView.drawActor(renderer, mainActor.position, mainActor.size, direction);
+  mainActor.collision(curRoom.entityList);
+  // gameView.drawActor(mainActor.position, mainActor.size, direction);
+  curDir = direction;
 }
 
-void EventManager::playerInteraction(SDL_Event event, float deltaTime) {
+void EventManager::playerInteraction(SDL_Event* event, float deltaTime) {
+  // interact returns entity only if character is colliding with an object
+  if (mainActor.collision(curRoom.entityList)) mainActor.interact();
+  // otherwise do nothing
+}
+
+void EventManager::pauseGame(SDL_Event* event, float time) {
   // std::cout << "Not implemented";
 }
 
-void EventManager::pauseGame(SDL_Event event, float time) {
+void EventManager::roomChange(SDL_Event* event, float time) {
   // std::cout << "Not implemented";
-}
-
-void EventManager::roomChange(SDL_Event event, float time) {
-  // std::cout << "Not implemented";
-  if (event.type == SDL_KEYDOWN) {
-    switch (event.key.keysym.sym) {
+  if (event->type == SDL_KEYDOWN) {
+    switch (event->key.keysym.sym) {
       case SDLK_h:
         curRoom = Room(Rooms::bedroom);
         break;
@@ -74,13 +78,17 @@ void EventManager::roomChange(SDL_Event event, float time) {
     }
   }
 }
-void EventManager::demonMovement(SDL_Event event, float deltaTime) {
+void EventManager::demonMovement(SDL_Event* event, float deltaTime) {
   // std::cout << "Not implemented";
 }
-void EventManager::inventoryChange(SDL_Event event, float deltaTime) {
+void EventManager::inventoryChange(SDL_Event* event, float deltaTime,
+                                   SDL_Renderer* renderer) {
   // std::cout << "Not implemented";
+  curItem += 1;
+  curItem %= 8;
+  // gameView.drawInventory(curItem + 1);
 }
 
-void EventManager::exitEvent(SDL_Event event, float time, bool* running) {
+void EventManager::exitEvent(SDL_Event* event, float time, bool* running) {
   *running = false;
 }

@@ -100,7 +100,7 @@ int main(int argc, char** argv) {
 
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
-      eventManager.handle_event(e, deltaTime, startTime, &running, renderer);
+      eventManager.handle_event(&e, deltaTime, startTime, &running, renderer);
       switch (current_room) {
         case Front_Foyer:
           image = load_bitmap(IMG_Load("../resource/rooms/bedroom-pixel.png"));

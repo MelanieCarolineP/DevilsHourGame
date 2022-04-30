@@ -7,6 +7,7 @@ using namespace tinyxml2;
 Room::Room() {
   Vec2d vec(400, 300);
   this->size = vec;
+  type = Rooms::bedroom;
 }
 
 /**
@@ -25,6 +26,7 @@ Room::Room(Vec2d size) { this->size = size; }
 Room::Room(Vec2d size, std::vector<Entity>& entityList) {
   this->size = size;
   this->entityList = entityList;
+  type = Rooms::bedroom;
 }
 
 /**
@@ -32,7 +34,10 @@ Room::Room(Vec2d size, std::vector<Entity>& entityList) {
  *
  * @param r : room enum
  */
-Room::Room(Rooms r) { getEntities(r); }
+Room::Room(Rooms r) {
+  getEntities(r);
+  type = r;
+}
 
 /**
  * @brief Get entity list according to the room type

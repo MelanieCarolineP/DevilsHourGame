@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "eventManager.h"
+#include "room.h"
 
 // Screen dimension constants
 // static const int SCREEN_WIDTH = 1024;
@@ -49,9 +50,9 @@ int main(int argc, char** argv) {
   if (SDL_Init(SDL_INIT_VIDEO) < 0) csci437_error("SDL could not initialize!");
 
   // Create window
-  SDL_Window* window = SDL_CreateWindow("Devil's Hour", SDL_WINDOWPOS_CENTERED,
-                                        SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH,
-                                        SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+  SDL_Window* window =
+      SDL_CreateWindow("Devil's Hour", SDL_WINDOWPOS_CENTERED,
+                       SDL_WINDOWPOS_CENTERED, 1400, 800, SDL_WINDOW_SHOWN);
   if (window == NULL) csci437_error("Window could not be created!");
 
   // Init Bitmap loading
@@ -66,22 +67,22 @@ int main(int argc, char** argv) {
       SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
   if (renderer == NULL) csci437_error("Unable to create renderer!");
 
-  SDL_Surface* image = load_bitmap(IMG_Load("../resource/bathroom-pixel.png"));
+  // SDL_Surface* image =
+  //     load_bitmap(IMG_Load("../resource/rooms/bedroom-pixel.png"));
 
-  // convert to texture
-  SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image);
-  if (texture == NULL) csci437_error("Could not create texture from surface!");
+  // // convert to texture
+  // SDL_Texture* roomTx = SDL_CreateTextureFromSurface(renderer, image);
+  // if (roomTx == NULL) csci437_error("Could not create texture from
+  // surface!");
 
-  // delete image
-  SDL_FreeSurface(image);
-  image = NULL;
+  // // delete image
+  // SDL_FreeSurface(image);
+  // image = NULL;
 
-  bool red = true, green = true, blue = true;
-  float angle = 0;
+  // bool red = true, green = true, blue = true;
+  // float angle = 0;
 
-  SDL_Rect dst = {(SCREEN_WIDTH - 256) / 2, (SCREEN_HEIGHT - 256) / 2, 256,
-                  256};
-  SDL_Point rot = {128, 128};
+  // SDL_Rect dst = {410, 10, 1024, 768};
 
   /*** Main Loop ***/
   bool running = true;
@@ -90,65 +91,43 @@ int main(int argc, char** argv) {
   EventManager eventManager;
   SDL_Event e;
   rooms current_room;
-  current_room = rooms::Bathroom;
+  current_room = Front_Foyer;
   float deltaTime = 0.0f;
   uint32_t startTime, endTime;
-  Uint16 current_time = 0;
+
+  GameView gameView(renderer);
+
+  Room room(Rooms::bathroom);
+  SDL_RenderClear(renderer);
+
   // While application is running
   while (running) {
     // loop start time
-    // Uint32_t start_ticks = SDL_GetTicks();
     startTime = SDL_GetTicks();
 
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
-      eventManager.handle_event(e, deltaTime, startTime, &running, renderer);
-      switch (current_room) {
-        case rooms::Front_Foyer:
-          image = load_bitmap(IMG_Load("../resource/bathroom-pixel.png"));
-          texture = convert_image_to_texture(renderer, image);
-          break;
-        case rooms::Bathroom:
-          image = load_bitmap(IMG_Load("../resource/bathroom-pixel.png"));
-          texture = convert_image_to_texture(renderer, image);
-          break;
-        case rooms::Bedroom:
-          image = load_bitmap(IMG_Load("../resource/bitmap.png"));
-          texture = convert_image_to_texture(renderer, image);
-          break;
-      }
-
-      // render
       SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
       SDL_RenderClear(renderer);
-      // SDL_SetTextureColorMod(texture, red * 255, green * 255, blue * 255);
-      SDL_RenderCopy(renderer, texture, NULL, NULL);
-      // SDL_RenderPresent(renderer);
+
+      gameView.drawUI();
+      gameView.drawInventory(eventManager.curItem + 1);
+      gameView.drawRoom(room);
+      gameView.drawActor(eventManager.mainActor.position,
+                         eventManager.mainActor.size, eventManager.curDir);
+
+      eventManager.handle_event(&e, deltaTime, startTime, &running, renderer);
+
+      // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+      // SDL_RenderClear(renderer);
+      // SDL_SetTextureColorMod(texture, red * 255, green * 255, blue *
+      // 255);
+      // SDL_RenderCopy(renderer, roomTx, NULL, &dst);
+      SDL_RenderPresent(renderer);
 
       endTime = SDL_GetTicks();
       deltaTime = (endTime - startTime) / 1.0f;
-      // std::cout << " deltaTime: " << deltaTime;
     }
-    // current time
-    current_time = SDL_GetTicks();
-
-    switch (current_room) {
-      case Front_Foyer:
-        image = load_bitmap(IMG_Load("../resource/FFoyerRoom.png"));
-        texture = convert_image_to_texture(renderer, image);
-        break;
-      case Bedroom:
-        image = load_bitmap(IMG_Load("../resource/bitmap.png"));
-        texture = convert_image_to_texture(renderer, image);
-        break;
-    }
-
-    // render
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-    SDL_RenderClear(renderer);
-    SDL_SetTextureColorMod(texture, red * 255, green * 255, blue * 255);
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
-    SDL_RenderPresent(renderer);
   }
   // Gets end time of the loop
   Uint32 end_time = SDL_GetTicks();
@@ -156,7 +135,7 @@ int main(int argc, char** argv) {
   /*** Clean Up ***/
 
   // Destroy texture
-  SDL_DestroyTexture(texture);
+  // SDL_DestroyTexture(roomTx);
 
   // Destroy renderer
   SDL_DestroyRenderer(renderer);

@@ -1,0 +1,113 @@
+<?xml version="1.0" ?>
+
+<room>
+  <!-- room settings -->
+  <name>kitchen</name>
+  <width>1080</width>
+  <height>720</height>
+  <!-- entity list -->
+  <entity>
+    <name>cabinet</name>
+    <w>175</w>
+    <h>40</h>
+    <x>300</x>
+    <y>120</y>
+    <isEntity>1</isEntity>
+  </entity>
+  <entity>
+    <name>oven</name>
+    <w>110</w>
+    <h>90</h>
+    <x>520</x>
+    <y>120</y>
+    <isEntity>1</isEntity>
+  </entity>
+  <entity>
+    <name>top-table</name>
+    <w>235</w>
+    <h>90</h>
+    <x>630</x>
+    <y>120</y>
+    <isEntity>1</isEntity>
+  </entity>
+  <entity>
+    <name>trash-can</name>
+    <w>75</w>
+    <h>75</h>
+    <x>875</x>
+    <y>140</y>
+    <isEntity>1</isEntity>
+  </entity>
+  <entity>
+    <name>sink</name>
+    <w>140</w>
+    <h>230</h>
+    <x>860</x>
+    <y>240</y>
+    <isEntity>1</isEntity>
+  </entity>
+  <entity>
+    <name>dining-table</name>
+    <w>160</w>
+    <h>330</h>
+    <x>270</x>
+    <y>270</y>
+    <isEntity>1</isEntity>
+  </entity>
+  <entity>
+    <name>chair 1</name>
+    <w>90</w>
+    <h>115</h>
+    <x>175</x>
+    <y>275</y>
+    <isEntity>1</isEntity>
+  </entity>
+  <entity>
+    <name>chair 2</name>
+    <w>90</w>
+    <h>115</h>
+    <x>435</x>
+    <y>275</y>
+    <isEntity>1</isEntity>
+  </entity>
+  <entity>
+    <name>chair 3</name>
+    <w>90</w>
+    <h>115</h>
+    <x>175</x>
+    <y>400</y>
+    <isEntity>1</isEntity>
+  </entity>
+  <entity>
+    <name>chair 4</name>
+    <w>90</w>
+    <h>115</h>
+    <x>435</x>
+    <y>400</y>
+    <isEntity>1</isEntity>
+  </entity>
+  <entity>
+    <name>mouse-hole</name>
+    <w>35</w>
+    <h>55</h>
+    <x>60</x>
+    <y>255</y>
+    <isEntity>0</isEntity>
+  </entity>
+  <entity>
+    <name>hallway-door</name>
+    <w>130</w>
+    <h>35</h>
+    <x>135</x>
+    <y>100</y>
+    <isEntity>0</isEntity>
+  </entity>
+  <entity>
+    <name>pantry-door</name>
+    <w>40</w>
+    <h>110</h>
+    <x>975</x>
+    <y>555</y>
+    <isEntity>0</isEntity>
+  </entity>
+</room>
