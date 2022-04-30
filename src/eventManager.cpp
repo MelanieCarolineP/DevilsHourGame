@@ -42,7 +42,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
           pauseGame(time);
           break;
       }
-      displayGame();
+      if (!isPaused) displayGame();
     } else {
       switch (event->key.keysym.sym) {
         case SDLK_q:
