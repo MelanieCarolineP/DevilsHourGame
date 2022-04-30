@@ -113,9 +113,10 @@ int main(int argc, char** argv) {
       gameView.drawUI();
       gameView.drawInventory(eventManager.curItem + 1);
       gameView.drawRoom(room);
-      // gameView.drawRoom(renderer, room);
+      gameView.drawActor(eventManager.mainActor.position,
+                         eventManager.mainActor.size, eventManager.curDir);
 
-      eventManager.handle_event(e, deltaTime, startTime, &running, renderer);
+      eventManager.handle_event(&e, deltaTime, startTime, &running, renderer);
 
       // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
       // SDL_RenderClear(renderer);
