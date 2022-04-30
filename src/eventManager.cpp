@@ -18,7 +18,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
   if (event->type == SDL_QUIT) {
     exitEvent(event, time, running);
   } else if (event->type == SDL_KEYDOWN) {
-    if (stateMonitor.isPaused == false) {
+    if (isPaused == false) {
       switch (event->key.keysym.sym) {
         case SDLK_w:
           playerMovement(deltaTime, direction::UP, renderer);
@@ -48,7 +48,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
           exitEvent(event, time, running);
           break;
         case SDLK_r:
-          stateMonitor.isPaused = false;
+          isPaused = false;
           returnToGame();
           break;
       }
@@ -77,7 +77,7 @@ void EventManager::playerInteraction(SDL_Event* event, float deltaTime) {
 }
 
 void EventManager::pauseGame(float time) {
-  stateMonitor.isPaused = true;
+  isPaused = true;
   gameView->drawPauseMenu();
   gameView->presentScreen();
 }

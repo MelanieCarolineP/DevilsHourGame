@@ -39,6 +39,7 @@ class EventManager {
   Room curRoom;
   StateMonitor stateMonitor;
   Rooms currRoomName;
+  bool isPaused = false;
 };
 
 #endif

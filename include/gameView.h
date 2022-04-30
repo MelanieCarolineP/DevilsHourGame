@@ -40,7 +40,6 @@ class GameView {
   SpriteSheet sprite;
   SDL_Rect rect;
   PauseMenu pauseMenu;
-  SDL_Renderer *renderer;
   Room *currentR;
   Rooms currentRoom;
   SDL_Texture *roomTexture;

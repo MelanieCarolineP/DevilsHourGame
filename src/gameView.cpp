@@ -2,7 +2,7 @@
 
 GameView::GameView(SDL_Renderer* renderer) {
   this->renderer = renderer;
-  pauseMenu = PauseMenu(this->renderer);
+  this->pauseMenu = PauseMenu(renderer);
 }
 
 /* Method will animate the movements of the two actor types */
@@ -105,15 +105,11 @@ void GameView::drawRoom(Room r) {
       loadingSurf = IMG_Load("../resource/rooms/bathroom-pixel.png");
       // std::cout << "Loaded bathroom image" << std::endl;
       break;
-      // case Rooms::foyer:
-      //   dir = "../resources/rooms/foyer-pixel.png";
-      //   break;
 
     default:
       loadingSurf = IMG_Load("../resource/rooms/bedroom-pixel.png");
       break;
   }
-  // SDL_Surface* loadingSurf = IMG_Load("../resource/rooms/bedroom-pixel.png");
   if (!loadingSurf) std::cout << "Fail to load room pic!" << std::endl;
 
   SDL_Texture* roomTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
@@ -143,6 +139,7 @@ void GameView::drawPauseMenu(void) {
   clearScreen();
   SDL_RenderCopy(renderer, pauseMenu.returnTexture(), NULL, NULL);
 }
+
 void GameView::clearScreen(void) {
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
   SDL_RenderClear(renderer);
