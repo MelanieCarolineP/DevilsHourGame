@@ -188,10 +188,10 @@ void GameView::drawEntities(Room* r) {
   for (int i = 0; i < r->entityList.size(); ++i) {
     Entity* e = &(r->entityList[i]);
     SDL_Rect rect;
-    rect.x = int(e->position.x);
-    rect.y = int(e->position.y);
-    rect.w = int(e->size.x);
-    rect.h = int(e->size.y);
+    rect.x = 335 + int(e->position.x / r->size.x * 1024);
+    rect.y = 15 + int(e->position.y / r->size.y * 768);
+    rect.w = int(e->size.x / r->size.x * 1024);
+    rect.h = int(e->size.y / r->size.y * 768);
     if (e->isEntity)
       SDL_SetRenderDrawColor(renderer, 255, 0, 0, 130);
     else

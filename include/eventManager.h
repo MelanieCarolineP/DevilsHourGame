@@ -43,6 +43,7 @@ class EventManager {
   Rooms currRoomName;
   Clock clock;
   bool isPaused = false;
+  bool showEntity = false;
 };
 
 #endif

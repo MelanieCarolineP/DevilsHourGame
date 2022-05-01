@@ -60,6 +60,9 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
           currRoomName = Rooms::foyer;
           gameView->drawRoom(&curRoom);
           break;
+        case SDLK_t:
+          showEntity = !showEntity;
+          break;
 
         case SDLK_ESCAPE:
           pauseGame(time);
@@ -183,5 +186,7 @@ void EventManager::displayGame() {
   gameView->drawRoom(&curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
   gameView->roomToPosition();
+  // debug
+  if (showEntity) gameView->drawEntities(&curRoom);
   gameView->presentScreen();
 }
