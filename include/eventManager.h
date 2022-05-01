@@ -30,9 +30,13 @@ class EventManager {
   void inventoryChange();
   void returnToGame(void);
   void displayGame(void);
+  void displayDialog(void);
 
   void exitEvent(SDL_Event* event, float time, bool* running);
+
   int curItem = 0;
+  bool isPaused = false;
+  bool isDialog = false;
 
   GameView* gameView;
   Actor mainActor;
@@ -40,7 +44,6 @@ class EventManager {
   Room curRoom;
   StateMonitor stateMonitor;
   Rooms currRoomName;
-  bool isPaused = false;
 };
 
 #endif

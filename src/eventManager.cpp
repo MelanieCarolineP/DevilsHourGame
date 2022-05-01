@@ -18,7 +18,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
   if (event->type == SDL_QUIT) {
     exitEvent(event, time, running);
   } else if (event->type == SDL_KEYDOWN) {
-    if (isPaused == false) {
+    if (isPaused == false && isDialog == false) {
       switch (event->key.keysym.sym) {
         case SDLK_w:
           playerMovement(deltaTime, direction::UP, renderer);
@@ -38,12 +38,22 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
         case SDLK_i:
           inventoryChange();
           break;
+        case SDLK_t:
+          std::cout << "dialog";
+          isDialog = true;
+          displayDialog();
+          break;
         case SDLK_ESCAPE:
           pauseGame(time);
           break;
       }
-      if (!isPaused) displayGame();
-    } else {
+
+      if (!isPaused && !isDialog) {
+        std::cout << "display_game";
+        displayGame();
+      }
+
+    } else if (isPaused) {
       switch (event->key.keysym.sym) {
         case SDLK_q:
           exitEvent(event, time, running);
@@ -53,6 +63,14 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
           break;
         case SDLK_ESCAPE:
           returnToGame();
+          break;
+      }
+    } else {
+      switch (event->key.keysym.sym) {
+        case SDLK_e:
+          isDialog = false;
+
+          displayGame();
           break;
       }
     }
@@ -155,5 +173,28 @@ void EventManager::displayGame() {
   gameView->drawRoom(this->curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
   gameView->roomToPosition();
+  gameView->presentScreen();
+}
+
+void EventManager::displayDialog(void) {
+  gameView->clearScreen();
+  gameView->clearScreen();
+  gameView->drawUI();
+  gameView->drawInventory(curItem + 1);
+  gameView->drawRoom(this->curRoom);
+  gameView->drawActor(mainActor.position, mainActor.size, curDir);
+  gameView->roomToPosition();
+  gameView->drawDialog(
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin "
+      "fringilla libero id lobortis malesuada. In auctor eu ante at efficitur. "
+      "Etiam facilisis nec odio nec commodo. Aliquam at metus ac orci "
+      "fringilla mollis ac a leo. Sed justo ex, lacinia facilisis ante id, "
+      "posuere elementum mauris. Suspendisse potenti. Curabitur sit amet "
+      "rutrum nibh. Praesent lobortis elit lorem, sit amet egestas dui "
+      "pulvinar ut. Curabitur lorem metus, facilisis sed dolor non, pretium "
+      "bibendum purus. Pellentesque mollis vel magna sit amet consectetur. "
+      "Curabitur elit lectus, imperdiet eu aliquet a, elementum in tellus. "
+      "Fusce faucibus, nibh at sodales facilisis, nulla urna malesuada massa, "
+      "vitae sollicitudin sem mi vitae sem. Suspendisse potenti.");
   gameView->presentScreen();
 }

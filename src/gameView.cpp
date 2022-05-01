@@ -3,6 +3,11 @@
 GameView::GameView(SDL_Renderer* renderer) {
   this->renderer = renderer;
   this->pauseMenu = PauseMenu(renderer);
+
+  this->speechbox = SpeechBox(renderer);
+  this->speechbox.initFonts("../resource/fonts/jmh_cthulhumbus.ttf");
+  this->speechbox.initGlyph();
+
   this->roomTexture =
       SDL_CreateTexture(this->renderer, SDL_PIXELFORMAT_RGBA8888,
                         SDL_TEXTUREACCESS_TARGET, SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -154,6 +159,22 @@ void GameView::displayGame(Actor* actor) {
 void GameView::drawPauseMenu(void) {
   clearScreen();
   SDL_RenderCopy(renderer, pauseMenu.returnTexture(), NULL, NULL);
+}
+
+void GameView::drawDialog(const char* text) {
+  SDL_Texture* dialogView = SDL_CreateTexture(
+      this->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,
+      dialogBoxSize.x + 5, dialogBoxSize.y + 5);
+
+  // draw the box and text in a seperate texture;
+  SDL_SetRenderTarget(renderer, dialogView);
+  SDL_SetTextureBlendMode(dialogView, SDL_BLENDMODE_BLEND);
+  SDL_SetRenderDrawColor(renderer, 128, 128, 128, 255);
+  this->speechbox.drawDialogBox();
+  this->speechbox.drawText(text, 15, 15, dialogBoxSize.x - 15);
+  SDL_SetRenderTarget(renderer, NULL);
+
+  SDL_RenderCopy(renderer, dialogView, NULL, &speechbox.dialogBoxRect);
 }
 
 void GameView::clearScreen(void) {
