@@ -24,12 +24,16 @@ class GameView {
   void drawStartScreen(SDL_Renderer *renderer);
   void displayGame(Actor *actor);
   void drawUI();
-  void drawRoom(Room r);
+  void drawRoom(Room *r);
+
+  void drawEntities(Room *r);
+
   void drawActor(Vec2d position, Vec2d size, direction direction);
   void drawDoor();
   void drawPauseMenu(void);
 
   void drawInventory(int k);
+  void displayTime(std::string s);
   void roomToPosition(void);
   void presentScreen(void);
   void clearScreen(void);
@@ -45,6 +49,7 @@ class GameView {
   Rooms currentRoom;
   SDL_Texture *roomTexture;
   SDL_Rect roomDest;
+  TTF_Font *clockFont;
 };
 
 #endif /* _GAMEVIEW_H_ */
