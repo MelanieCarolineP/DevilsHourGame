@@ -73,6 +73,8 @@ int main(int argc, char** argv) {
   bool start = false;
   bool eventHappened = false;
 
+  int inactivityCount = 0;
+
   GameView gameView(renderer);
   EventManager eventManager(&gameView);
   SDL_Event e;
@@ -96,6 +98,8 @@ int main(int argc, char** argv) {
 
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
+      inactivityCount = 0;
+
       // gameView.clearScreen();
 
       // gameView.drawUI();
@@ -119,7 +123,8 @@ int main(int argc, char** argv) {
     }
 
     if (!eventHappened) {
-      SDL_PushEvent(&no_event);
+      inactivityCount++;
+      if (inactivityCount == 500) SDL_PushEvent(&no_event);
     }
   }
   // Gets end time of the loop

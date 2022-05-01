@@ -40,12 +40,13 @@ class GameView {
   void clearScreen(void);
 
  private:
-  /* helper function for drawInventory() */
-
   SDL_Renderer *renderer;
   SpriteSheet sprite;
+
   SpeechBox speechbox;
   PauseMenu pauseMenu;
+
+  TTF_Font *clockFont;
 
   SDL_Rect rect;
   SDL_Rect roomDest;
@@ -55,9 +56,8 @@ class GameView {
   Room *currentR;
   Rooms currentRoom;
 
+  /* helper function for drawInventory() */
   void drawItem();
-
-  TTF_Font *clockFont;
 };
 
 #endif /* _GAMEVIEW_H_ */
