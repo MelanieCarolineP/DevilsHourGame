@@ -17,27 +17,34 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
                                 bool* running, SDL_Renderer* renderer) {
   if (event->type == SDL_QUIT) {
     exitEvent(event, time, running);
+
   } else if (event->type == SDL_KEYDOWN) {
     if (isPaused == false && isDialog == false) {
       switch (event->key.keysym.sym) {
         case SDLK_w:
           playerMovement(deltaTime, direction::UP, renderer);
           break;
+
         case SDLK_a:
           playerMovement(deltaTime, direction::LEFT, renderer);
           break;
+
         case SDLK_s:
           playerMovement(deltaTime, direction::DOWN, renderer);
           break;
+
         case SDLK_d:
           playerMovement(deltaTime, direction::RIGHT, renderer);
           break;
+
         case SDLK_e:
           playerInteraction(event, deltaTime);
           break;
+
         case SDLK_i:
           inventoryChange();
           break;
+
         case SDLK_z:
           std::cout << "dialog";
           isDialog = true;
@@ -81,28 +88,48 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
       }
 
     } else if (isPaused) {
-      switch (event->key.keysym.sym) {
-        case SDLK_q:
-          exitEvent(event, time, running);
-          break;
-        case SDLK_r:
-          returnToGame();
-          break;
-        case SDLK_ESCAPE:
-          returnToGame();
-          break;
-      }
+      handlePausedEvent(event, deltaTime, time, running, renderer);
     } else {
-      switch (event->key.keysym.sym) {
-        case SDLK_e:
-          isDialog = false;
-
-          displayGame();
-          break;
-      }
+      handleDialogEvent(event, deltaTime, time, running, renderer);
     }
+
+  } else if (isPaused == false && isDialog == false) {
+    displayGame();
+  } else if (isDialog) {
+    displayDialog();
   }
 }
+
+void EventManager::handlePausedEvent(SDL_Event* event, float deltaTime,
+                                     float time, bool* running,
+                                     SDL_Renderer* renderer) {
+  switch (event->key.keysym.sym) {
+    case SDLK_q:
+      exitEvent(event, time, running);
+      break;
+    case SDLK_r:
+      returnToGame();
+      break;
+    case SDLK_ESCAPE:
+      returnToGame();
+      break;
+  }
+}
+
+void EventManager::handleDialogEvent(SDL_Event* event, float deltaTime,
+                                     float time, bool* running,
+                                     SDL_Renderer* renderer) {
+  switch (event->key.keysym.sym) {
+    case SDLK_e:
+      isDialog = false;
+      displayGame();
+      break;
+  }
+  if (isDialog) {
+    displayDialog();
+  }
+}
+
 /* Moves and draws the main character on the screen */
 void EventManager::playerMovement(float deltaTime, direction direction,
                                   SDL_Renderer* renderer) {
@@ -137,9 +164,8 @@ void EventManager::startGame(void) {
   // gameView->drawUI();
   // gameView->drawInventory(curItem + 1);
   // gameView->drawRoom(curRoom);
-  // gameView->drawActor(mainActor.position, mainActor.size, direction::RIGHT);
-  // gameView->roomToPosition();
-  // gameView->presentScreen();
+  // gameView->drawActor(mainActor.position, mainActor.size,
+  // direction::RIGHT); gameView->roomToPosition(); gameView->presentScreen();
   displayGame();
 }
 
@@ -211,15 +237,18 @@ void EventManager::displayGame() {
 
 void EventManager::displayDialog(void) {
   gameView->clearScreen();
-  gameView->clearScreen();
+  gameView->displayTime(clock.getCurTime());
   gameView->drawUI();
   gameView->drawInventory(curItem + 1);
   gameView->drawRoom(&this->curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
   gameView->roomToPosition();
+
   gameView->drawDialog(
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin "
-      "fringilla libero id lobortis malesuada. In auctor eu ante at efficitur. "
+      "fringilla libero id lobortis malesuada. In auctor eu ante at "
+      "efficitur."
+
       "Etiam facilisis nec odio nec commodo. Aliquam at metus ac orci "
       "fringilla mollis ac a leo. Sed justo ex, lacinia facilisis ante id, "
       "posuere elementum mauris. Suspendisse potenti. Curabitur sit amet "
@@ -227,7 +256,8 @@ void EventManager::displayDialog(void) {
       "pulvinar ut. Curabitur lorem metus, facilisis sed dolor non, pretium "
       "bibendum purus. Pellentesque mollis vel magna sit amet consectetur. "
       "Curabitur elit lectus, imperdiet eu aliquet a, elementum in tellus. "
-      "Fusce faucibus, nibh at sodales facilisis, nulla urna malesuada massa, "
+      "Fusce faucibus, nibh at sodales facilisis, nulla urna malesuada "
+      "massa, "
       "vitae sollicitudin sem mi vitae sem. Suspendisse potenti.");
   gameView->presentScreen();
 }

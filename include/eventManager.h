@@ -33,6 +33,12 @@ class EventManager {
   void displayGame(void);
   void displayDialog(void);
 
+  void handlePausedEvent(SDL_Event* event, float deltaTime, float time,
+                         bool* running, SDL_Renderer* renderer);
+
+  void handleDialogEvent(SDL_Event* event, float deltaTime, float time,
+                         bool* running, SDL_Renderer* renderer);
+
   void exitEvent(SDL_Event* event, float time, bool* running);
 
   int curItem = 0;

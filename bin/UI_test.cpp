@@ -71,6 +71,7 @@ int main(int argc, char** argv) {
   /*** Main Loop ***/
   bool running = true;
   bool start = false;
+  bool eventHappened = false;
 
   GameView gameView(renderer);
   EventManager eventManager(&gameView);
@@ -82,12 +83,16 @@ int main(int argc, char** argv) {
   Uint16 current_time = 0;
   eventManager.startGame();
 
-  SDL_RenderClear(renderer);
+  // create the update time event
+  Uint32 updateClockevent = SDL_RegisterEvents(1);
+  SDL_Event no_event;
+  no_event.type = updateClockevent;
 
   // While application is running
   while (running) {
     // loop start time
     startTime = SDL_GetTicks();
+    eventHappened = false;
 
     // Handle events on queue
     while (SDL_PollEvent(&e) != 0) {
@@ -100,6 +105,7 @@ int main(int argc, char** argv) {
       //  eventManager.mainActor.size, eventManager.curDir);
 
       eventManager.handle_event(&e, deltaTime, startTime, &running, renderer);
+      eventHappened = true;
 
       // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
       // SDL_RenderClear(renderer);
@@ -110,6 +116,10 @@ int main(int argc, char** argv) {
 
       endTime = SDL_GetTicks();
       deltaTime = (endTime - startTime) / 1.0f;
+    }
+
+    if (!eventHappened) {
+      SDL_PushEvent(&no_event);
     }
   }
   // Gets end time of the loop
