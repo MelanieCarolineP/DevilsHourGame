@@ -86,7 +86,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
         }
 
         if (!isPaused && !isDialog) {
-          std::cout << "display_game";
+          // std::cout << "display_game" << std::endl;
           displayGame();
           // clock.update(deltaTime);
         }
@@ -176,7 +176,9 @@ void EventManager::startGame(void) {
   // gameView->drawRoom(curRoom);
   // gameView->drawActor(mainActor.position, mainActor.size,
   // direction::RIGHT); gameView->roomToPosition(); gameView->presentScreen();
-  displayGame();
+
+  // displayGame();
+  startScreen();
 }
 
 void EventManager::roomChange(SDL_Event* event, float time) {
