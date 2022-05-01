@@ -93,11 +93,24 @@ int Room::generateEntityList(std::string& f) {
   }
   int width;
   pElement->QueryIntText(&width);
+
   pElement = pRoot->FirstChildElement("height");
   int height;
   pElement->QueryIntText(&height);
 
   this->size = Vec2d(width, height);
+
+  pElement = pRoot->FirstChildElement("boundX");
+  pElement->QueryIntText(&boundX);
+
+  pElement = pRoot->FirstChildElement("boundY");
+  pElement->QueryIntText(&boundY);
+
+  pElement = pRoot->FirstChildElement("boundW");
+  pElement->QueryIntText(&boundW);
+
+  pElement = pRoot->FirstChildElement("boundH");
+  pElement->QueryIntText(&boundW);
 
   // Get the entity list
   XMLElement* pListElement = pRoot->FirstChildElement("entity");

@@ -21,6 +21,10 @@ class Room : public Entity {
   /* Members */
   Rooms type;
   Vec2d size;
+  int boundX = 0;
+  int boundY = 0;
+  int boundW = 1024;
+  int boundH = 768;
   std::vector<Entity> entityList;
 
   /* Get entity list from xml file */
