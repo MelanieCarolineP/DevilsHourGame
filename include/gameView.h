@@ -56,8 +56,7 @@ class GameView {
   Rooms currentRoom;
 
   void drawItem();
-  SDL_Texture *roomTexture;
-  SDL_Rect roomDest;
+
   TTF_Font *clockFont;
 };
 
