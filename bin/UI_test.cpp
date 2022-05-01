@@ -48,6 +48,7 @@ int main(int argc, char** argv) {
 
   // Initialize SDL
   if (SDL_Init(SDL_INIT_VIDEO) < 0) csci437_error("SDL could not initialize!");
+  TTF_Init();
 
   // Create window
   SDL_Window* window =
@@ -126,6 +127,7 @@ int main(int argc, char** argv) {
   SDL_DestroyWindow(window);
 
   // Quit SDL subsystems
+  TTF_Quit();
   IMG_Quit();
   SDL_Quit();
 

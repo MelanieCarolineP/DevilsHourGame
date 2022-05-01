@@ -38,11 +38,37 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
         case SDLK_i:
           inventoryChange();
           break;
-        case SDLK_t:
+        case SDLK_z:
           std::cout << "dialog";
           isDialog = true;
           displayDialog();
           break;
+
+        // DEBUG
+        case SDLK_h:
+          curRoom = Room(Rooms::bedroom);
+          currRoomName = Rooms::bedroom;
+          gameView->drawRoom(&curRoom);
+          break;
+        case SDLK_j:
+          curRoom = Room(Rooms::kitchen);
+          currRoomName = Rooms::kitchen;
+          gameView->drawRoom(&curRoom);
+          break;
+        case SDLK_k:
+          curRoom = Room(Rooms::bathroom);
+          currRoomName = Rooms::bathroom;
+          gameView->drawRoom(&curRoom);
+          break;
+        case SDLK_l:
+          curRoom = Room(Rooms::foyer);
+          currRoomName = Rooms::foyer;
+          gameView->drawRoom(&curRoom);
+          break;
+        case SDLK_t:
+          showEntity = !showEntity;
+          break;
+
         case SDLK_ESCAPE:
           pauseGame(time);
           break;
@@ -51,6 +77,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
       if (!isPaused && !isDialog) {
         std::cout << "display_game";
         displayGame();
+        // clock.update(deltaTime);
       }
 
     } else if (isPaused) {
@@ -105,13 +132,15 @@ void EventManager::pauseGame(float time) {
 void EventManager::startGame(void) {
   // Room foyer = Room();
   this->curRoom = Room(Rooms::bedroom);
-  gameView->clearScreen();
-  gameView->drawUI();
-  gameView->drawInventory(curItem + 1);
-  gameView->drawRoom(curRoom);
-  gameView->drawActor(mainActor.position, mainActor.size, direction::RIGHT);
-  gameView->roomToPosition();
-  gameView->presentScreen();
+  clock.start();
+  // gameView->clearScreen();
+  // gameView->drawUI();
+  // gameView->drawInventory(curItem + 1);
+  // gameView->drawRoom(curRoom);
+  // gameView->drawActor(mainActor.position, mainActor.size, direction::RIGHT);
+  // gameView->roomToPosition();
+  // gameView->presentScreen();
+  displayGame();
 }
 
 void EventManager::roomChange(SDL_Event* event, float time) {
@@ -121,22 +150,22 @@ void EventManager::roomChange(SDL_Event* event, float time) {
       case SDLK_h:
         curRoom = Room(Rooms::bedroom);
         currRoomName = Rooms::bedroom;
-        gameView->drawRoom(curRoom);
+        gameView->drawRoom(&curRoom);
         break;
       case SDLK_j:
         curRoom = Room(Rooms::kitchen);
         currRoomName = Rooms::kitchen;
-        gameView->drawRoom(curRoom);
+        gameView->drawRoom(&curRoom);
         break;
       case SDLK_k:
         curRoom = Room(Rooms::bathroom);
         currRoomName = Rooms::bathroom;
-        gameView->drawRoom(curRoom);
+        gameView->drawRoom(&curRoom);
         break;
       case SDLK_l:
         curRoom = Room(Rooms::foyer);
         currRoomName = Rooms::foyer;
-        gameView->drawRoom(curRoom);
+        gameView->drawRoom(&curRoom);
         break;
     }
   }
@@ -144,13 +173,14 @@ void EventManager::roomChange(SDL_Event* event, float time) {
 void EventManager::returnToGame(void) {
   isPaused = false;
   std::cout << "resume game" << std::endl;
-  gameView->clearScreen();
-  gameView->drawUI();
-  gameView->drawInventory(curItem + 1);
-  gameView->drawRoom(this->curRoom);
-  gameView->drawActor(mainActor.position, mainActor.size, curDir);
-  gameView->roomToPosition();
-  gameView->presentScreen();
+  // gameView->clearScreen();
+  // gameView->drawUI();
+  // gameView->drawInventory(curItem + 1);
+  // gameView->drawRoom(this->curRoom);
+  // gameView->drawActor(mainActor.position, mainActor.size, curDir);
+  // gameView->roomToPosition();
+  // gameView->presentScreen();
+  displayGame();
 }
 
 void EventManager::demonMovement(SDL_Event* event, float deltaTime) {
@@ -168,11 +198,14 @@ void EventManager::exitEvent(SDL_Event* event, float time, bool* running) {
 
 void EventManager::displayGame() {
   gameView->clearScreen();
+  gameView->displayTime(clock.getCurTime());
   gameView->drawUI();
   gameView->drawInventory(curItem + 1);
-  gameView->drawRoom(this->curRoom);
+  gameView->drawRoom(&curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
   gameView->roomToPosition();
+  // debug
+  if (showEntity) gameView->drawEntities(&curRoom);
   gameView->presentScreen();
 }
 
@@ -181,7 +214,7 @@ void EventManager::displayDialog(void) {
   gameView->clearScreen();
   gameView->drawUI();
   gameView->drawInventory(curItem + 1);
-  gameView->drawRoom(this->curRoom);
+  gameView->drawRoom(&this->curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
   gameView->roomToPosition();
   gameView->drawDialog(

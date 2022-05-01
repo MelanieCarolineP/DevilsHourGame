@@ -15,6 +15,9 @@ GameView::GameView(SDL_Renderer* renderer) {
   this->roomDest.y = 15;
   this->roomDest.w = 1024;
   this->roomDest.h = 768;
+
+  this->clockFont = TTF_OpenFont("../resource/fonts/digital-7.ttf", 24);
+  if (!clockFont) std::cout << "Font not loaded" << std::endl;
 }
 
 /* Method will animate the movements of the two actor types */
@@ -93,7 +96,6 @@ void GameView::drawInventory(int k) {
   dstR.w = 300;
   dstR.h = 600;
 
-  // draw UI
   SDL_RenderCopy(renderer, ivTx, NULL, &dstR);
   // SDL_RenderPresent(renderer);
 }
@@ -104,9 +106,9 @@ void GameView::drawInventory(int k) {
  * @param renderer
  * @param r : current room
  */
-void GameView::drawRoom(Room r) {
+void GameView::drawRoom(Room* r) {
   SDL_Surface* loadingSurf;
-  switch (r.type) {
+  switch (r->type) {
     case Rooms::bedroom:
       loadingSurf = IMG_Load("../resource/rooms/bedroom-pixel.png");
       // std::cout << "Loaded bedroom image" << std::endl;
@@ -120,7 +122,7 @@ void GameView::drawRoom(Room r) {
       // std::cout << "Loaded bathroom image" << std::endl;
       break;
     case Rooms::foyer:
-      loadingSurf = IMG_Load("../resource/rooms/FFoyerRoom.png");
+      loadingSurf = IMG_Load("../resource/rooms/foyer-pixel.png");
       // std::cout << "Loaded bathroom image" << std::endl;
       break;
 
@@ -183,3 +185,38 @@ void GameView::clearScreen(void) {
 }
 
 void GameView::presentScreen(void) { SDL_RenderPresent(renderer); }
+
+void GameView::displayTime(std::string time) {
+  // std::cout << time << std::endl;
+  SDL_Color red = {255, 0, 0};
+  SDL_Surface* loadingSurf = TTF_RenderText_Solid(clockFont, time.c_str(), red);
+  if (!loadingSurf) std::cout << "Font surface not initialized" << std::endl;
+  SDL_Texture* timeTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
+  if (!timeTx) std::cout << "Time texture not initialized" << std::endl;
+  SDL_FreeSurface(loadingSurf);
+  SDL_Rect dstRect = {30, 40, 240, 120};
+  SDL_RenderCopy(renderer, timeTx, NULL, &dstRect);
+  // presentScreen();
+}
+
+/**
+ * @brief Helper function. Draw entities on the screen.
+ *
+ * @param r
+ */
+void GameView::drawEntities(Room* r) {
+  // for each entity in the entity list
+  for (int i = 0; i < r->entityList.size(); ++i) {
+    Entity* e = &(r->entityList[i]);
+    SDL_Rect rect;
+    rect.x = 335 + int(e->position.x / r->size.x * 1024);
+    rect.y = 15 + int(e->position.y / r->size.y * 768);
+    rect.w = int(e->size.x / r->size.x * 1024);
+    rect.h = int(e->size.y / r->size.y * 768);
+    if (e->isEntity)
+      SDL_SetRenderDrawColor(renderer, 255, 0, 0, 130);
+    else
+      SDL_SetRenderDrawColor(renderer, 0, 255, 0, 130);
+    SDL_RenderFillRect(renderer, &rect);
+  }
+}

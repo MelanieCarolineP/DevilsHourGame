@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "actor.h"
+#include "clock.h"
 #include "enum.h"
 #include "gameView.h"
 #include "room.h"
@@ -37,6 +38,7 @@ class EventManager {
   int curItem = 0;
   bool isPaused = false;
   bool isDialog = false;
+  bool showEntity = false;
 
   GameView* gameView;
   Actor mainActor;
@@ -44,6 +46,7 @@ class EventManager {
   Room curRoom;
   StateMonitor stateMonitor;
   Rooms currRoomName;
+  Clock clock;
 };
 
 #endif
