@@ -38,6 +38,29 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
         case SDLK_i:
           inventoryChange();
           break;
+
+        // DEBUG
+        case SDLK_h:
+          curRoom = Room(Rooms::bedroom);
+          currRoomName = Rooms::bedroom;
+          gameView->drawRoom(&curRoom);
+          break;
+        case SDLK_j:
+          curRoom = Room(Rooms::kitchen);
+          currRoomName = Rooms::kitchen;
+          gameView->drawRoom(&curRoom);
+          break;
+        case SDLK_k:
+          curRoom = Room(Rooms::bathroom);
+          currRoomName = Rooms::bathroom;
+          gameView->drawRoom(&curRoom);
+          break;
+        case SDLK_l:
+          curRoom = Room(Rooms::foyer);
+          currRoomName = Rooms::foyer;
+          gameView->drawRoom(&curRoom);
+          break;
+
         case SDLK_ESCAPE:
           pauseGame(time);
           break;

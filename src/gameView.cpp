@@ -117,7 +117,7 @@ void GameView::drawRoom(Room* r) {
       // std::cout << "Loaded bathroom image" << std::endl;
       break;
     case Rooms::foyer:
-      loadingSurf = IMG_Load("../resource/rooms/FFoyerRoom.png");
+      loadingSurf = IMG_Load("../resource/rooms/foyer-pixel.png");
       // std::cout << "Loaded bathroom image" << std::endl;
       break;
 
@@ -178,4 +178,24 @@ void GameView::displayTime(std::string time) {
   // presentScreen();
 }
 
-void GameView::drawEntities(Room* R) {}
+/**
+ * @brief Helper function. Draw entities on the screen.
+ *
+ * @param r
+ */
+void GameView::drawEntities(Room* r) {
+  // for each entity in the entity list
+  for (int i = 0; i < r->entityList.size(); ++i) {
+    Entity* e = &(r->entityList[i]);
+    SDL_Rect rect;
+    rect.x = int(e->position.x);
+    rect.y = int(e->position.y);
+    rect.w = int(e->size.x);
+    rect.h = int(e->size.y);
+    if (e->isEntity)
+      SDL_SetRenderDrawColor(renderer, 255, 0, 0, 130);
+    else
+      SDL_SetRenderDrawColor(renderer, 0, 255, 0, 130);
+    SDL_RenderFillRect(renderer, &rect);
+  }
+}

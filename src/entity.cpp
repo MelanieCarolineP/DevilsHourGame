@@ -17,8 +17,8 @@ Entity::Entity() {
   this->name = name;
   this->isEntity = isEntity;
 }
-Entity ::Entity(float x, float y, float w, float h, std::string name,
-                bool isEntity) {
+Entity::Entity(float x, float y, float w, float h, std::string name,
+               bool isEntity) {
   Vec2d location = Vec2d(x, y);
   Vec2d size = Vec2d(w, h);
   this->position = location;
