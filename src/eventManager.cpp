@@ -106,22 +106,22 @@ void EventManager::roomChange(SDL_Event* event, float time) {
       case SDLK_h:
         curRoom = Room(Rooms::bedroom);
         currRoomName = Rooms::bedroom;
-        gameView->drawRoom(curRoom);
+        gameView->drawRoom(&curRoom);
         break;
       case SDLK_j:
         curRoom = Room(Rooms::kitchen);
         currRoomName = Rooms::kitchen;
-        gameView->drawRoom(curRoom);
+        gameView->drawRoom(&curRoom);
         break;
       case SDLK_k:
         curRoom = Room(Rooms::bathroom);
         currRoomName = Rooms::bathroom;
-        gameView->drawRoom(curRoom);
+        gameView->drawRoom(&curRoom);
         break;
       case SDLK_l:
         curRoom = Room(Rooms::foyer);
         currRoomName = Rooms::foyer;
-        gameView->drawRoom(curRoom);
+        gameView->drawRoom(&curRoom);
         break;
     }
   }
@@ -157,7 +157,7 @@ void EventManager::displayGame() {
   gameView->displayTime(clock.getCurTime());
   gameView->drawUI();
   gameView->drawInventory(curItem + 1);
-  gameView->drawRoom(this->curRoom);
+  gameView->drawRoom(&curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
   gameView->roomToPosition();
   gameView->presentScreen();

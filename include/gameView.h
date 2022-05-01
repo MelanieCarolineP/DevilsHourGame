@@ -24,7 +24,10 @@ class GameView {
   void drawStartScreen(SDL_Renderer *renderer);
   void displayGame(Actor *actor);
   void drawUI();
-  void drawRoom(Room r);
+  void drawRoom(Room *r);
+
+  void drawEntities(Room *r);
+
   void drawActor(Vec2d position, Vec2d size, direction direction);
   void drawDoor();
   void drawPauseMenu(void);

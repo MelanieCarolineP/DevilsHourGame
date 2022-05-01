@@ -101,9 +101,9 @@ void GameView::drawInventory(int k) {
  * @param renderer
  * @param r : current room
  */
-void GameView::drawRoom(Room r) {
+void GameView::drawRoom(Room* r) {
   SDL_Surface* loadingSurf;
-  switch (r.type) {
+  switch (r->type) {
     case Rooms::bedroom:
       loadingSurf = IMG_Load("../resource/rooms/bedroom-pixel.png");
       // std::cout << "Loaded bedroom image" << std::endl;
@@ -177,3 +177,5 @@ void GameView::displayTime(std::string time) {
   SDL_RenderCopy(renderer, timeTx, NULL, &dstRect);
   // presentScreen();
 }
+
+void GameView::drawEntities(Room* R) {}
