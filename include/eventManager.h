@@ -19,6 +19,7 @@ class EventManager {
   /* constructor */
   EventManager() { this->curRoom.getEntities(Rooms::bedroom); }
   EventManager(GameView* gameView);
+  void startScreen(void);
   void startGame(void);
   void handle_event(SDL_Event* event, float deltaTime, float time,
                     bool* running, SDL_Renderer* renderer);
@@ -42,6 +43,7 @@ class EventManager {
   void exitEvent(SDL_Event* event, float time, bool* running);
 
   int curItem = 0;
+  bool gameStarted = false;
   bool isPaused = false;
   bool isDialog = false;
   bool showEntity = false;

@@ -19,8 +19,22 @@ GameView::GameView(SDL_Renderer* renderer) {
   this->clockFont = TTF_OpenFont("../resource/fonts/digital-7.ttf", 24);
   if (!clockFont) std::cout << "Font not loaded" << std::endl;
 }
-
-/* Method will animate the movements of the two actor types */
+void GameView::drawStartScreen(void) {
+  sprite.storeImage("../resource/titleScreen.png", 1, 1);
+  rect.x = 0;
+  rect.y = 0;
+  rect.w = SCREEN_WIDTH;
+  rect.h = SCREEN_HEIGHT;
+  sprite.selectSprite(0, 0);
+  sprite.drawSprite(renderer, &rect);
+}
+/**
+ * @brief draws actor on screen given a direction it is facing
+ *
+ * @param position: 2D vector holding x & y coordinates
+ * @param size: 2D vector holding width and height
+ * @param direction
+ */
 void GameView::drawActor(Vec2d position, Vec2d size,
                          direction direction) {  // vec2D position
   sprite.storeImage("../resource/mainActorSprite.png", 4, 4);
@@ -48,10 +62,6 @@ void GameView::drawActor(Vec2d position, Vec2d size,
   sprite.drawSprite(renderer, &rect);
   SDL_SetRenderTarget(renderer, NULL);
 }
-// Given a sprite sheet reference, it will draw for us, we delegate which one
-// to use We will animate in this class
-// given delta time divide this by 2 to animate the movement (two frame
-// changes within the delta time)
 
 /**
  * @brief Draw the UI of the game
