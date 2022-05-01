@@ -17,86 +17,90 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
                                 bool* running, SDL_Renderer* renderer) {
   if (event->type == SDL_QUIT) {
     exitEvent(event, time, running);
+  }
+  if (event->key.keysym.sym == SDLK_x && !gameStarted) {
+    startGame();
+    gameStarted = true;
+  } else if (gameStarted) {
+    if (event->type == SDL_KEYDOWN) {
+      if (isPaused == false && isDialog == false) {
+        switch (event->key.keysym.sym) {
+          case SDLK_w:
+            playerMovement(deltaTime, direction::UP, renderer);
+            break;
 
-  } else if (event->type == SDL_KEYDOWN) {
-    if (isPaused == false && isDialog == false) {
-      switch (event->key.keysym.sym) {
-        case SDLK_w:
-          playerMovement(deltaTime, direction::UP, renderer);
-          break;
+          case SDLK_a:
+            playerMovement(deltaTime, direction::LEFT, renderer);
+            break;
 
-        case SDLK_a:
-          playerMovement(deltaTime, direction::LEFT, renderer);
-          break;
+          case SDLK_s:
+            playerMovement(deltaTime, direction::DOWN, renderer);
+            break;
 
-        case SDLK_s:
-          playerMovement(deltaTime, direction::DOWN, renderer);
-          break;
+          case SDLK_d:
+            playerMovement(deltaTime, direction::RIGHT, renderer);
+            break;
 
-        case SDLK_d:
-          playerMovement(deltaTime, direction::RIGHT, renderer);
-          break;
+          case SDLK_e:
+            playerInteraction(event, deltaTime);
+            break;
 
-        case SDLK_e:
-          playerInteraction(event, deltaTime);
-          break;
+          case SDLK_i:
+            inventoryChange();
+            break;
 
-        case SDLK_i:
-          inventoryChange();
-          break;
+          case SDLK_z:
+            std::cout << "dialog";
+            isDialog = true;
+            displayDialog();
+            break;
 
-        case SDLK_z:
-          std::cout << "dialog";
-          isDialog = true;
-          displayDialog();
-          break;
+          // DEBUG
+          case SDLK_h:
+            curRoom = Room(Rooms::bedroom);
+            currRoomName = Rooms::bedroom;
+            gameView->drawRoom(&curRoom);
+            break;
+          case SDLK_j:
+            curRoom = Room(Rooms::kitchen);
+            currRoomName = Rooms::kitchen;
+            gameView->drawRoom(&curRoom);
+            break;
+          case SDLK_k:
+            curRoom = Room(Rooms::bathroom);
+            currRoomName = Rooms::bathroom;
+            gameView->drawRoom(&curRoom);
+            break;
+          case SDLK_l:
+            curRoom = Room(Rooms::foyer);
+            currRoomName = Rooms::foyer;
+            gameView->drawRoom(&curRoom);
+            break;
+          case SDLK_t:
+            showEntity = !showEntity;
+            break;
 
-        // DEBUG
-        case SDLK_h:
-          curRoom = Room(Rooms::bedroom);
-          currRoomName = Rooms::bedroom;
-          gameView->drawRoom(&curRoom);
-          break;
-        case SDLK_j:
-          curRoom = Room(Rooms::kitchen);
-          currRoomName = Rooms::kitchen;
-          gameView->drawRoom(&curRoom);
-          break;
-        case SDLK_k:
-          curRoom = Room(Rooms::bathroom);
-          currRoomName = Rooms::bathroom;
-          gameView->drawRoom(&curRoom);
-          break;
-        case SDLK_l:
-          curRoom = Room(Rooms::foyer);
-          currRoomName = Rooms::foyer;
-          gameView->drawRoom(&curRoom);
-          break;
-        case SDLK_t:
-          showEntity = !showEntity;
-          break;
+          case SDLK_ESCAPE:
+            pauseGame(time);
+            break;
+        }
 
-        case SDLK_ESCAPE:
-          pauseGame(time);
-          break;
+        if (!isPaused && !isDialog) {
+          std::cout << "display_game";
+          displayGame();
+          // clock.update(deltaTime);
+        }
+
+      } else if (isPaused) {
+        handlePausedEvent(event, deltaTime, time, running, renderer);
+      } else {
+        handleDialogEvent(event, deltaTime, time, running, renderer);
       }
-
-      if (!isPaused && !isDialog) {
-        std::cout << "display_game";
-        displayGame();
-        // clock.update(deltaTime);
-      }
-
-    } else if (isPaused) {
-      handlePausedEvent(event, deltaTime, time, running, renderer);
-    } else {
-      handleDialogEvent(event, deltaTime, time, running, renderer);
+    } else if (isPaused == false && isDialog == false) {
+      displayGame();
+    } else if (isDialog) {
+      displayDialog();
     }
-
-  } else if (isPaused == false && isDialog == false) {
-    displayGame();
-  } else if (isDialog) {
-    displayDialog();
   }
 }
 
@@ -156,6 +160,12 @@ void EventManager::pauseGame(float time) {
   gameView->drawPauseMenu();
   gameView->presentScreen();
 }
+
+void EventManager::startScreen(void) {
+  gameView->drawStartScreen();
+  gameView->presentScreen();
+}
+
 void EventManager::startGame(void) {
   // Room foyer = Room();
   this->curRoom = Room(Rooms::bedroom);

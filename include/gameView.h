@@ -22,7 +22,7 @@ class GameView {
   GameView(SDL_Renderer *renderer);
 
   /* methods to draw element */
-  void drawStartScreen(SDL_Renderer *renderer);
+  void drawStartScreen();
   void displayGame(Actor *actor);
   void drawUI();
   void drawRoom(Room *r);
