@@ -6,7 +6,6 @@
 
 class Inventory {
   std::vector<std::string> items; /**< holds the items */
-  int currentPosition;
 
  public:
   Inventory();
@@ -20,6 +19,7 @@ class Inventory {
   void addItem(std::string itemName); /**< adds a given item to the inventory*/
   void removeItem(); /**< removes the item at the current position*/
 
+  int currentPosition;
   /**
    * @brief Construct a new Inventory object
    *

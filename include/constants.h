@@ -3,6 +3,8 @@
 
 #include <SDL.h>
 
+#include <vector>
+
 #include "vec2d.h"
 
 enum class Rooms { bedroom, bathroom, kitchen, foyer };

@@ -22,6 +22,6 @@ std::string Clock::getCurTime() {
   if (minute < 10) s += "0";
   s += std::to_string(minute);
   if (minute == 60) s = "03:00";
-  std::cout << s << std::endl;
+  // std::cout << s << std::endl;
   return s;
 }

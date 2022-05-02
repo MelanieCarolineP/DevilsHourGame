@@ -6,6 +6,12 @@ int main() {
   Room r(Rooms::bathroom);
   // std::cout << r.entityList.size() << std::endl;
   int n = r.entityList.size();
+  std::cout << r.boundX << std::endl;
+  std::cout << r.boundY << std::endl;
+  std::cout << r.boundW << std::endl;
+  std::cout << r.boundH << std::endl;
+  std::cout << r.bornX << std::endl;
+  std::cout << r.bornY << std::endl;
   for (int i = 0; i < n; ++i) {
     std::cout << r.entityList[i].name << std::endl;
     std::cout << r.entityList[i].position.x << std::endl;

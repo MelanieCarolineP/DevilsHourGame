@@ -7,6 +7,7 @@
 #include "actor.h"
 #include "constants.h"
 #include "enum.h"
+#include "inventory.h"
 #include "pauseMenu.h"
 #include "room.h"
 #include "speechBox.h"
@@ -22,7 +23,7 @@ class GameView {
   GameView(SDL_Renderer *renderer);
 
   /* methods to draw element */
-  void drawStartScreen(SDL_Renderer *renderer);
+  void drawStartScreen();
   void displayGame(Actor *actor);
   void drawUI();
   void drawRoom(Room *r);
@@ -34,6 +35,7 @@ class GameView {
   void drawPauseMenu(void);
   void drawDialog(const char *text, const char *name);
   void drawInventory(int k);
+  void drawItems(Inventory *inv);
   void displayTime(std::string s);
   void roomToPosition(void);
   void presentScreen(void);
@@ -58,6 +60,10 @@ class GameView {
 
   /* helper function for drawInventory() */
   void drawItem();
+
+  std::vector<std::pair<int, int>> itemPosition = {
+      {20, 220}, {170, 220}, {20, 370}, {170, 370},
+      {20, 520}, {170, 520}, {20, 670}, {170, 670}};
 };
 
 #endif /* _GAMEVIEW_H_ */
