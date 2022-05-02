@@ -27,7 +27,8 @@ class Actor : public Entity {
    * @brief returns entity most recently in contact with
    * @returns object in room
    */
-  Entity interact() { return entity; }
+  // Entity interact() { return entity; }
+  std::string interact(std::vector<Entity>& entityList);
 
   direction getDirection(void) { return curDir; }
 

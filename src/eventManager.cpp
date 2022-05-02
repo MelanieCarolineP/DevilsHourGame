@@ -46,7 +46,11 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
             break;
 
           case SDLK_e:
-            playerInteraction(event, deltaTime);
+            playerInteraction();
+            break;
+
+          case SDLK_SPACE:
+            playerInteraction();
             break;
 
           case SDLK_i:
@@ -149,10 +153,11 @@ void EventManager::playerMovement(float deltaTime, direction direction,
   // gameView->presentScreen();
 }
 
-void EventManager::playerInteraction(SDL_Event* event, float deltaTime) {
+void EventManager::playerInteraction() {
   // interact returns entity only if character is colliding with an object
-  if (mainActor.collision(curRoom.entityList)) mainActor.interact();
+  // if (mainActor.collision(curRoom.entityList)) mainActor.interact();
   // otherwise do nothing
+  std::cout << mainActor.interact(curRoom.entityList) << std::endl;
 }
 
 void EventManager::pauseGame(float time) {
