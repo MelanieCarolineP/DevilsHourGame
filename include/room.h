@@ -25,6 +25,8 @@ class Room : public Entity {
   int boundY = 0;
   int boundW = 1024;
   int boundH = 768;
+  int bornX = 0;
+  int bornY = 0;
   std::vector<Entity> entityList;
 
   /* Get entity list from xml file */

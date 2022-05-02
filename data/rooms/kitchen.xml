@@ -5,6 +5,12 @@
   <name>kitchen</name>
   <width>1080</width>
   <height>720</height>
+  <boundX>125</boundX>
+  <boundY>130</boundY>
+  <boundW>835</boundW>
+  <boundH>610</boundH>
+  <bornX>1080</bornX>
+  <bornY>560</bornY>
   <!-- entity list -->
   <entity>
     <name>cabinet</name>

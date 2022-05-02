@@ -112,6 +112,12 @@ int Room::generateEntityList(std::string& f) {
   pElement = pRoot->FirstChildElement("boundH");
   pElement->QueryIntText(&boundW);
 
+  pElement = pRoot->FirstChildElement("bornX");
+  pElement->QueryIntText(&bornX);
+
+  pElement = pRoot->FirstChildElement("bornY");
+  pElement->QueryIntText(&bornY);
+
   // Get the entity list
   XMLElement* pListElement = pRoot->FirstChildElement("entity");
   while (pListElement) {

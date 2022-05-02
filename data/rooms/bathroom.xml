@@ -9,6 +9,8 @@
   <boundY>130</boundY>
   <boundW>835</boundW>
   <boundH>610</boundH>
+  <bornX>260</bornX>
+  <bornY>600</bornY>
   <!-- entity list -->
   <entity>
     <name>shelf_left</name>
