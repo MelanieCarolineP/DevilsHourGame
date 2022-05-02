@@ -138,6 +138,7 @@ bool Actor::collideWith(direction d, Entity* e) {
   auto y2max = e->position.y + e->size.y;
 
   if (x1min <= x2max && x2min <= x1max && y1min <= y2max && y2min <= y1max) {
+    if (!e->isEntity) return true;
     switch (d) {
       case direction::UP:
         return x1min < x2max && x2min < x1max && y1max > y2max;
@@ -183,4 +184,15 @@ bool Actor::collisionDetection(direction d, std::vector<Entity>& entityList) {
     }
   }
   return false;
+}
+
+std::string Actor::interact(std::vector<Entity>& entityList) {
+  Entity* e;
+  for (int i = 0; i < entityList.size(); ++i) {
+    e = &entityList[i];
+    if (collideWith(this->curDir, e)) {
+      return e->name;
+    }
+  }
+  return "";
 }

@@ -25,7 +25,7 @@ class EventManager {
                     bool* running, SDL_Renderer* renderer);
   void playerMovement(float deltaTime, direction direction,
                       SDL_Renderer* renderer);
-  void playerInteraction(SDL_Event* event, float delaTime);
+  void playerInteraction();
   void pauseGame(float time);
   void roomChange(Rooms r);
   void demonMovement(SDL_Event* event, float deltaTime);
