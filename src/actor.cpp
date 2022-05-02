@@ -49,9 +49,6 @@ bool Actor::collision(const std::vector<Entity> entityList) {  // Entity
   int n = entityList.size();
   for (int i = 0; i < n; i++) {
     entity = entityList[i];
-    // if not entity, skip
-    if (!entity.isEntity) continue;
-
     // checking horizontally
     if ((entity.position.x <= (position.x + size.x)) &&
         (position.x <= (entity.position.x + entity.size.x)))
