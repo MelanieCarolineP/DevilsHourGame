@@ -90,4 +90,45 @@
     <y>720</y>
     <isEntity>0</isEntity>
   </entity>
-</room>Y
+
+  <!-- <entity>
+    <name>1</name>
+    <w>110</w>
+    <h>110</h>
+    <x>20</x>
+    <y>220</y>
+    <isEntity>0</isEntity>
+  </entity>
+  <entity>
+    <name>2</name>
+    <w>110</w>
+    <h>110</h>
+    <x>170</x>
+    <y>220</y>
+    <isEntity>0</isEntity>
+  </entity>
+  <entity>
+    <name>3</name>
+    <w>110</w>
+    <h>110</h>
+    <x>20</x>
+    <y>370</y>
+    <isEntity>0</isEntity>
+  </entity>
+  <entity>
+    <name>5</name>
+    <w>110</w>
+    <h>110</h>
+    <x>20</x>
+    <y>520</y>
+    <isEntity>0</isEntity>
+  </entity>
+  <entity>
+    <name>7</name>
+    <w>110</w>
+    <h>110</h>
+    <x>20</x>
+    <y>670</y>
+    <isEntity>0</isEntity>
+  </entity> -->
+</room>

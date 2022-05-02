@@ -223,10 +223,28 @@ void GameView::drawEntities(Room* r) {
     rect.y = 15 + int(e->position.y / r->size.y * 768);
     rect.w = int(e->size.x / r->size.x * 1024);
     rect.h = int(e->size.y / r->size.y * 768);
+    // rect.x = int(e->position.x);
+    // rect.y = int(e->position.y);
+    // rect.w = int(e->size.x);
+    // rect.h = int(e->size.y);
     if (e->isEntity)
       SDL_SetRenderDrawColor(renderer, 255, 0, 0, 130);
     else
       SDL_SetRenderDrawColor(renderer, 0, 255, 0, 130);
     SDL_RenderFillRect(renderer, &rect);
+  }
+}
+
+void GameView::drawItems(Inventory* inv) {
+  for (int i = 0; i < 8; ++i) {
+    std::string item = inv->getItemAtPos(i);
+    std::string dir = "../resource/items/" + item + ".png";
+    SDL_Surface* loadingSurf = IMG_Load(dir.c_str());
+    if (!loadingSurf) continue;
+    SDL_Texture* itemTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
+    SDL_FreeSurface(loadingSurf);
+    SDL_Rect dst = {itemPosition[i].first, itemPosition[i].second, 110, 110};
+    SDL_RenderCopy(renderer, itemTx, NULL, &dst);
+    SDL_DestroyTexture(itemTx);
   }
 }

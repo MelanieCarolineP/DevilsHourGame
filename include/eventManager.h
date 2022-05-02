@@ -55,6 +55,7 @@ class EventManager {
   StateMonitor stateMonitor;
   Rooms currRoomName;
   Clock clock;
+  Inventory inventory;
 };
 
 #endif

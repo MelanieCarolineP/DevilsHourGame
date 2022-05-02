@@ -3,6 +3,10 @@
 EventManager::EventManager(GameView* gameView) {
   this->curRoom.getEntities(Rooms::bathroom);
   this->gameView = gameView;
+  inventory.addItem("crowbar");
+  inventory.addItem("flashlight");
+  inventory.addItem("hairpin");
+  inventory.addItem("knife");
 }
 
 /**
@@ -225,9 +229,9 @@ void EventManager::demonMovement(SDL_Event* event, float deltaTime) {
   // std::cout << "Not implemented";
 }
 void EventManager::inventoryChange() {
-  // std::cout << "Not implemented";
-  curItem += 1;
-  curItem %= 8;
+  // curItem += 1;
+  // curItem %= 8;
+  inventory.changeSelectedItem();
 }
 
 void EventManager::exitEvent(SDL_Event* event, float time, bool* running) {
@@ -238,7 +242,8 @@ void EventManager::displayGame() {
   gameView->clearScreen();
   gameView->displayTime(clock.getCurTime());
   gameView->drawUI();
-  gameView->drawInventory(curItem + 1);
+  gameView->drawInventory(inventory.currentPosition + 1);
+  gameView->drawItems(&inventory);
   gameView->drawRoom(&curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
   gameView->roomToPosition();
