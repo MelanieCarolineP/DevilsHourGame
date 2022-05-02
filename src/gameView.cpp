@@ -41,10 +41,14 @@ void GameView::drawStartScreen(void) {
 void GameView::drawActor(Vec2d position, Vec2d size,
                          direction direction) {  // vec2D position
   sprite.storeImage("../resource/mainActorSprite.png", 4, 4);
-  rect.x = position.x;
-  rect.y = position.y;  // get x, y from position
-  rect.w = size.x;
-  rect.h = size.y;
+  // rect.x = position.x;
+  // rect.y = position.y;  // get x, y from position
+  // rect.w = size.x;
+  // rect.h = size.y;
+  rect.x = position.x - 10;
+  rect.y = position.y - 90;  // get x, y from position
+  rect.w = 80;
+  rect.h = 150;
 
   // use actor to find cur direction facing and coordinates
   switch (direction) {
@@ -222,6 +226,13 @@ void GameView::displayTime(std::string time) {
  * @param r
  */
 void GameView::drawEntities(Room* r) {
+  // SDL_Rect bound;
+  // bound.x = r->boundX + 335;
+  // bound.y = r->boundY + 15;
+  // bound.w = r->boundW;
+  // bound.h = r->boundH;
+  // SDL_SetRenderDrawColor(renderer, 0, 0, 255, 130);
+  // SDL_RenderFillRect(renderer, &bound);
   // for each entity in the entity list
   for (int i = 0; i < r->entityList.size(); ++i) {
     Entity* e = &(r->entityList[i]);

@@ -21,6 +21,8 @@ class Actor : public Entity {
   bool collision(const std::vector<Entity> entityList);
   bool collisionDetection(direction d, std::vector<Entity>& entityList);
 
+  void setBoundary(int x, int y, int w, int h);
+
   /**
    * @brief returns entity most recently in contact with
    * @returns object in room
@@ -34,6 +36,10 @@ class Actor : public Entity {
   float velocity; /**< how fast they move */
   direction curDir;
   Entity entity;  // entity collided into last
+  int boundX;
+  int boundY;
+  int boundW;
+  int boundH;
 
   bool collideWith(direction d, Entity* e);
 

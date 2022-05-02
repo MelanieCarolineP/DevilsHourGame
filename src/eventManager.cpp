@@ -61,32 +61,16 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
 
           // DEBUG
           case SDLK_h:
-            curRoom = Room(Rooms::bedroom);
-            currRoomName = Rooms::bedroom;
-            gameView->drawRoom(&curRoom);
-            mainActor.position.x = curRoom.bornX;
-            mainActor.position.y = curRoom.bornY;
+            roomChange(Rooms::bedroom);
             break;
           case SDLK_j:
-            curRoom = Room(Rooms::kitchen);
-            currRoomName = Rooms::kitchen;
-            gameView->drawRoom(&curRoom);
-            mainActor.position.x = curRoom.bornX;
-            mainActor.position.y = curRoom.bornY;
+            roomChange(Rooms::kitchen);
             break;
           case SDLK_k:
-            curRoom = Room(Rooms::bathroom);
-            currRoomName = Rooms::bathroom;
-            gameView->drawRoom(&curRoom);
-            mainActor.position.x = curRoom.bornX;
-            mainActor.position.y = curRoom.bornY;
+            roomChange(Rooms::bathroom);
             break;
           case SDLK_l:
-            curRoom = Room(Rooms::foyer);
-            currRoomName = Rooms::foyer;
-            gameView->drawRoom(&curRoom);
-            mainActor.position.x = curRoom.bornX;
-            mainActor.position.y = curRoom.bornY;
+            roomChange(Rooms::foyer);
             break;
           case SDLK_t:
             showEntity = !showEntity;
@@ -197,38 +181,14 @@ void EventManager::startGame(void) {
   startScreen();
 }
 
-void EventManager::roomChange(SDL_Event* event, float time) {
-  // std::cout << "Not implemented";
-  if (event->type == SDL_KEYDOWN) {
-    switch (event->key.keysym.sym) {
-      case SDLK_h:
-        curRoom = Room(Rooms::bedroom);
-        currRoomName = Rooms::bedroom;
-        gameView->drawRoom(&curRoom);
-        // mainActor.position.x = curRoom.bornX;
-        // mainActor.position.y = curRoom.bornY;
-        break;
-      case SDLK_j:
-        curRoom = Room(Rooms::kitchen);
-        currRoomName = Rooms::kitchen;
-        gameView->drawRoom(&curRoom);
-        // mainActor.position.x = curRoom.bornX;
-        // mainActor.position.y = curRoom.bornY;
-        break;
-      case SDLK_k:
-        curRoom = Room(Rooms::bathroom);
-        currRoomName = Rooms::bathroom;
-        // gameView->drawRoom(&curRoom);
-        break;
-      case SDLK_l:
-        curRoom = Room(Rooms::foyer);
-        currRoomName = Rooms::foyer;
-        gameView->drawRoom(&curRoom);
-        // mainActor.position.x = curRoom.bornX;
-        // mainActor.position.y = curRoom.bornY;
-        break;
-    }
-  }
+void EventManager::roomChange(Rooms r) {
+  curRoom = Room(r);
+  currRoomName = r;
+  // gameView->drawRoom(&curRoom);
+  mainActor.position.x = curRoom.bornX;
+  mainActor.position.y = curRoom.bornY;
+  mainActor.setBoundary(curRoom.boundX, curRoom.boundY, curRoom.boundW,
+                        curRoom.boundH);
 }
 void EventManager::returnToGame(void) {
   isPaused = false;

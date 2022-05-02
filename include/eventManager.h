@@ -27,7 +27,7 @@ class EventManager {
                       SDL_Renderer* renderer);
   void playerInteraction(SDL_Event* event, float delaTime);
   void pauseGame(float time);
-  void roomChange(SDL_Event* event, float time);
+  void roomChange(Rooms r);
   void demonMovement(SDL_Event* event, float deltaTime);
   void inventoryChange();
   void returnToGame(void);

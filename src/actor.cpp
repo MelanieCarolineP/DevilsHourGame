@@ -8,10 +8,17 @@ Actor::Actor() {
   velocity = 1.5f;
   position.x = 100;
   position.y = 400;
-  size.x = 60;   // width
-  size.y = 110;  // height
+  size.x = 60;  // width
+  size.y = 60;  // height
 
   curDir = direction::RIGHT;
+}
+
+void Actor::setBoundary(int x, int y, int w, int h) {
+  this->boundX = x;
+  this->boundY = y;
+  this->boundW = w;
+  this->boundH = h;
 }
 
 /**
@@ -27,15 +34,21 @@ void Actor::move(direction direction, float deltaTime,
   switch (direction) {
     case direction::UP:
       position.y += deltaTime * -velocity;
+      if (position.y < boundY) position.y = boundY;
       break;
     case direction::DOWN:
       position.y += deltaTime * velocity;
+      if (position.y + size.y > boundY + boundH)
+        position.y = boundY + boundH - size.y;
       break;
     case direction::RIGHT:
       position.x += deltaTime * velocity;
+      if (position.x + size.x > boundX + boundW)
+        position.x = boundX + boundW - size.x;
       break;
     case direction::LEFT:
       position.x += deltaTime * -velocity;
+      if (position.x < boundX) position.x = boundX;
       break;
   }
 }
