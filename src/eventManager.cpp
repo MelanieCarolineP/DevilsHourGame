@@ -149,9 +149,9 @@ void EventManager::handleDialogEvent(SDL_Event* event, float deltaTime,
 /* Moves and draws the main character on the screen */
 void EventManager::playerMovement(float deltaTime, direction direction,
                                   SDL_Renderer* renderer) {
-  mainActor.move(direction, deltaTime);
-  mainActor.collision(curRoom.entityList);
-  // mainActor.collisionDetection(direction, curRoom.entityList);
+  mainActor.move(direction, deltaTime, curRoom.entityList);
+  // mainActor.collision(curRoom.entityList);
+  mainActor.collisionDetection(direction, curRoom.entityList);
   // gameView.drawActor(mainActor.position, mainActor.size, direction);
   curDir = direction;
 

@@ -16,7 +16,8 @@ class Actor : public Entity {
   Actor();
   /* methods */
 
-  void move(direction d, float deltaTime); /**< handles movement */
+  void move(direction d, float deltaTime,
+            std::vector<Entity>& entityList); /**< handles movement */
   bool collision(const std::vector<Entity> entityList);
   bool collisionDetection(direction d, std::vector<Entity>& entityList);
 
@@ -34,7 +35,7 @@ class Actor : public Entity {
   direction curDir;
   Entity entity;  // entity collided into last
 
-  bool collideWith(Entity* e);
+  bool collideWith(direction d, Entity* e);
 
   bool canWalkOnCollision(const Entity entity);
 };

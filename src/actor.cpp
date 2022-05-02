@@ -5,11 +5,11 @@
  *
  */
 Actor::Actor() {
-  velocity = 3.5f;
+  velocity = 1.5f;
   position.x = 100;
   position.y = 400;
-  size.x = 120;  // width
-  size.y = 150;  // height
+  size.x = 20;  // width
+  size.y = 50;  // height
 
   curDir = direction::RIGHT;
 }
@@ -20,8 +20,10 @@ Actor::Actor() {
  * @param direction: direction the character is headed
  * @param deltaTime: time elapsed
  */
-void Actor::move(direction direction, float deltaTime) {
+void Actor::move(direction direction, float deltaTime,
+                 std::vector<Entity>& entityList) {
   curDir = direction;
+  if (collisionDetection(direction, entityList)) return;
   switch (direction) {
     case direction::UP:
       position.y += deltaTime * -velocity;
@@ -104,7 +106,7 @@ bool Actor::canWalkOnCollision(const Entity entity) {
   return false;
 }
 
-bool Actor::collideWith(Entity* e) {
+bool Actor::collideWith(direction d, Entity* e) {
   // return (this->position.x >= e->position.x &&
   //         this->position.x <= (e->position.x + e->size.x)) ||
   //        (this->position.y >= e->position.y &&
@@ -121,6 +123,12 @@ bool Actor::collideWith(Entity* e) {
   auto x2max = e->position.x + e->size.x;
   auto y2min = e->position.y;
   auto y2max = e->position.y + e->size.y;
+
+  if (d == direction::UP) return y1min <= y2max;
+  if (d == direction::DOWN) return y2min <= y1max;
+  if (d == direction::LEFT) return x1min <= x2max;
+  if (d == direction::RIGHT) return x2min <= x1max;
+
   return x1min <= x2max && x2min <= x1max && y1min <= y2max && y2min <= y1max;
 }
 
@@ -128,7 +136,7 @@ bool Actor::collisionDetection(direction d, std::vector<Entity>& entityList) {
   Entity* e;
   for (int i = 0; i < entityList.size(); ++i) {
     e = &entityList[i];
-    if (collideWith(e)) {
+    if (collideWith(d, e)) {
       if (e->isEntity) {
         switch (d) {
           case direction::UP:

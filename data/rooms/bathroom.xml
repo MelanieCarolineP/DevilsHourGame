@@ -9,8 +9,8 @@
   <boundY>130</boundY>
   <boundW>835</boundW>
   <boundH>610</boundH>
-  <bornX>120</bornX>
-  <bornY>130</bornY>
+  <bornX>250</bornX>
+  <bornY>650</bornY>
   <!-- entity list -->
   <entity>
     <name>shelf_left</name>
