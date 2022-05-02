@@ -8,8 +8,8 @@ Actor::Actor() {
   velocity = 1.5f;
   position.x = 100;
   position.y = 400;
-  size.x = 20;  // width
-  size.y = 50;  // height
+  size.x = 60;   // width
+  size.y = 110;  // height
 
   curDir = direction::RIGHT;
 }
@@ -23,7 +23,7 @@ Actor::Actor() {
 void Actor::move(direction direction, float deltaTime,
                  std::vector<Entity>& entityList) {
   curDir = direction;
-  if (collisionDetection(direction, entityList)) return;
+  // if (collisionDetection(direction, entityList)) return;
   switch (direction) {
     case direction::UP:
       position.y += deltaTime * -velocity;
