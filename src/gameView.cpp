@@ -8,9 +8,12 @@ GameView::GameView(SDL_Renderer* renderer) {
   this->speechbox.initFonts("../resource/fonts/jmh_cthulhumbus.ttf");
   this->speechbox.initGlyph();
 
+  // this->roomTexture =
+  // SDL_CreateTexture(this->renderer, SDL_PIXELFORMAT_RGBA8888,
+  // SDL_TEXTUREACCESS_TARGET, SCREEN_WIDTH, SCREEN_HEIGHT);
   this->roomTexture =
       SDL_CreateTexture(this->renderer, SDL_PIXELFORMAT_RGBA8888,
-                        SDL_TEXTUREACCESS_TARGET, SCREEN_WIDTH, SCREEN_HEIGHT);
+                        SDL_TEXTUREACCESS_TARGET, 1024, 768);
   this->roomDest.x = 335;
   this->roomDest.y = 15;
   this->roomDest.w = 1024;

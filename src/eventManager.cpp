@@ -151,11 +151,12 @@ void EventManager::playerMovement(float deltaTime, direction direction,
                                   SDL_Renderer* renderer) {
   mainActor.move(direction, deltaTime);
   mainActor.collision(curRoom.entityList);
+  // mainActor.collisionDetection(direction, curRoom.entityList);
   // gameView.drawActor(mainActor.position, mainActor.size, direction);
   curDir = direction;
 
-  std::cout << mainActor.position.x << std::endl;
-  std::cout << mainActor.position.y << std::endl;
+  // std::cout << mainActor.position.x << std::endl;
+  // std::cout << mainActor.position.y << std::endl;
 
   // std::cout << "gamedis \n";
   // gameView->displayGame(&mainActor);

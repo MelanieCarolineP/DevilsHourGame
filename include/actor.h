@@ -16,8 +16,9 @@ class Actor : public Entity {
   Actor();
   /* methods */
 
-  void move(direction, float deltaTime); /**< handles movement */
+  void move(direction d, float deltaTime); /**< handles movement */
   bool collision(const std::vector<Entity> entityList);
+  bool collisionDetection(direction d, std::vector<Entity>& entityList);
 
   /**
    * @brief returns entity most recently in contact with
@@ -32,6 +33,9 @@ class Actor : public Entity {
   float velocity; /**< how fast they move */
   direction curDir;
   Entity entity;  // entity collided into last
+
+  bool collideWith(Entity* e);
+
   bool canWalkOnCollision(const Entity entity);
 };
 

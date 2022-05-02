@@ -49,6 +49,9 @@ bool Actor::collision(const std::vector<Entity> entityList) {  // Entity
   int n = entityList.size();
   for (int i = 0; i < n; i++) {
     entity = entityList[i];
+    // if not entity, skip
+    if (!entity.isEntity) continue;
+
     // checking horizontally
     if ((entity.position.x <= (position.x + size.x)) &&
         (position.x <= (entity.position.x + entity.size.x)))
@@ -100,6 +103,56 @@ bool Actor::canWalkOnCollision(const Entity entity) {
       if ((position.y + size.y == entity.position.y) ||
           (position.y == entity.position.y + entity.size.y))
         return true;
+  }
+  return false;
+}
+
+bool Actor::collideWith(Entity* e) {
+  // return (this->position.x >= e->position.x &&
+  //         this->position.x <= (e->position.x + e->size.x)) ||
+  //        (this->position.y >= e->position.y &&
+  //         this->position.y <= (e->position.y + e->size.y)) ||
+  //        (this->position.x + this->size.x >= e->position.x &&
+  //         this->position.x + this->size.x <= (e->position.x + e->size.x)) ||
+  //        (this->position.y + this->size.y >= e->position.y &&
+  //         this->position.y + this->size.y <= (e->position.y + e->size.y));
+  auto x1min = this->position.x;
+  auto x1max = this->position.x + this->size.x;
+  auto y1min = this->position.y;
+  auto y1max = this->position.y + this->size.y;
+  auto x2min = e->position.x;
+  auto x2max = e->position.x + e->size.x;
+  auto y2min = e->position.y;
+  auto y2max = e->position.y + e->size.y;
+  return x1min <= x2max && x2min <= x1max && y1min <= y2max && y2min <= y1max;
+}
+
+bool Actor::collisionDetection(direction d, std::vector<Entity>& entityList) {
+  Entity* e;
+  for (int i = 0; i < entityList.size(); ++i) {
+    e = &entityList[i];
+    if (collideWith(e)) {
+      if (e->isEntity) {
+        switch (d) {
+          case direction::UP:
+            position.y = e->position.y + e->size.y;
+            break;
+          case direction::DOWN:
+            position.y = e->position.y - this->size.y;
+            break;
+          case direction::LEFT:
+            position.x = e->position.x + e->size.x;
+            break;
+          case direction::RIGHT:
+            position.y = e->position.x - this->size.x;
+            break;
+
+          default:
+            break;
+        }
+      }
+      return true;
+    }
   }
   return false;
 }
