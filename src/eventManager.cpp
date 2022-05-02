@@ -61,32 +61,16 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
 
           // DEBUG
           case SDLK_h:
-            curRoom = Room(Rooms::bedroom);
-            currRoomName = Rooms::bedroom;
-            gameView->drawRoom(&curRoom);
-            mainActor.position.x = curRoom.bornX;
-            mainActor.position.y = curRoom.bornY;
+            roomChange(Rooms::bedroom);
             break;
           case SDLK_j:
-            curRoom = Room(Rooms::kitchen);
-            currRoomName = Rooms::kitchen;
-            gameView->drawRoom(&curRoom);
-            mainActor.position.x = curRoom.bornX;
-            mainActor.position.y = curRoom.bornY;
+            roomChange(Rooms::kitchen);
             break;
           case SDLK_k:
-            curRoom = Room(Rooms::bathroom);
-            currRoomName = Rooms::bathroom;
-            gameView->drawRoom(&curRoom);
-            mainActor.position.x = curRoom.bornX;
-            mainActor.position.y = curRoom.bornY;
+            roomChange(Rooms::bathroom);
             break;
           case SDLK_l:
-            curRoom = Room(Rooms::foyer);
-            currRoomName = Rooms::foyer;
-            gameView->drawRoom(&curRoom);
-            mainActor.position.x = curRoom.bornX;
-            mainActor.position.y = curRoom.bornY;
+            roomChange(Rooms::foyer);
             break;
           case SDLK_t:
             showEntity = !showEntity;
@@ -149,13 +133,14 @@ void EventManager::handleDialogEvent(SDL_Event* event, float deltaTime,
 /* Moves and draws the main character on the screen */
 void EventManager::playerMovement(float deltaTime, direction direction,
                                   SDL_Renderer* renderer) {
-  mainActor.move(direction, deltaTime);
-  mainActor.collision(curRoom.entityList);
+  mainActor.move(direction, deltaTime, curRoom.entityList);
+  // mainActor.collision(curRoom.entityList);
+  mainActor.collisionDetection(direction, curRoom.entityList);
   // gameView.drawActor(mainActor.position, mainActor.size, direction);
   curDir = direction;
 
-  std::cout << mainActor.position.x << std::endl;
-  std::cout << mainActor.position.y << std::endl;
+  // std::cout << mainActor.position.x << std::endl;
+  // std::cout << mainActor.position.y << std::endl;
 
   // std::cout << "gamedis \n";
   // gameView->displayGame(&mainActor);
@@ -196,38 +181,14 @@ void EventManager::startGame(void) {
   startScreen();
 }
 
-void EventManager::roomChange(SDL_Event* event, float time) {
-  // std::cout << "Not implemented";
-  if (event->type == SDL_KEYDOWN) {
-    switch (event->key.keysym.sym) {
-      case SDLK_h:
-        curRoom = Room(Rooms::bedroom);
-        currRoomName = Rooms::bedroom;
-        gameView->drawRoom(&curRoom);
-        // mainActor.position.x = curRoom.bornX;
-        // mainActor.position.y = curRoom.bornY;
-        break;
-      case SDLK_j:
-        curRoom = Room(Rooms::kitchen);
-        currRoomName = Rooms::kitchen;
-        gameView->drawRoom(&curRoom);
-        // mainActor.position.x = curRoom.bornX;
-        // mainActor.position.y = curRoom.bornY;
-        break;
-      case SDLK_k:
-        curRoom = Room(Rooms::bathroom);
-        currRoomName = Rooms::bathroom;
-        // gameView->drawRoom(&curRoom);
-        break;
-      case SDLK_l:
-        curRoom = Room(Rooms::foyer);
-        currRoomName = Rooms::foyer;
-        gameView->drawRoom(&curRoom);
-        // mainActor.position.x = curRoom.bornX;
-        // mainActor.position.y = curRoom.bornY;
-        break;
-    }
-  }
+void EventManager::roomChange(Rooms r) {
+  curRoom = Room(r);
+  currRoomName = r;
+  // gameView->drawRoom(&curRoom);
+  mainActor.position.x = curRoom.bornX;
+  mainActor.position.y = curRoom.bornY;
+  mainActor.setBoundary(curRoom.boundX, curRoom.boundY, curRoom.boundW,
+                        curRoom.boundH);
 }
 void EventManager::returnToGame(void) {
   isPaused = false;

@@ -8,9 +8,12 @@ GameView::GameView(SDL_Renderer* renderer) {
   this->speechbox.initFonts("../resource/fonts/jmh_cthulhumbus.ttf");
   this->speechbox.initGlyph();
 
+  // this->roomTexture =
+  // SDL_CreateTexture(this->renderer, SDL_PIXELFORMAT_RGBA8888,
+  // SDL_TEXTUREACCESS_TARGET, SCREEN_WIDTH, SCREEN_HEIGHT);
   this->roomTexture =
       SDL_CreateTexture(this->renderer, SDL_PIXELFORMAT_RGBA8888,
-                        SDL_TEXTUREACCESS_TARGET, SCREEN_WIDTH, SCREEN_HEIGHT);
+                        SDL_TEXTUREACCESS_TARGET, 1024, 768);
   this->roomDest.x = 335;
   this->roomDest.y = 15;
   this->roomDest.w = 1024;
@@ -38,10 +41,14 @@ void GameView::drawStartScreen(void) {
 void GameView::drawActor(Vec2d position, Vec2d size,
                          direction direction) {  // vec2D position
   sprite.storeImage("../resource/mainActorSprite.png", 4, 4);
-  rect.x = position.x;
-  rect.y = position.y;  // get x, y from position
-  rect.w = size.x;
-  rect.h = size.y;
+  // rect.x = position.x;
+  // rect.y = position.y;  // get x, y from position
+  // rect.w = size.x;
+  // rect.h = size.y;
+  rect.x = position.x - 10;
+  rect.y = position.y - 90;  // get x, y from position
+  rect.w = 80;
+  rect.h = 150;
 
   // use actor to find cur direction facing and coordinates
   switch (direction) {
@@ -83,6 +90,7 @@ void GameView::drawUI() {
 
   // draw UI
   SDL_RenderCopy(renderer, uiTx, NULL, &dstR);
+  SDL_DestroyTexture(uiTx);
   // SDL_RenderPresent(renderer);
 }
 
@@ -107,6 +115,7 @@ void GameView::drawInventory(int k) {
   dstR.h = 600;
 
   SDL_RenderCopy(renderer, ivTx, NULL, &dstR);
+  SDL_DestroyTexture(ivTx);
   // SDL_RenderPresent(renderer);
 }
 
@@ -156,6 +165,7 @@ void GameView::drawRoom(Room* r) {
   // draw UI
   SDL_RenderCopy(renderer, roomTx, NULL, NULL);
   SDL_SetRenderTarget(renderer, NULL);
+  SDL_DestroyTexture(roomTx);
   // SDL_RenderPresent(renderer);
 }
 
@@ -210,6 +220,7 @@ void GameView::displayTime(std::string time) {
   SDL_FreeSurface(loadingSurf);
   SDL_Rect dstRect = {30, 40, 240, 120};
   SDL_RenderCopy(renderer, timeTx, NULL, &dstRect);
+  SDL_DestroyTexture(timeTx);
   // presentScreen();
 }
 
@@ -219,6 +230,13 @@ void GameView::displayTime(std::string time) {
  * @param r
  */
 void GameView::drawEntities(Room* r) {
+  // SDL_Rect bound;
+  // bound.x = r->boundX + 335;
+  // bound.y = r->boundY + 15;
+  // bound.w = r->boundW;
+  // bound.h = r->boundH;
+  // SDL_SetRenderDrawColor(renderer, 0, 0, 255, 130);
+  // SDL_RenderFillRect(renderer, &bound);
   // for each entity in the entity list
   for (int i = 0; i < r->entityList.size(); ++i) {
     Entity* e = &(r->entityList[i]);

@@ -110,7 +110,7 @@ int Room::generateEntityList(std::string& f) {
   pElement->QueryIntText(&boundW);
 
   pElement = pRoot->FirstChildElement("boundH");
-  pElement->QueryIntText(&boundW);
+  pElement->QueryIntText(&boundH);
 
   pElement = pRoot->FirstChildElement("bornX");
   pElement->QueryIntText(&bornX);
