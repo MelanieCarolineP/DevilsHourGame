@@ -274,6 +274,7 @@ void EventManager::displayDialog(void) {
   gameView->displayTime(clock.getCurTime());
   gameView->drawUI();
   gameView->drawInventory(curItem + 1);
+  gameView->drawItems(&inventory);
   gameView->drawRoom(&this->curRoom);
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
   gameView->roomToPosition();
