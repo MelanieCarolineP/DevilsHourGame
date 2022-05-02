@@ -14,6 +14,9 @@ class Inventory {
       int position); /**< gets the item at the selected position */
   const std::vector<std::string>
   getAllItems(); /**< gets a list of all the items */
+  const bool itemInInventory(
+      std::string itemName); /**< returns true if the player
+                          has an item, false if not */
 
   void changeSelectedItem();          /**< change the selected item*/
   void addItem(std::string itemName); /**< adds a given item to the inventory*/

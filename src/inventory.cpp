@@ -23,6 +23,15 @@ const std::string Inventory::getItemAtPos(int position) {
 
 const std::vector<std::string> Inventory::getAllItems() { return items; }
 
+const bool Inventory::itemInInventory(std::string itemName) {
+  for (int i = 0; i < 8; i++) {
+    if (items.at(i) == itemName) {
+      return true;
+    }
+  }
+  return false;
+}
+
 void Inventory::addItem(std::string itemName) {
   for (int i = 0; i < 8; i++) {
     if (items.at(i) == "") {
