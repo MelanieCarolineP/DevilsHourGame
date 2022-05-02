@@ -83,6 +83,7 @@ void GameView::drawUI() {
 
   // draw UI
   SDL_RenderCopy(renderer, uiTx, NULL, &dstR);
+  SDL_DestroyTexture(uiTx);
   // SDL_RenderPresent(renderer);
 }
 
@@ -107,6 +108,7 @@ void GameView::drawInventory(int k) {
   dstR.h = 600;
 
   SDL_RenderCopy(renderer, ivTx, NULL, &dstR);
+  SDL_DestroyTexture(ivTx);
   // SDL_RenderPresent(renderer);
 }
 
@@ -156,6 +158,7 @@ void GameView::drawRoom(Room* r) {
   // draw UI
   SDL_RenderCopy(renderer, roomTx, NULL, NULL);
   SDL_SetRenderTarget(renderer, NULL);
+  SDL_DestroyTexture(roomTx);
   // SDL_RenderPresent(renderer);
 }
 
@@ -206,6 +209,7 @@ void GameView::displayTime(std::string time) {
   SDL_FreeSurface(loadingSurf);
   SDL_Rect dstRect = {30, 40, 240, 120};
   SDL_RenderCopy(renderer, timeTx, NULL, &dstRect);
+  SDL_DestroyTexture(timeTx);
   // presentScreen();
 }
 
