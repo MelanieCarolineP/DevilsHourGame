@@ -5,7 +5,7 @@
  *
  */
 Actor::Actor() {
-  velocity = 1.5f;
+  velocity = 0.5f;
   position.x = 100;
   position.y = 400;
   size.x = 60;  // width

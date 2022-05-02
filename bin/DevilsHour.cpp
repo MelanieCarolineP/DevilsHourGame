@@ -104,6 +104,19 @@ int main(int argc, char** argv) {
     startTime = SDL_GetTicks();
 
     // Handle events on queue
+
+    if (SDL_PollEvent(&e) != 0) {
+      if (e.type == SDL_QUIT) {
+        running = false;
+      }
+    }
+
+    eventManager.handle_event(&e, deltaTime, startTime, &running, renderer);
+
+    endTime = SDL_GetTicks();
+    deltaTime = (endTime - startTime) / 1.0f;
+
+    /*
     while (SDL_PollEvent(&e) != 0) {
       eventManager.handle_event(&e, deltaTime, startTime, &running, renderer);
 
@@ -118,6 +131,7 @@ int main(int argc, char** argv) {
       deltaTime = (endTime - startTime) / 1.0f;
       // std::cout << " deltaTime: " << deltaTime;
     }
+    */
 
     // current time
     current_time = SDL_GetTicks();

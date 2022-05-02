@@ -19,32 +19,31 @@ EventManager::EventManager(GameView* gameView) {
 
 void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
                                 bool* running, SDL_Renderer* renderer) {
+  Uint8 const* keystate = SDL_GetKeyboardState(NULL);
+  keystate = SDL_GetKeyboardState(NULL);
   if (event->type == SDL_QUIT) {
     exitEvent(event, time, running);
   }
+
   if (event->key.keysym.sym == SDLK_x && !gameStarted) {
     startGame();
     gameStarted = true;
   } else if (gameStarted) {
+    if (keystate[SDL_SCANCODE_W]) {
+      playerMovement(deltaTime, direction::UP, renderer);
+    }
+    if (keystate[SDL_SCANCODE_A]) {
+      playerMovement(deltaTime, direction::LEFT, renderer);
+    }
+    if (keystate[SDL_SCANCODE_S]) {
+      playerMovement(deltaTime, direction::DOWN, renderer);
+    }
+    if (keystate[SDL_SCANCODE_D]) {
+      playerMovement(deltaTime, direction::RIGHT, renderer);
+    }
     if (event->type == SDL_KEYDOWN) {
       if (isPaused == false && isDialog == false) {
         switch (event->key.keysym.sym) {
-          case SDLK_w:
-            playerMovement(deltaTime, direction::UP, renderer);
-            break;
-
-          case SDLK_a:
-            playerMovement(deltaTime, direction::LEFT, renderer);
-            break;
-
-          case SDLK_s:
-            playerMovement(deltaTime, direction::DOWN, renderer);
-            break;
-
-          case SDLK_d:
-            playerMovement(deltaTime, direction::RIGHT, renderer);
-            break;
-
           case SDLK_e:
             playerInteraction();
             break;
