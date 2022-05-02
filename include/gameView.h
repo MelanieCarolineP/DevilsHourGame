@@ -32,7 +32,7 @@ class GameView {
   void drawActor(Vec2d position, Vec2d size, direction direction);
   void drawDoor();
   void drawPauseMenu(void);
-  void drawDialog(const char *text);
+  void drawDialog(const char *text, const char *name);
   void drawInventory(int k);
   void displayTime(std::string s);
   void roomToPosition(void);

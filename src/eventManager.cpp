@@ -258,6 +258,7 @@ void EventManager::displayDialog(void) {
       "Curabitur elit lectus, imperdiet eu aliquet a, elementum in tellus. "
       "Fusce faucibus, nibh at sodales facilisis, nulla urna malesuada "
       "massa, "
-      "vitae sollicitudin sem mi vitae sem. Suspendisse potenti.");
+      "vitae sollicitudin sem mi vitae sem. Suspendisse potenti.",
+      "Bob");
   gameView->presentScreen();
 }
