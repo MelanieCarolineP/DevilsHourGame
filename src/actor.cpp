@@ -124,12 +124,22 @@ bool Actor::collideWith(direction d, Entity* e) {
   auto y2min = e->position.y;
   auto y2max = e->position.y + e->size.y;
 
-  if (d == direction::UP) return y1min <= y2max;
-  if (d == direction::DOWN) return y2min <= y1max;
-  if (d == direction::LEFT) return x1min <= x2max;
-  if (d == direction::RIGHT) return x2min <= x1max;
+  if (x1min <= x2max && x2min <= x1max && y1min <= y2max && y2min <= y1max) {
+    switch (d) {
+      case direction::UP:
+        return x1min < x2max && x2min < x1max && y1max > y2max;
+      case direction::DOWN:
+        return x1min < x2max && x2min < x1max && y1min < y2min;
+      case direction::LEFT:
+        return y1min < y2max && y2min < y1max && x1max > x2max;
+      case direction::RIGHT:
+        return y1min < y2max && y2min < y1max && x1min < x2min;
 
-  return x1min <= x2max && x2min <= x1max && y1min <= y2max && y2min <= y1max;
+      default:
+        return true;
+    }
+  }
+  return false;
 }
 
 bool Actor::collisionDetection(direction d, std::vector<Entity>& entityList) {
@@ -149,7 +159,7 @@ bool Actor::collisionDetection(direction d, std::vector<Entity>& entityList) {
             position.x = e->position.x + e->size.x;
             break;
           case direction::RIGHT:
-            position.y = e->position.x - this->size.x;
+            position.x = e->position.x - this->size.x;
             break;
 
           default:
