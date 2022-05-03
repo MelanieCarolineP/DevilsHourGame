@@ -5,35 +5,35 @@
   <name>kitchen</name>
   <width>1080</width>
   <height>720</height>
-  <boundX>125</boundX>
-  <boundY>130</boundY>
-  <boundW>835</boundW>
-  <boundH>610</boundH>
-  <bornX>1080</bornX>
-  <bornY>560</bornY>
+  <boundX>66</boundX>
+  <boundY>21</boundY>
+  <boundW>917</boundW>
+  <boundH>704</boundH>
+  <bornX>854</bornX>
+  <bornY>546.5</bornY>
   <!-- entity list -->
   <entity>
     <name>cabinet</name>
-    <w>175</w>
-    <h>40</h>
-    <x>300</x>
-    <y>120</y>
+    <w>168</w>
+    <h>56</h>
+    <x>294</x>
+    <y>7</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>oven</name>
-    <w>110</w>
-    <h>90</h>
-    <x>520</x>
-    <y>120</y>
+    <w>115.5</w>
+    <h>63</h>
+    <x>514.5</x>
+    <y>52.5</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>top-table</name>
     <w>235</w>
-    <h>90</h>
+    <h>56</h>
     <x>630</x>
-    <y>120</y>
+    <y>7</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
@@ -47,7 +47,7 @@
   <entity>
     <name>sink</name>
     <w>140</w>
-    <h>230</h>
+    <h>155.5</h>
     <x>860</x>
     <y>240</y>
     <isEntity>1</isEntity>
@@ -55,7 +55,7 @@
   <entity>
     <name>dining-table</name>
     <w>160</w>
-    <h>330</h>
+    <h>274</h>
     <x>270</x>
     <y>270</y>
     <isEntity>1</isEntity>
@@ -64,13 +64,13 @@
     <name>chair-1</name>
     <w>90</w>
     <h>115</h>
-    <x>175</x>
+    <x>190</x>
     <y>275</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>chair-2</name>
-    <w>90</w>
+    <w>76</w>
     <h>115</h>
     <x>435</x>
     <y>275</y>
@@ -79,15 +79,15 @@
   <entity>
     <name>chair-3</name>
     <w>90</w>
-    <h>115</h>
-    <x>175</x>
+    <h>80</h>
+    <x>190</x>
     <y>400</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>chair-4</name>
-    <w>90</w>
-    <h>115</h>
+    <w>76</w>
+    <h>80</h>
     <x>435</x>
     <y>400</y>
     <isEntity>1</isEntity>
