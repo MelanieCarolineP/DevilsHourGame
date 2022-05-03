@@ -5,17 +5,17 @@
   <name>kitchen</name>
   <width>1080</width>
   <height>720</height>
-  <boundX>66</boundX>
-  <boundY>21</boundY>
-  <boundW>917</boundW>
-  <boundH>704</boundH>
-  <bornX>854</bornX>
-  <bornY>546.5</bornY>
+  <boundX>93</boundX>
+  <boundY>106</boundY>
+  <boundW>839</boundW>
+  <boundH>627</boundH>
+  <bornX>830.5</bornX>
+  <bornY>656.5</bornY>
   <!-- entity list -->
   <entity>
     <name>cabinet</name>
     <w>168</w>
-    <h>56</h>
+    <h>138</h>
     <x>294</x>
     <y>7</y>
     <isEntity>1</isEntity>
@@ -23,15 +23,15 @@
   <entity>
     <name>oven</name>
     <w>115.5</w>
-    <h>63</h>
+    <h>64.5</h>
     <x>514.5</x>
-    <y>52.5</y>
+    <y>123</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>top-table</name>
     <w>235</w>
-    <h>56</h>
+    <h>168.5</h>
     <x>630</x>
     <y>7</y>
     <isEntity>1</isEntity>
@@ -46,18 +46,18 @@
   </entity>
   <entity>
     <name>sink</name>
-    <w>140</w>
-    <h>155.5</h>
-    <x>860</x>
-    <y>240</y>
+    <w>160</w>
+    <h>236</h>
+    <x>810</x>
+    <y>236</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>dining-table</name>
     <w>160</w>
-    <h>274</h>
+    <h>310</h>
     <x>270</x>
-    <y>270</y>
+    <y>275</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
@@ -96,15 +96,15 @@
     <name>mouse-hole</name>
     <w>35</w>
     <h>55</h>
-    <x>60</x>
-    <y>255</y>
+    <x>80</x>
+    <y>355</y>
     <isEntity>0</isEntity>
   </entity>
   <entity>
     <name>hallway-door</name>
     <w>130</w>
-    <h>35</h>
-    <x>135</x>
+    <h>38</h>
+    <x>129</x>
     <y>100</y>
     <isEntity>0</isEntity>
   </entity>
@@ -112,8 +112,8 @@
     <name>pantry-door</name>
     <w>40</w>
     <h>110</h>
-    <x>975</x>
-    <y>555</y>
-    <isEntity>0</isEntity>
+    <x>915</x>
+    <y>663.5</y>
+    <isEntity>1</isEntity>
   </entity>
 </room>

@@ -21,6 +21,8 @@ class EventManager {
   EventManager() { this->curRoom.getEntities(Rooms::bedroom); }
   EventManager(GameView* gameView);
   void startScreen(void);
+  void loseScreen(void);
+  void winScreen(void);
   void startGame(void);
   void handle_event(SDL_Event* event, float deltaTime, float time,
                     bool* running, SDL_Renderer* renderer);

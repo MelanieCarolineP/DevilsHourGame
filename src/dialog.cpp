@@ -64,11 +64,7 @@ int Dialog::parseDialogFromFile(std::string& f) {
   // Get the dialog list
   XMLElement* pListElement = pRoot->FirstChildElement("Dialog");
 
-  // int debug = 0;
   while (pListElement) {
-    // debug++;
-    // std::cout << debug << std::endl;
-
     XMLElement* pElement;
 
     // Query id

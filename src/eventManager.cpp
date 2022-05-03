@@ -99,9 +99,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
         }
 
         if (!isPaused && !isDialog && gameStarted) {
-          // std::cout << "display_game" << std::endl;
           displayGame();
-          // clock.update(deltaTime);
         }
 
       } else if (isPaused) {
@@ -113,6 +111,12 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
       displayGame();
     } else if (isDialog) {
       displayDialog();
+    }
+
+    // Checking if the timer has run out
+    if (clock.isTimeOut()) {
+      gameStarted = false;
+      loseScreen();
     }
   }
 }
@@ -151,26 +155,14 @@ void EventManager::handleDialogEvent(SDL_Event* event, float deltaTime,
 void EventManager::playerMovement(float deltaTime, direction direction,
                                   SDL_Renderer* renderer) {
   mainActor.move(direction, deltaTime, curRoom.entityList);
-  // mainActor.collision(curRoom.entityList);
   mainActor.collisionDetection(direction, curRoom.entityList);
-  // gameView.drawActor(mainActor.position, mainActor.size, direction);
   curDir = direction;
-
-  // std::cout << mainActor.position.x << std::endl;
-  // std::cout << mainActor.position.y << std::endl;
-
-  // std::cout << "gamedis \n";
-  // gameView->displayGame(&mainActor);
-  // std::cout << "display game done \n";
-
-  // gameView->presentScreen();
 }
 
 void EventManager::playerInteraction() {
   // interact returns entity only if character is colliding with an object
   // if (mainActor.collision(curRoom.entityList)) mainActor.interact();
   // otherwise do nothing
-  // std::cout << mainActor.interact(curRoom.entityList) << std::endl;
 
   std::string object = mainActor.interact(curRoom.entityList);
   std::cout << "object: " << object << std::endl;
@@ -215,19 +207,20 @@ void EventManager::startScreen(void) {
   gameView->presentScreen();
 }
 
+void EventManager::loseScreen(void) {
+  gameView->drawLosingScreen();
+  gameView->presentScreen();
+}
+
+void EventManager::winScreen(void) {
+  gameView->drawWinningScreen();
+  gameView->presentScreen();
+}
+
 void EventManager::startGame(void) {
-  // Room foyer = Room();
-  // this->curRoom = Room(Rooms::bedroom);
   roomChange(Rooms::bedroom);
   clock.start();
-  // gameView->clearScreen();
-  // gameView->drawUI();
-  // gameView->drawInventory(curItem + 1);
-  // gameView->drawRoom(curRoom);
-  // gameView->drawActor(mainActor.position, mainActor.size,
-  // direction::RIGHT); gameView->roomToPosition(); gameView->presentScreen();
 
-  // displayGame();
   startScreen();
 }
 
@@ -259,24 +252,14 @@ void EventManager::roomChange(Rooms r) {
 void EventManager::returnToGame(void) {
   isPaused = false;
   std::cout << "resume game" << std::endl;
-  // gameView->clearScreen();
-  // gameView->drawUI();
-  // gameView->drawInventory(curItem + 1);
-  // gameView->drawRoom(this->curRoom);
-  // gameView->drawActor(mainActor.position, mainActor.size, curDir);
-  // gameView->roomToPosition();
-  // gameView->presentScreen();
+
   displayGame();
 }
 
 void EventManager::demonMovement(SDL_Event* event, float deltaTime) {
   // std::cout << "Not implemented";
 }
-void EventManager::inventoryChange() {
-  // curItem += 1;
-  // curItem %= 8;
-  inventory.changeSelectedItem();
-}
+void EventManager::inventoryChange() { inventory.changeSelectedItem(); }
 
 void EventManager::exitEvent(SDL_Event* event, float time, bool* running) {
   *running = false;
