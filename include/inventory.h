@@ -8,7 +8,7 @@ class Inventory {
   std::vector<std::string> items; /**< holds the items */
 
  public:
-  Inventory();
+  Inventory(); /**< constructor initializes currentPosition and item vector */
   const std::string getSelectedItem(); /**< gets the selected item */
   const std::string getItemAtPos(
       int position); /**< gets the item at the selected position */

@@ -9,6 +9,7 @@
 
 #include "actor.h"
 #include "clock.h"
+#include "dialog.h"
 #include "dialogManager.h"
 #include "enum.h"
 #include "gameView.h"
@@ -23,6 +24,8 @@ class EventManager {
   EventManager() { this->curRoom.getEntities(Rooms::bedroom); }
   EventManager(GameView* gameView);
   void startScreen(void);
+  void loseScreen(void);
+  void winScreen(void);
   void startGame(void);
   void handle_event(SDL_Event* event, float deltaTime, float time,
                     bool* running, SDL_Renderer* renderer);
@@ -52,6 +55,8 @@ class EventManager {
   bool gameStarted = false;
   bool isPaused = false;
   bool isDialog = false;
+  bool isWinning = false;
+  bool isLosing = false;
   bool showEntity = false;
 
   GameView* gameView;
@@ -67,6 +72,13 @@ class EventManager {
   std::vector<std::string> testText;
   std::string text1 = "here";
   std::vector<std::string> nameText;
+  Dialog curDialog;
+
+  Dialog bedroomDialog;
+  Dialog kitchenDialog;
+  Dialog bathroomDialog;
+  Dialog foyerDialog;
+  Dialog hallwayDialog;
 };
 
 #endif

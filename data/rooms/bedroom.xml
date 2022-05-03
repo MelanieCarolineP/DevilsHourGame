@@ -5,18 +5,18 @@
   <name>bedroom</name>
   <width>1080</width>
   <height>768</height>
-  <boundX>0</boundX>
-  <boundY>0</boundY>
-  <boundW>1080</boundW>
-  <boundH>768</boundH>
-  <bornX>200</bornX>
-  <bornY>500</bornY>
+  <boundX>13</boundX>
+  <boundY>223.5</boundY>
+  <boundW>997</boundW>
+  <boundH>544.5</boundH>
+  <bornX>469</bornX>
+  <bornY>476</bornY>
   <!-- entity list -->
   <entity>
     <name>bed</name>
-    <w>173</w>
-    <h>48</h>
-    <x>0</x>
+    <w>197</w>
+    <h>136</h>
+    <x>6</x>
     <y>341</y>
     <isEntity>1</isEntity>
   </entity>
@@ -31,15 +31,15 @@
   <entity>
     <name>window_left</name>
     <w>290</w>
-    <h>76</h>
+    <h>191</h>
     <x>51</x>
     <y>43</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>closet</name>
-    <w>130</w>
-    <h>74</h>
+    <w>132</w>
+    <h>225</h>
     <x>390</x>
     <y>115</y>
     <isEntity>1</isEntity>
@@ -47,24 +47,24 @@
   <entity>
     <name>picture</name>
     <w>101</w>
-    <h>52</h>
+    <h>155</h>
     <x>586</x>
     <y>112</y>
     <isEntity>1</isEntity>
   </entity>
    <entity>
     <name>table</name>
-    <w>206</w>
+    <w>200</w>
     <h>98</h>
-    <x>299</x>
+    <x>290</x>
     <y>661.5</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>bucket</name>
-    <w>83</w>
-    <h>17</h>
-    <x>663</x>
+    <w>79</w>
+    <h>76</h>
+    <x>640</x>
     <y>406</y>
     <isEntity>1</isEntity>
   </entity>
@@ -79,24 +79,24 @@
   <entity>
     <name>bottles</name>
     <w>130</w>
-    <h>31</h>
+    <h>117</h>
     <x>722</x>
     <y>182</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>chair</name>
-    <w>182</w>
+    <w>155</w>
     <h>128</h>
     <x>603</x>
     <y>640</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
-    <name>door</name>
+    <name>hallway_door</name>
     <w>28</w>
     <h>161</h>
-    <x>1043</x>
+    <x>997</x>
     <y>397</y>
     <isEntity>1</isEntity>
   </entity>

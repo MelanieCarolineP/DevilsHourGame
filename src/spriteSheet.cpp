@@ -15,6 +15,8 @@ SpriteSheet::SpriteSheet() {}
 SpriteSheet::~SpriteSheet() {
   SDL_FreeSurface(spriteSheetImage);
   spriteSheetImage = NULL;
+  SDL_DestroyTexture(spriteTexture);
+  spriteTexture = NULL;
 }
 /* stores the entire sprite image */
 void SpriteSheet::storeImage(char const *image_path, int row, int col) {

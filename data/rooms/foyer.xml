@@ -4,16 +4,16 @@
   <width>1080</width>
   <height>720</height>
   <boundX>66</boundX>
-  <boundY>21</boundY>
+  <boundY>65.5</boundY>
   <boundW>917</boundW>
-  <boundH>704</boundH>
-  <bornX>854</bornX>
-  <bornY>546.5</bornY>
+  <boundH>660</boundH>
+  <bornX>896</bornX>
+  <bornY>623</bornY>
   <!-- entity list -->
    <entity>
     <name>chair</name>
     <w>129</w>
-    <h>116</h>
+    <h>206</h>
     <x>21</x>
     <y>290</y>
     <isEntity>1</isEntity>
@@ -21,25 +21,25 @@
   <entity>
     <name>cactus_left</name>
     <w>63</w>
-    <h>38.5</h>
-    <x>317</x>
-    <y>0</y>
+    <h>68</h>
+    <x>323</x>
+    <y>90</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>cabinet</name>
-    <w>215</w>
-    <h>38.5</h>
-    <x>378</x>
-    <y>0</y>
+    <w>243</w>
+    <h>68</h>
+    <x>387</x>
+    <y>90</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>cactus_right</name>
-    <w>63</w>
-    <h>38.5</h>
+    <w>68</w>
+    <h>68</h>
     <x>616</x>
-    <y>0</y>
+    <y>90</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
@@ -61,9 +61,9 @@
   <entity>
     <name>exit</name>
     <w>115.5</w>
-    <h>17.5</h>
-    <x>865</x>
-    <y>0</y>
+    <h>37.5</h>
+    <x>871</x>
+    <y>90</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>

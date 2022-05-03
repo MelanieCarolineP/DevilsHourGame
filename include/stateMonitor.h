@@ -11,7 +11,7 @@ class StateMonitor {
   StateMonitor();
 
   /* update current game state */
-  void update(std::string& s);
+  int update(std::string& s);
 
   bool isRoomLocked();
 

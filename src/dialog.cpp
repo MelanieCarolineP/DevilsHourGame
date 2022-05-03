@@ -29,6 +29,10 @@ void Dialog::generateDialogList(Rooms r) {
       f = "../data/dialogs/foyer_dialog.xml";
       break;
 
+    case Rooms::hallway:
+      f = "../data/dialogs/hallway_dialog.xml";
+      break;
+
     default:
       f = "../data/dialogs/bathroom_dialog.xml";
       break;
@@ -60,11 +64,7 @@ int Dialog::parseDialogFromFile(std::string& f) {
   // Get the dialog list
   XMLElement* pListElement = pRoot->FirstChildElement("Dialog");
 
-  // int debug = 0;
   while (pListElement) {
-    // debug++;
-    // std::cout << debug << std::endl;
-
     XMLElement* pElement;
 
     // Query id
@@ -190,7 +190,10 @@ bool matchObject(dialog d, std::string& object) {
   return d.triggerObject == object;
 }
 
-bool matchItem(dialog d, std::string& item) { return item == d.useItem; }
+bool matchItem(dialog d, std::string& item) {
+  if (item == "hands" && d.useItem == "") return true;
+  return item == d.useItem;
+}
 
 bool matchState(dialog d, std::string& curState) {
   if (d.triggerState == "") return true;
@@ -209,10 +212,14 @@ bool matchState(dialog d, std::string& curState) {
  */
 int Dialog::triggerDialog(Vec2d loc, std::string& object, std::string& item,
                           std::string& curState) {
-  for (int i = 0; i < dialogList.size(); ++i) {
+  for (int i = 1; i < dialogList.size(); ++i) {
     dialog d = dialogList[i];
-    if (matchLocation(d, loc) && matchObject(d, object) && matchItem(d, item) &&
-        matchState(d, curState))
+    // if (i == 23) {
+    //   std::cout << matchObject(d, object) << std::endl;
+    //   std::cout << matchItem(d, item) << std::endl;
+    //   std::cout << matchState(d, curState) << std::endl;
+    // }
+    if (matchObject(d, object) && matchItem(d, item) && matchState(d, curState))
       return i;
   }
   return -1;
