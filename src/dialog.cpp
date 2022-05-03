@@ -218,13 +218,11 @@ int Dialog::triggerDialog(Vec2d loc, std::string& object, std::string& item,
                           std::string& curState) {
   for (int i = 1; i < dialogList.size(); ++i) {
     dialog d = dialogList[i];
-    // if (matchLocation(d, loc) && matchObject(d, object) && matchItem(d, item)
-    // && matchState(d, curState))
-    if (d.id == 18) {
-      std::cout << matchObject(d, object) << std::endl;
-      std::cout << matchItem(d, item) << std::endl;
-      std::cout << matchState(d, curState) << std::endl;
-    }
+    // if (i == 23) {
+    //   std::cout << matchObject(d, object) << std::endl;
+    //   std::cout << matchItem(d, item) << std::endl;
+    //   std::cout << matchState(d, curState) << std::endl;
+    // }
     if (matchObject(d, object) && matchItem(d, item) && matchState(d, curState))
       return i;
   }
