@@ -7,6 +7,7 @@
 
 #include "actor.h"
 #include "clock.h"
+#include "dialog.h"
 #include "enum.h"
 #include "gameView.h"
 #include "room.h"
@@ -56,6 +57,14 @@ class EventManager {
   Rooms currRoomName;
   Clock clock;
   Inventory inventory;
+
+  Dialog curDialog;
+
+  Dialog bedroomDialog;
+  Dialog kitchenDialog;
+  Dialog bathroomDialog;
+  Dialog foyerDialog;
+  Dialog hallwayDialog;
 };
 
 #endif

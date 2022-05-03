@@ -85,7 +85,7 @@
     <isEntity>0</isEntity>
   </entity>
   <entity>
-    <name>door</name>
+    <name>hallway_door</name>
     <w>200</w>
     <h>20</h>
     <x>250</x>

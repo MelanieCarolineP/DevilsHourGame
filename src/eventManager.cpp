@@ -3,6 +3,11 @@
 EventManager::EventManager(GameView* gameView) {
   this->curRoom.getEntities(Rooms::bathroom);
   this->gameView = gameView;
+  this->bathroomDialog = Dialog(Rooms::bathroom);
+  this->bedroomDialog = Dialog(Rooms::bedroom);
+  this->kitchenDialog = Dialog(Rooms::kitchen);
+  this->foyerDialog = Dialog(Rooms::foyer);
+  this->hallwayDialog = Dialog(Rooms::hallway);
   inventory.addItem("crowbar");
   inventory.addItem("flashlight");
   inventory.addItem("hairpin");
@@ -156,7 +161,36 @@ void EventManager::playerInteraction() {
   // interact returns entity only if character is colliding with an object
   // if (mainActor.collision(curRoom.entityList)) mainActor.interact();
   // otherwise do nothing
-  std::cout << mainActor.interact(curRoom.entityList) << std::endl;
+  // std::cout << mainActor.interact(curRoom.entityList) << std::endl;
+
+  std::string object = mainActor.interact(curRoom.entityList);
+  std::cout << "object: " << object << std::endl;
+  std::string item(inventory.getSelectedItem());
+  std::cout << "item: " << item << std::endl;
+  std::cout << "current state: " << stateMonitor.currentState << std::endl;
+  int id = curDialog.triggerDialog(mainActor.position, object, item,
+                                   stateMonitor.currentState);
+  std::cout << "id: " << id << std::endl;
+  if (id < 0) return;
+
+  dialog* d = &(curDialog.dialogList[id]);
+  int switchToRoom = stateMonitor.update(d->transitToState);
+  std::cout << "transit to state: " << d->transitToState << std::endl;
+
+  // handle doors
+  if (!stateMonitor.isRoomLocked()) {
+    if (switchToRoom == 1) {
+      roomChange(Rooms::bedroom);
+    } else if (switchToRoom == 2) {
+      roomChange(Rooms::kitchen);
+    } else if (switchToRoom == 3) {
+      roomChange(Rooms::bathroom);
+    } else if (switchToRoom == 4) {
+      roomChange(Rooms::foyer);
+    } else if (switchToRoom == 5) {
+      roomChange(Rooms::hallway);
+    }
+  }
 }
 
 void EventManager::pauseGame(float time) {
@@ -172,7 +206,8 @@ void EventManager::startScreen(void) {
 
 void EventManager::startGame(void) {
   // Room foyer = Room();
-  this->curRoom = Room(Rooms::bedroom);
+  // this->curRoom = Room(Rooms::bedroom);
+  roomChange(Rooms::bedroom);
   clock.start();
   // gameView->clearScreen();
   // gameView->drawUI();
@@ -188,6 +223,7 @@ void EventManager::startGame(void) {
 void EventManager::roomChange(Rooms r) {
   curRoom = Room(r);
   currRoomName = r;
+  curDialog = Dialog(r);
   // gameView->drawRoom(&curRoom);
   mainActor.position.x = curRoom.bornX;
   mainActor.position.y = curRoom.bornY;

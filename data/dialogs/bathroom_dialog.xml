@@ -284,4 +284,19 @@
       <text speaker="Me"> Mercury! </text>
     </textList>
   </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>18</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>hallway_door</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState>hallway_door</transitToState>
+    <!-- Texts -->
+    <textList>
+    </textList>
+  </Dialog>
+
 </DialogList>
