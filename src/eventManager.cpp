@@ -80,6 +80,9 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
           case SDLK_l:
             roomChange(Rooms::foyer);
             break;
+          case SDLK_p:
+            roomChange(Rooms::hallway);
+            break;
           case SDLK_t:
             showEntity = !showEntity;
             break;

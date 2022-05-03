@@ -60,6 +60,10 @@ void Room::getEntities(Rooms r) {
       f = "../data/rooms/foyer.xml";
       break;
 
+    case Rooms::hallway:
+      f = "../data/rooms/hallway.xml";
+      break;
+
     default:
       f = "../data/rooms/bathroom.xml";
       break;

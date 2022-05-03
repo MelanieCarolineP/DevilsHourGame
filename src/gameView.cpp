@@ -144,6 +144,10 @@ void GameView::drawRoom(Room* r) {
       loadingSurf = IMG_Load("../resource/rooms/foyer-pixel.png");
       // std::cout << "Loaded bathroom image" << std::endl;
       break;
+    case Rooms::hallway:
+      loadingSurf = IMG_Load("../resource/rooms/hallway-pixel.png");
+      // std::cout << "Loaded hallway image" << std::endl;
+      break;
 
     default:
       loadingSurf = IMG_Load("../resource/rooms/bedroom-pixel.png");

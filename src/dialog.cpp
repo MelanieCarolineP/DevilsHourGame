@@ -29,6 +29,10 @@ void Dialog::generateDialogList(Rooms r) {
       f = "../data/dialogs/foyer_dialog.xml";
       break;
 
+    case Rooms::hallway:
+      f = "../data/dialogs/hallway_dialog.xml";
+      break;
+
     default:
       f = "../data/dialogs/bathroom_dialog.xml";
       break;
