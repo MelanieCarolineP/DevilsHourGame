@@ -1,0 +1,174 @@
+<?xml version="1.0" ?>
+<DialogList>
+  <Dialog>
+  <!-- Attributes -->
+    <id>1</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject></triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me"> What’s going on? My head feels like it's imploding. </text>
+      <text speaker="Me"> It’s been years since I was here last… It looks … different.</text>
+      <text speaker="Narrator">You notice the clock on your wrist, the countdown has started.</text>
+    </textList>
+  </Dialog>
+
+   <Dialog>
+  <!-- Attributes -->
+    <id>2</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>bed</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">I'm not tired. Quite the opposite actually.</text>
+    </textList>
+  </Dialog>
+  <Dialog>
+  <!-- Attributes -->
+    <id>3</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>picture</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>e1</triggerState>
+    <transitToState>e2</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">This kid looks like me. I have a strong sense of deja vu, it’s giving me a headache.</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+  <!-- Attributes -->
+    <id>4</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>pentagram</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">This pentagram looks like it was drawn with the blood in the bucket. If this a prank... it's not very funny.</text>
+    </textList>
+  </Dialog>
+  
+  <Dialog>
+  <!-- Attributes -->
+    <id>5</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>bottles</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>e2</triggerState>
+    <transitToState>e3</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">Looking at these bottles makes me feel terrible... but why?</text>
+      <text speaker="Narrator">You recall a memory of when you were younger. Your parents used threw these bottles at your feet when they were fighting.</text>
+    </textList>
+  </Dialog>
+  
+  <Dialog>
+  <!-- Attributes -->
+    <id>6</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>window_left</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">Am I in space? What's going on!</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+  <!-- Attributes -->
+    <id>7</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>chair</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">I'm not even going to grace this chair with my attention. I have bigger fish to fry.</text>
+    </textList>
+  </Dialog>
+  <Dialog>
+  <!-- Attributes -->
+    <id>8</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>bottles</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>e3</triggerState>
+    <transitToState>e3</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">These bottles... </text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+  <!-- Attributes -->
+    <id>9</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>table</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">There's a note on the table.</text>
+      <text speaker="Narrator">It says, "A puppet master who pays no mind to its
+       puppets is a swindler, takes and takes but never gives… he is much 
+       like yourself, useless and greedy.”</text>
+        <text speaker="Me">Is this a riddle of some sort? This is so sick man. What does this even mean?!</text>
+    </textList>
+  </Dialog>
+  <Dialog>
+  <!-- Attributes -->
+    <id>10</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>picture</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>e3</triggerState>
+    <transitToState>e4</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">I remember taking this photo now. I remember I hid something behind this frame long ago… I wonder if it’s still there.</text>
+      <text speaker="Narrator">picked up a key</text>
+      <text speaker="Me">What was this for again...?</text>
+    </textList>
+  </Dialog>
+<Dialog>
+  <!-- Attributes -->
+    <id>11</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>closet</triggerObject>
+    <useItem>key</useItem>
+    <pickItem></pickItem>
+    <triggerState>e4</triggerState>
+    <transitToState>e5</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">You used the key to open this door.</text>
+      <text speaker="Me">Oh god, I remember this place... They used to make me sleep in here with chains, like an animal. I can't look at this anymore. The memories... </text>
+      <text speaker="Narrator">You hear a loud thud coming from outside of the door. The door is unlocked.</text>
+    </textList>
+  </Dialog>
+</DialogList>
