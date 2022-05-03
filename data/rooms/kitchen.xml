@@ -61,7 +61,7 @@
     <isEntity>1</isEntity>
   </entity>
   <entity>
-    <name>chair 1</name>
+    <name>chair-1</name>
     <w>90</w>
     <h>115</h>
     <x>190</x>
@@ -69,25 +69,25 @@
     <isEntity>1</isEntity>
   </entity>
   <entity>
-    <name>chair 2</name>
-    <w>68</w>
+    <name>chair-2</name>
+    <w>76</w>
     <h>115</h>
     <x>435</x>
     <y>275</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
-    <name>chair 3</name>
-    <w>80</w>
-    <h>115</h>
+    <name>chair-3</name>
+    <w>90</w>
+    <h>80</h>
     <x>190</x>
     <y>400</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
-    <name>chair 4</name>
-    <w>68</w>
-    <h>115</h>
+    <name>chair-4</name>
+    <w>76</w>
+    <h>80</h>
     <x>435</x>
     <y>400</y>
     <isEntity>1</isEntity>

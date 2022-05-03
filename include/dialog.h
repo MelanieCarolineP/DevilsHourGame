@@ -23,6 +23,7 @@ struct dialog {
 
 class Dialog {
  public:
+  Dialog(){};
   /**
    *  @brief Construct a new Dialog object
    *

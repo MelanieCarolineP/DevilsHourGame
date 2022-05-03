@@ -93,7 +93,7 @@
     <isEntity>1</isEntity>
   </entity>
   <entity>
-    <name>door</name>
+    <name>hallway_door</name>
     <w>28</w>
     <h>161</h>
     <x>997</x>
