@@ -117,6 +117,12 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
     } else if (isDialog) {
       displayDialog();
     }
+
+    // Checking if the timer has run out
+    if (clock.isTimeOut()) {
+      gameStarted = false;
+      loseScreen();
+    }
   }
 }
 
@@ -213,6 +219,16 @@ void EventManager::pauseGame(float time) {
 
 void EventManager::startScreen(void) {
   gameView->drawStartScreen();
+  gameView->presentScreen();
+}
+
+void EventManager::loseScreen(void) {
+  gameView->drawLosingScreen();
+  gameView->presentScreen();
+}
+
+void EventManager::winScreen(void) {
+  gameView->drawWinningScreen();
   gameView->presentScreen();
 }
 
