@@ -3,10 +3,10 @@
 EventManager::EventManager(GameView* gameView) {
   this->curRoom.getEntities(Rooms::bathroom);
   this->gameView = gameView;
-  inventory.addItem("crowbar");
-  inventory.addItem("flashlight");
-  inventory.addItem("hairpin");
-  inventory.addItem("knife");
+  // inventory.addItem("crowbar");
+  // inventory.addItem("flashlight");
+  // inventory.addItem("hairpin");
+  // inventory.addItem("knife");
 
   std::vector<std::string> Text = {"test", "dsd"};
   std::vector<std::string> name = {"name1", "name2"};
@@ -158,6 +158,7 @@ void EventManager::handleDialogEvent(SDL_Event* event, float deltaTime,
                                      SDL_Renderer* renderer) {
   switch (event->key.keysym.sym) {
     case SDLK_e:
+    case SDLK_SPACE:
       dialogManager.clearDialog();
 
       break;
@@ -216,6 +217,10 @@ void EventManager::playerInteraction() {
   // std::cout << "id: " << id << std::endl;
   if (id < 0) return;
   dialog* d = &(curDialog.dialogList[id]);
+
+  // trigger dialog
+  isDialog = true;
+  displayDialog(d->speakers, d->texts);
 
   // Inventory Update
   inventory.removeItem();
