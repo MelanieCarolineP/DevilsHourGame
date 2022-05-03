@@ -19,7 +19,7 @@ class Clock {
   Uint32 startTime;
   bool isPaused = true;
   float timeElapsed = 0.0f;
-  float totalTime = 60000.0f;
+  float totalTime = 600000.0f;
 };
 
 #endif /* _CLOCK_H_ */

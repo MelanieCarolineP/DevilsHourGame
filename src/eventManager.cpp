@@ -290,7 +290,10 @@ void EventManager::roomChange(Rooms r) {
   std::string s;
   switch (r) {
     case Rooms::kitchen:
-      s = "k8";
+      s = "k1";
+      isDialog = true;
+      displayDialog(curDialog.dialogList[0].speakers,
+                    curDialog.dialogList[0].texts);
       break;
       // case Rooms::bathroom:
       // s = "b5";
