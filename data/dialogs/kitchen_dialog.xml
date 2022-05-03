@@ -453,8 +453,8 @@
     <triggerState>k7</triggerState>
     <transitToState>h2</transitToState>
     <!-- Texts -->
-    <text speaker="Narrator">You open the door.</text>
     <textList>
+      <text speaker="Narrator">You open the door.</text>
     </textList>
   </Dialog>
 
@@ -468,8 +468,8 @@
     <triggerState>k8</triggerState>
     <transitToState>h2</transitToState>
     <!-- Texts -->
-    <text speaker="Narrator">You open the door.</text>
     <textList>
+      <text speaker="Narrator">You open the door.</text>
     </textList>
   </Dialog>
 
