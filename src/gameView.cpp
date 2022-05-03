@@ -8,9 +8,6 @@ GameView::GameView(SDL_Renderer* renderer) {
   this->speechbox.initFonts("../resource/fonts/jmh_cthulhumbus.ttf");
   this->speechbox.initGlyph();
 
-  // this->roomTexture =
-  // SDL_CreateTexture(this->renderer, SDL_PIXELFORMAT_RGBA8888,
-  // SDL_TEXTUREACCESS_TARGET, SCREEN_WIDTH, SCREEN_HEIGHT);
   this->roomTexture =
       SDL_CreateTexture(this->renderer, SDL_PIXELFORMAT_RGBA8888,
                         SDL_TEXTUREACCESS_TARGET, 1024, 768);
@@ -42,10 +39,7 @@ void GameView::drawStartScreen(void) {
 void GameView::drawActor(Vec2d position, Vec2d size,
                          direction direction) {  // vec2D position
   sprite.storeImage("../resource/mainActorSprite.png", 4, 4);
-  // rect.x = position.x;
-  // rect.y = position.y;  // get x, y from position
-  // rect.w = size.x;
-  // rect.h = size.y;
+
   rect.x = position.x - 10;
   rect.y = position.y - 90;  // get x, y from position
   rect.w = 80;
@@ -92,7 +86,6 @@ void GameView::drawUI() {
   // draw UI
   SDL_RenderCopy(renderer, uiTx, NULL, &dstR);
   SDL_DestroyTexture(uiTx);
-  // SDL_RenderPresent(renderer);
 }
 
 /**
@@ -117,7 +110,6 @@ void GameView::drawInventory(int k) {
 
   SDL_RenderCopy(renderer, ivTx, NULL, &dstR);
   SDL_DestroyTexture(ivTx);
-  // SDL_RenderPresent(renderer);
 }
 
 /**
@@ -160,18 +152,10 @@ void GameView::drawRoom(Room* r) {
   SDL_Texture* roomTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
   SDL_FreeSurface(loadingSurf);
 
-  // specify size & loc
-  // SDL_Rect dstR;
-  // dstR.x = 335;
-  // dstR.y = 15;
-  // dstR.w = 1024;
-  // dstR.h = 768;
-
   // draw UI
   SDL_RenderCopy(renderer, roomTx, NULL, NULL);
   SDL_SetRenderTarget(renderer, NULL);
   SDL_DestroyTexture(roomTx);
-  // SDL_RenderPresent(renderer);
 }
 
 void GameView::roomToPosition(void) {
@@ -216,7 +200,6 @@ void GameView::clearScreen(void) {
 void GameView::presentScreen(void) { SDL_RenderPresent(renderer); }
 
 void GameView::displayTime(std::string time) {
-  // std::cout << time << std::endl;
   SDL_Color red = {255, 0, 0};
   SDL_Surface* loadingSurf = TTF_RenderText_Solid(clockFont, time.c_str(), red);
   if (!loadingSurf) std::cout << "Font surface not initialized" << std::endl;
@@ -226,7 +209,6 @@ void GameView::displayTime(std::string time) {
   SDL_Rect dstRect = {30, 40, 240, 120};
   SDL_RenderCopy(renderer, timeTx, NULL, &dstRect);
   SDL_DestroyTexture(timeTx);
-  // presentScreen();
 }
 
 /**
@@ -235,13 +217,6 @@ void GameView::displayTime(std::string time) {
  * @param r
  */
 void GameView::drawEntities(Room* r) {
-  // SDL_Rect bound;
-  // bound.x = r->boundX + 335;
-  // bound.y = r->boundY + 15;
-  // bound.w = r->boundW;
-  // bound.h = r->boundH;
-  // SDL_SetRenderDrawColor(renderer, 0, 0, 255, 130);
-  // SDL_RenderFillRect(renderer, &bound);
   // for each entity in the entity list
   for (int i = 0; i < r->entityList.size(); ++i) {
     Entity* e = &(r->entityList[i]);
@@ -250,10 +225,7 @@ void GameView::drawEntities(Room* r) {
     rect.y = 15 + int(e->position.y / r->size.y * 768);
     rect.w = int(e->size.x / r->size.x * 1024);
     rect.h = int(e->size.y / r->size.y * 768);
-    // rect.x = int(e->position.x);
-    // rect.y = int(e->position.y);
-    // rect.w = int(e->size.x);
-    // rect.h = int(e->size.y);
+
     if (e->isEntity)
       SDL_SetRenderDrawColor(renderer, 255, 0, 0, 130);
     else
