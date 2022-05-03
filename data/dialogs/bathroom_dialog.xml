@@ -306,11 +306,26 @@
     <triggerObject>hallway_door</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
-    <triggerState>b5</triggerState>
+    <triggerState>b3</triggerState>
     <transitToState>h3</transitToState>
     <!-- Texts -->
     <textList>
       <text speaker="Me">Finally I can unlock the door...</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>19</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>hallway_door</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">It's locked. Have to find a way out...</text>
     </textList>
   </Dialog>
 
