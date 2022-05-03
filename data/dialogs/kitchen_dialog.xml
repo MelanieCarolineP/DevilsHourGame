@@ -450,13 +450,10 @@
     <triggerObject>hallway-door</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
-    <triggerState></triggerState>
-    <transitToState></transitToState>
+    <triggerState>k7</triggerState>
+    <transitToState>h2</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">You rattle the door's handle, but it seems firmly locked.</text>
-      <text speaker="Me">I guess to unlock this door, I have to solve some sort of puzzle in this room.</text>
-      <text speaker="Me">Well...what have I got to lose?</text>
     </textList>
   </Dialog>
 
@@ -467,7 +464,7 @@
     <triggerObject>hallway-door</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
-    <triggerState>k7</triggerState>
+    <triggerState>k8</triggerState>
     <transitToState>h2</transitToState>
     <!-- Texts -->
     <textList>
@@ -481,10 +478,13 @@
     <triggerObject>hallway-door</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
-    <triggerState>k8</triggerState>
-    <transitToState>h2</transitToState>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
     <!-- Texts -->
     <textList>
+      <text speaker="Narrator">You rattle the door's handle, but it seems firmly locked.</text>
+      <text speaker="Me">I guess to unlock this door, I have to solve some sort of puzzle in this room.</text>
+      <text speaker="Me">Well...what have I got to lose?</text>
     </textList>
   </Dialog>
 

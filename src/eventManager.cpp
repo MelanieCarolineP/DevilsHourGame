@@ -8,10 +8,6 @@ EventManager::EventManager(GameView* gameView) {
   this->kitchenDialog = Dialog(Rooms::kitchen);
   this->foyerDialog = Dialog(Rooms::foyer);
   this->hallwayDialog = Dialog(Rooms::hallway);
-  inventory.addItem("crowbar");
-  inventory.addItem("flashlight");
-  inventory.addItem("hairpin");
-  inventory.addItem("knife");
 }
 
 /**
@@ -82,6 +78,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
             break;
           case SDLK_p:
             roomChange(Rooms::hallway);
+            break;
           case SDLK_9:
             gameView->drawWinningScreen();
             gameView->presentScreen();
@@ -168,16 +165,20 @@ void EventManager::playerInteraction() {
   // otherwise do nothing
 
   std::string object = mainActor.interact(curRoom.entityList);
-
+  std::cout << "object: " << object << std::endl;
   std::string item(inventory.getSelectedItem());
-
+  std::cout << "item: " << item << std::endl;
+  std::cout << "current state: " << stateMonitor.currentState << std::endl;
   int id = curDialog.triggerDialog(mainActor.position, object, item,
                                    stateMonitor.currentState);
-
+  std::cout << "id: " << id << std::endl;
   if (id < 0) return;
 
   dialog* d = &(curDialog.dialogList[id]);
-  int switchToRoom = stateMonitor.update(d->transitToState);
+  int switchToRoom;
+  if (d->transitToState.size() > 0)
+    switchToRoom = stateMonitor.update(d->transitToState);
+  std::cout << "transit to state: " << d->transitToState << std::endl;
 
   // handle doors
   if (!stateMonitor.isRoomLocked()) {
@@ -232,6 +233,21 @@ void EventManager::roomChange(Rooms r) {
   mainActor.position.y = curRoom.bornY;
   mainActor.setBoundary(curRoom.boundX, curRoom.boundY, curRoom.boundW,
                         curRoom.boundH);
+
+  // DEBUG:
+  std::string s;
+  switch (r) {
+    case Rooms::kitchen:
+      s = "k8";
+      break;
+    case Rooms::bathroom:
+      s = "b5";
+      break;
+
+    default:
+      break;
+  }
+  if (s.size() > 0) stateMonitor.update(s);
 }
 void EventManager::returnToGame(void) {
   isPaused = false;
