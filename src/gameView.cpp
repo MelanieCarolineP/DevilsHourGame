@@ -22,6 +22,7 @@ GameView::GameView(SDL_Renderer* renderer) {
   this->clockFont = TTF_OpenFont("../resource/fonts/digital-7.ttf", 24);
   if (!clockFont) std::cout << "Font not loaded" << std::endl;
 }
+
 void GameView::drawStartScreen(void) {
   sprite.storeImage("../resource/titleScreen.png", 1, 1);
   rect.x = 0;
@@ -273,4 +274,20 @@ void GameView::drawItems(Inventory* inv) {
     SDL_RenderCopy(renderer, itemTx, NULL, &dst);
     SDL_DestroyTexture(itemTx);
   }
+}
+
+void GameView::drawWinningScreen() {
+  SDL_Surface* loadingSurf = IMG_Load("../resource/winScreen.png");
+  SDL_Texture* winTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
+  SDL_FreeSurface(loadingSurf);
+  SDL_RenderCopy(renderer, winTx, NULL, NULL);
+  SDL_DestroyTexture(winTx);
+}
+
+void GameView::drawLosingScreen() {
+  SDL_Surface* loadingSurf = IMG_Load("../resource/loseScreen.png");
+  SDL_Texture* loseTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
+  SDL_FreeSurface(loadingSurf);
+  SDL_RenderCopy(renderer, loseTx, NULL, NULL);
+  SDL_DestroyTexture(loseTx);
 }

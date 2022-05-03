@@ -82,6 +82,15 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
             break;
           case SDLK_p:
             roomChange(Rooms::hallway);
+          case SDLK_9:
+            gameView->drawWinningScreen();
+            gameView->presentScreen();
+            gameStarted = false;
+            break;
+          case SDLK_0:
+            gameView->drawLosingScreen();
+            gameView->presentScreen();
+            gameStarted = false;
             break;
           case SDLK_t:
             showEntity = !showEntity;
@@ -92,7 +101,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
             break;
         }
 
-        if (!isPaused && !isDialog) {
+        if (!isPaused && !isDialog && gameStarted) {
           // std::cout << "display_game" << std::endl;
           displayGame();
           // clock.update(deltaTime);
@@ -100,10 +109,10 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
 
       } else if (isPaused) {
         handlePausedEvent(event, deltaTime, time, running, renderer);
-      } else {
+      } else if (isDialog) {
         handleDialogEvent(event, deltaTime, time, running, renderer);
       }
-    } else if (isPaused == false && isDialog == false) {
+    } else if (isPaused == false && isDialog == false && gameStarted) {
       displayGame();
     } else if (isDialog) {
       displayDialog();
@@ -167,18 +176,18 @@ void EventManager::playerInteraction() {
   // std::cout << mainActor.interact(curRoom.entityList) << std::endl;
 
   std::string object = mainActor.interact(curRoom.entityList);
-  std::cout << "object: " << object << std::endl;
+  // std::cout << "object: " << object << std::endl;
   std::string item(inventory.getSelectedItem());
-  std::cout << "item: " << item << std::endl;
-  std::cout << "current state: " << stateMonitor.currentState << std::endl;
+  // std::cout << "item: " << item << std::endl;
+  // std::cout << "current state: " << stateMonitor.currentState << std::endl;
   int id = curDialog.triggerDialog(mainActor.position, object, item,
                                    stateMonitor.currentState);
-  std::cout << "id: " << id << std::endl;
+  // std::cout << "id: " << id << std::endl;
   if (id < 0) return;
 
   dialog* d = &(curDialog.dialogList[id]);
   int switchToRoom = stateMonitor.update(d->transitToState);
-  std::cout << "transit to state: " << d->transitToState << std::endl;
+  // std::cout << "transit to state: " << d->transitToState << std::endl;
 
   // handle doors
   if (!stateMonitor.isRoomLocked()) {

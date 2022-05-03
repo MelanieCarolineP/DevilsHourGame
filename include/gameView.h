@@ -24,6 +24,8 @@ class GameView {
 
   /* methods to draw element */
   void drawStartScreen();
+  void drawWinningScreen();
+  void drawLosingScreen();
   void displayGame(Actor *actor);
   void drawUI();
   void drawRoom(Room *r);

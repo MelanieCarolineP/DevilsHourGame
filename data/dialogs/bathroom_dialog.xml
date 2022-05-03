@@ -293,7 +293,7 @@
     <useItem></useItem>
     <pickItem></pickItem>
     <triggerState></triggerState>
-    <transitToState>hallway_door</transitToState>
+    <transitToState>h3</transitToState>
     <!-- Texts -->
     <textList>
     </textList>

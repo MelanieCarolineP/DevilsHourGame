@@ -47,6 +47,8 @@ class EventManager {
   bool gameStarted = false;
   bool isPaused = false;
   bool isDialog = false;
+  bool isWinning = false;
+  bool isLosing = false;
   bool showEntity = false;
 
   GameView* gameView;
