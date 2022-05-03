@@ -93,14 +93,13 @@
     <transitToState>b2</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">picked a soap. Looks like the soap was melted before.</text>
-      <text speaker="Me"> Strange… This is the only shiny thing in this room. Looks like it has been cleaned regularly.</text>
+      <text speaker="Me"> Strange...This is the only shiny thing in this room. Looks like it has been cleaned regularly.</text>
       <text speaker="Me"> Ahhh!</text>
       <text speaker="Narrator"> You see a purple-skin dead woman standing behind you in the mirror. You immediately turn back but see nothing. The woman is staring at you with desperate and plaintive eyes. She is reaching her scraggy hands towards you in the mirror. </text>
       <text speaker="Me"> Who are you! What do you want from me!</text>
-      <text speaker="Woman"> Don’t you remember me…xxx? You promised to protect me and my son and guide us to heaven… But look at me now……</text>
-      <text speaker="Me">  I don’t know you! Stop talking to me and leave me now!</text>
-      <text speaker="Woman"> No…You do know who I am…Now, say my name and I will let you out…</text>
+      <text speaker="Woman"> Don't you remember me...xxx? You promised to protect me and my son and guide us to heaven...But look at me now......</text>
+      <text speaker="Me">  I don't know you! Stop talking to me and leave me now!</text>
+      <text speaker="Woman"> No...You do know who I am...Now, say my name and I will let you out...</text>
       <text speaker="Narrator"> The bathroom door suddenly closed heavily. You try to open the door and run, but it is sealed by some force. </text>
       <text speaker="Me"> (whisper) I have to find out who she is…</text>
     </textList>
@@ -137,7 +136,7 @@
       <text speaker="Me"> I don't know who you are! Just let me out of here!</text>
       <text speaker="Narrator"> You wave the knife and yell to the woman. The woman remains calm and is approaching you from the mirror. </text>
       <text speaker="Me"> Stop approaching me and let! me! out!!</text>
-      <text speaker="Narrator"> The woman walks towards you. You suddenly found her stepping out of the mirror. You cannot think too much and stab the woman. However, the knife directly goes through her body and breaks the mirror. You noticed a big wound on the woman’s stomach. The blood was splashing out of her body.</text>
+      <text speaker="Narrator"> The woman walks towards you. You suddenly found her stepping out of the mirror. You cannot think too much and stab the woman. However, the knife directly goes through her body and breaks the mirror. You noticed a big wound on the woman's stomach. The blood was splashing out of her body.</text>
       <text speaker="Woman"> So you did this again...As I expected...You will pay for it...You don't have to remember me...But I will remember you and come to you...Forever...</text>
       <text speaker="Narrator"> The figure of the woman faded out. You see a hole behind the mirror and find a key there. Suddenly, a great noise came from the outside of the door. It seems that the mysterious force has disappeared and the door can open now.</text>
     </textList>
@@ -292,10 +291,26 @@
     <triggerObject>hallway_door</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
-    <triggerState></triggerState>
+    <triggerState>b4</triggerState>
     <transitToState>h3</transitToState>
     <!-- Texts -->
     <textList>
+      <text speaker="Me">Finally I can unlock the door...</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>19</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>hallway_door</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>b5</triggerState>
+    <transitToState>h3</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">Finally I can unlock the door...</text>
     </textList>
   </Dialog>
 
