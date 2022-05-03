@@ -4,9 +4,12 @@
 #include <SDL.h>
 
 #include <iostream>
+#include <string>
+#include <vector>
 
 #include "actor.h"
 #include "clock.h"
+#include "dialogManager.h"
 #include "enum.h"
 #include "gameView.h"
 #include "room.h"
@@ -32,7 +35,10 @@ class EventManager {
   void inventoryChange();
   void returnToGame(void);
   void displayGame(void);
-  void displayDialog(void);
+  void showDialog(const char* name, const char* text);
+  void displayDialog(std::vector<std::string> names,
+                     std::vector<std::string> texts);
+  void displayDialog(std::string name, std::string text);
 
   void handlePausedEvent(SDL_Event* event, float deltaTime, float time,
                          bool* running, SDL_Renderer* renderer);
@@ -49,6 +55,7 @@ class EventManager {
   bool showEntity = false;
 
   GameView* gameView;
+  DialogManager dialogManager;
   Actor mainActor;
   direction curDir;
   Room curRoom;
@@ -56,6 +63,10 @@ class EventManager {
   Rooms currRoomName;
   Clock clock;
   Inventory inventory;
+
+  std::vector<std::string> testText;
+  std::string text1 = "here";
+  std::vector<std::string> nameText;
 };
 
 #endif

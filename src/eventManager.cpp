@@ -7,6 +7,15 @@ EventManager::EventManager(GameView* gameView) {
   inventory.addItem("flashlight");
   inventory.addItem("hairpin");
   inventory.addItem("knife");
+
+  std::vector<std::string> Text = {"test", "dsd"};
+  std::vector<std::string> name = {"name1", "name2"};
+
+  this->dialogManager = DialogManager();
+
+  this->testText.assign(Text.begin(), Text.end());
+
+  this->nameText.assign(name.begin(), name.end());
 }
 
 /**
@@ -20,6 +29,7 @@ EventManager::EventManager(GameView* gameView) {
 void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
                                 bool* running, SDL_Renderer* renderer) {
   Uint8 const* keystate = SDL_GetKeyboardState(NULL);
+
   keystate = SDL_GetKeyboardState(NULL);
   if (event->type == SDL_QUIT) {
     exitEvent(event, time, running);
@@ -57,9 +67,9 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
             break;
 
           case SDLK_z:
-            std::cout << "dialog";
             isDialog = true;
-            displayDialog();
+            displayDialog(this->nameText, this->testText);
+
             break;
 
           // DEBUG
@@ -97,9 +107,11 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
       }
     } else if (isPaused == false && isDialog == false) {
       displayGame();
-    } else if (isDialog) {
-      displayDialog();
     }
+    // } else if (isDialog) {
+    //   std::vector<std::string> dialogList = dialogManager.getDialog();
+    //   showDialog(dialogList[0].c_str(), dialogList[1].c_str());
+    // }
   }
 }
 
@@ -124,13 +136,36 @@ void EventManager::handleDialogEvent(SDL_Event* event, float deltaTime,
                                      SDL_Renderer* renderer) {
   switch (event->key.keysym.sym) {
     case SDLK_e:
-      isDialog = false;
-      displayGame();
+      dialogManager.clearDialog();
+
       break;
   }
-  if (isDialog) {
-    displayDialog();
+
+  if (!dialogManager.check()) {
+    isDialog = false;
+    displayGame();
+  } else {
+    std::vector<std::string> dialogList = dialogManager.getDialog();
+    showDialog(dialogList[0].c_str(), dialogList[1].c_str());
   }
+  // if (isDialog) {
+  //   std::vector<std::string> dialogList = dialogManager.getDialog();
+  //   showDialog(dialogList[0].c_str(), dialogList[1].c_str());
+  // }
+}
+void EventManager::displayDialog(std::vector<std::string> names,
+                                 std::vector<std::string> texts) {
+  dialogManager.handleDialog(names, texts);
+  std::vector<std::string> dialog_list = dialogManager.getDialog();
+
+  showDialog(dialog_list[0].c_str(), dialog_list[1].c_str());
+}
+
+void EventManager::displayDialog(std::string name, std::string text) {
+  dialogManager.handleDialog(name, text);
+  std::vector<std::string> dialog_list = dialogManager.getDialog();
+
+  showDialog(dialog_list[0].c_str(), dialog_list[1].c_str());
 }
 
 /* Moves and draws the main character on the screen */
@@ -234,7 +269,7 @@ void EventManager::displayGame() {
   gameView->presentScreen();
 }
 
-void EventManager::displayDialog(void) {
+void EventManager::showDialog(const char* name, const char* text) {
   gameView->clearScreen();
   gameView->displayTime(clock.getCurTime());
   gameView->drawUI();
@@ -244,21 +279,6 @@ void EventManager::displayDialog(void) {
   gameView->drawActor(mainActor.position, mainActor.size, curDir);
   gameView->roomToPosition();
 
-  gameView->drawDialog(
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin "
-      "fringilla libero id lobortis malesuada. In auctor eu ante at "
-      "efficitur."
-
-      "Etiam facilisis nec odio nec commodo. Aliquam at metus ac orci "
-      "fringilla mollis ac a leo. Sed justo ex, lacinia facilisis ante id, "
-      "posuere elementum mauris. Suspendisse potenti. Curabitur sit amet "
-      "rutrum nibh. Praesent lobortis elit lorem, sit amet egestas dui "
-      "pulvinar ut. Curabitur lorem metus, facilisis sed dolor non, pretium "
-      "bibendum purus. Pellentesque mollis vel magna sit amet consectetur. "
-      "Curabitur elit lectus, imperdiet eu aliquet a, elementum in tellus. "
-      "Fusce faucibus, nibh at sodales facilisis, nulla urna malesuada "
-      "massa, "
-      "vitae sollicitudin sem mi vitae sem. Suspendisse potenti.",
-      "Bob");
+  gameView->drawDialog(text, name);
   gameView->presentScreen();
 }
