@@ -164,21 +164,29 @@ void EventManager::playerInteraction() {
   // if (mainActor.collision(curRoom.entityList)) mainActor.interact();
   // otherwise do nothing
 
+  // Get current info
   std::string object = mainActor.interact(curRoom.entityList);
-  std::cout << "object: " << object << std::endl;
+  // std::cout << "object: " << object << std::endl;
   std::string item(inventory.getSelectedItem());
-  std::cout << "item: " << item << std::endl;
-  std::cout << "current state: " << stateMonitor.currentState << std::endl;
+  // std::cout << "item: " << item << std::endl;
+  // std::cout << "current state: " << stateMonitor.currentState << std::endl;
+
+  // retrieve dialog
   int id = curDialog.triggerDialog(mainActor.position, object, item,
                                    stateMonitor.currentState);
-  std::cout << "id: " << id << std::endl;
+  // std::cout << "id: " << id << std::endl;
   if (id < 0) return;
-
   dialog* d = &(curDialog.dialogList[id]);
+
+  // Inventory Update
+  inventory.removeItem();
+  if (d->pickItem.size() > 0) inventory.addItem(d->pickItem);
+
+  // State transision
   int switchToRoom;
   if (d->transitToState.size() > 0)
     switchToRoom = stateMonitor.update(d->transitToState);
-  std::cout << "transit to state: " << d->transitToState << std::endl;
+  // std::cout << "transit to state: " << d->transitToState << std::endl;
 
   // handle doors
   if (!stateMonitor.isRoomLocked()) {
@@ -240,8 +248,8 @@ void EventManager::roomChange(Rooms r) {
     case Rooms::kitchen:
       s = "k8";
       break;
-    case Rooms::bathroom:
-      s = "b5";
+      // case Rooms::bathroom:
+      // s = "b5";
       break;
 
     default:
