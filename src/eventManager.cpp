@@ -206,15 +206,15 @@ void EventManager::playerInteraction() {
 
   // Get current info
   std::string object = mainActor.interact(curRoom.entityList);
-  // std::cout << "object: " << object << std::endl;
+  std::cout << "object: " << object << std::endl;
   std::string item(inventory.getSelectedItem());
-  // std::cout << "item: " << item << std::endl;
-  // std::cout << "current state: " << stateMonitor.currentState << std::endl;
+  std::cout << "item: " << item << std::endl;
+  std::cout << "current state: " << stateMonitor.currentState << std::endl;
 
   // retrieve dialog
   int id = curDialog.triggerDialog(mainActor.position, object, item,
                                    stateMonitor.currentState);
-  // std::cout << "id: " << id << std::endl;
+  std::cout << "id: " << id << std::endl;
   if (id < 0) return;
   dialog* d = &(curDialog.dialogList[id]);
 
@@ -223,7 +223,7 @@ void EventManager::playerInteraction() {
   displayDialog(d->speakers, d->texts);
 
   // Inventory Update
-  inventory.removeItem();
+  if (item != "hands") inventory.removeItem();
   if (d->pickItem.size() > 0) inventory.addItem(d->pickItem);
 
   // State transision
@@ -295,8 +295,11 @@ void EventManager::roomChange(Rooms r) {
       displayDialog(curDialog.dialogList[0].speakers,
                     curDialog.dialogList[0].texts);
       break;
-      // case Rooms::bathroom:
-      // s = "b5";
+    case Rooms::bathroom:
+      s = "b1";
+      isDialog = true;
+      displayDialog(curDialog.dialogList[0].speakers,
+                    curDialog.dialogList[0].texts);
       break;
 
     default:
