@@ -65,6 +65,7 @@ const bool Inventory::itemInInventory(std::string itemName) {
  */
 void Inventory::addItem(std::string itemName) {
   for (int i = 0; i < 8; i++) {
+    if (items[i] == itemName) return;
     if (items.at(i) == "") {
       items.at(i) = itemName;
       return;
