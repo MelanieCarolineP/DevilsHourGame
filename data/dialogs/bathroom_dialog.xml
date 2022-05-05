@@ -261,14 +261,19 @@
     <!-- Attributes -->
     <id>17</id>
     <triggerLocation></triggerLocation>
-    <triggerObject>ventilation</triggerObject>
-    <useItem>flashlight</useItem>
-    <pickItem>knife</pickItem>
+    <triggerObject>carpet</triggerObject>
+    <useItem>soap</useItem>
+    <pickItem></pickItem>
     <triggerState>b2</triggerState>
-    <transitToState>b4</transitToState>
+    <transitToState></transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">You step on the carpet and notice there is something underneath it. You check it and find a note written with blood: </text>
+      <text speaker="Me">What would a soap do on the floor...</text>
+      <text speaker="Narrator">You put the soap on the box, nothing happended</text>
+      <text speaker="Me">Of course it won't work...</text>
+      <text speaker="Narrator">You try to pick up the soap, but it slipped from your hand</text>
+      <text speaker="Narrator">The soap slide to the side of the box, and you hear somthing is triggered. The box is suddenly opened.</text>
+      <text speaker="Narrator">You check it and find a note written with blood: </text>
       <text speaker="Narrator">We share the same name, but mean two different things </text>
       <text speaker="Narrator">one goes up and down, and the other spins </text>
       <text speaker="Narrator">while one can make you sick, the other you cannot touch </text>
@@ -281,6 +286,22 @@
       <text speaker="Me">...</text>
       <text speaker="Me">...</text>
       <text speaker="Me">Mercury! </text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>17</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>carpet</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>b2</triggerState>
+    <transitToState>b4</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">You step on the carpet and notice there is something underneath it. It is a wooden box embedded on the floor. </text>
+      <text speaker="Narrator">You spend all your effort trying to pick it up or open it, but it doesn't move or open at all. </text>
     </textList>
   </Dialog>
 
@@ -306,7 +327,7 @@
     <triggerObject>hallway_door</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
-    <triggerState>b3</triggerState>
+    <triggerState>b5</triggerState>
     <transitToState>h3</transitToState>
     <!-- Texts -->
     <textList>

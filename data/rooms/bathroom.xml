@@ -53,14 +53,6 @@
     <isEntity>1</isEntity>
   </entity>
   <entity>
-    <name>carpet</name>
-    <w>100</w>
-    <h>160</h>
-    <x>570</x>
-    <y>520</y>
-    <isEntity>0</isEntity>
-  </entity>
-  <entity>
     <name>toilet</name>
     <w>250</w>
     <h>160</h>
@@ -69,12 +61,20 @@
     <isEntity>1</isEntity>
   </entity>
   <entity>
+    <name>carpet</name>
+    <w>100</w>
+    <h>160</h>
+    <x>570</x>
+    <y>520</y>
+    <isEntity>0</isEntity>
+  </entity>
+  <entity>
     <name>mirror_wall</name>
     <w>40</w>
     <h>180</h>
     <x>120</x>
     <y>500</y>
-    <isEntity>0</isEntity>
+    <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>ventilation</name>
