@@ -16,23 +16,23 @@
     <name>cabinet</name>
     <w>168</w>
     <h>138</h>
-    <x>294</x>
-    <y>7</y>
+    <x>284</x>
+    <y>15</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>oven</name>
-    <w>115.5</w>
-    <h>64.5</h>
+    <w>100</w>
+    <h>64</h>
     <x>500.5</x>
     <y>123</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>top-table</name>
-    <w>235</w>
-    <h>168.5</h>
-    <x>630</x>
+    <w>215</w>
+    <h>180</h>
+    <x>600</x>
     <y>7</y>
     <isEntity>1</isEntity>
   </entity>
@@ -40,8 +40,8 @@
     <name>trash-can</name>
     <w>75</w>
     <h>75</h>
-    <x>875</x>
-    <y>140</y>
+    <x>825</x>
+    <y>110</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
@@ -49,47 +49,47 @@
     <w>160</w>
     <h>236</h>
     <x>820</x>
-    <y>256</y>
+    <y>250</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>dining-table</name>
     <w>160</w>
-    <h>310</h>
-    <x>270</x>
-    <y>275</y>
+    <h>325</h>
+    <x>250</x>
+    <y>280</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>chair-1</name>
-    <w>90</w>
-    <h>115</h>
-    <x>190</x>
-    <y>275</y>
+    <w>76</w>
+    <h>100</h>
+    <x>170</x>
+    <y>290</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>chair-2</name>
     <w>76</w>
-    <h>115</h>
-    <x>435</x>
-    <y>275</y>
+    <h>100</h>
+    <x>415</x>
+    <y>290</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>chair-3</name>
-    <w>90</w>
-    <h>120</h>
-    <x>190</x>
-    <y>400</y>
+    <w>76</w>
+    <h>100</h>
+    <x>170</x>
+    <y>450</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
     <name>chair-4</name>
     <w>76</w>
-    <h>80</h>
-    <x>435</x>
-    <y>430</y>
+    <h>100</h>
+    <x>415</x>
+    <y>450</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
