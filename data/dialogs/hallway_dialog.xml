@@ -1,6 +1,21 @@
 <?xml version="1.0" ?>
 <DialogList>
-  
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>1</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>kitchen-door</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">Back to the hallway...</text>
+    </textList>
+  </Dialog>
+
   <Dialog>
     <!-- Attributes -->
     <id>2</id>
