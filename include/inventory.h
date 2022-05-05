@@ -22,6 +22,8 @@ class Inventory {
   void addItem(std::string itemName); /**< adds a given item to the inventory*/
   void removeItem(); /**< removes the item at the current position*/
 
+  void resetInventory(); /**< resets the inventory to hold nothing*/
+
   int currentPosition;
   /**
    * @brief Construct a new Inventory object

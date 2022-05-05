@@ -1,12 +1,9 @@
 #include "eventManager.h"
 
-EventManager::EventManager(GameView* gameView) {
+EventManager::EventManager(GameView* gameView, AudioView* audioView) {
   this->curRoom.getEntities(Rooms::bathroom);
   this->gameView = gameView;
-  // inventory.addItem("crowbar");
-  // inventory.addItem("flashlight");
-  // inventory.addItem("hairpin");
-  // inventory.addItem("knife");
+  this->audioView = audioView;
 
   std::vector<std::string> Text = {"test", "dsd"};
   std::vector<std::string> name = {"name1", "name2"};
@@ -16,11 +13,21 @@ EventManager::EventManager(GameView* gameView) {
   this->testText.assign(Text.begin(), Text.end());
 
   this->nameText.assign(name.begin(), name.end());
-  // this->bathroomDialog = Dialog(Rooms::bathroom);
-  // this->bedroomDialog = Dialog(Rooms::bedroom);
-  // this->kitchenDialog = Dialog(Rooms::kitchen);
-  // this->foyerDialog = Dialog(Rooms::foyer);
-  // this->hallwayDialog = Dialog(Rooms::hallway);
+}
+
+EventManager::EventManager(GameView* gameView) {
+  this->curRoom.getEntities(Rooms::bathroom);
+  this->gameView = gameView;
+  this->audioView = NULL;
+
+  std::vector<std::string> Text = {"test", "dsd"};
+  std::vector<std::string> name = {"name1", "name2"};
+
+  this->dialogManager = DialogManager();
+
+  this->testText.assign(Text.begin(), Text.end());
+
+  this->nameText.assign(name.begin(), name.end());
 }
 
 /**
@@ -220,6 +227,9 @@ void EventManager::playerInteraction() {
   if (id < 0) return;
   dialog* d = &(curDialog.dialogList[id]);
 
+  // play sound
+  audioView->playSound("interact");
+
   // trigger dialog
   isDialog = true;
   displayDialog(d->speakers, d->texts);
@@ -239,13 +249,19 @@ void EventManager::playerInteraction() {
     if (switchToRoom == 1) {
       roomChange(Rooms::bedroom);
     } else if (switchToRoom == 2) {
+      audioView->playSound("door");
       roomChange(Rooms::kitchen);
     } else if (switchToRoom == 3) {
+      audioView->playSound("door");
       roomChange(Rooms::bathroom);
     } else if (switchToRoom == 4) {
+      audioView->playSound("door");
       roomChange(Rooms::foyer);
     } else if (switchToRoom == 5) {
+      audioView->playSound("door");
       roomChange(Rooms::hallway);
+      inventory
+          .resetInventory();  // Resets the inventory when you enter the hallway
     }
   }
 }
