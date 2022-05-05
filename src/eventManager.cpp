@@ -316,6 +316,19 @@ void EventManager::roomChange(Rooms r) {
   mainActor.setBoundary(curRoom.boundX, curRoom.boundY, curRoom.boundW,
                         curRoom.boundH);
 
+  // Since the hallway has multiple doors, we need to account for which door the
+  // player just left
+  if (stateMonitor.currentState == "h1") {  // Bedroom door
+    mainActor.position.x = 154;
+    mainActor.position.y = 616;
+  } else if (stateMonitor.currentState == "h2") {  // Kitchen door
+    mainActor.position.x = 439.5;
+    mainActor.position.y = 296.5;
+  } else if (stateMonitor.currentState == "h3") {  // Bathroom door
+    mainActor.position.x = 812;
+    mainActor.position.y = 175;
+  }
+
   // DEBUG:
   std::string s;
   switch (r) {
