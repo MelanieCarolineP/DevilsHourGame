@@ -206,7 +206,7 @@
     <!-- Texts -->
     <textList>
       <text speaker="Narrator">Placed the puppet on top of the pentagram. The house feels like it is shaking... You grab the ground for balance.</text>
-      <text speaker="Narrator">You hear loud thuds approaching the door and sudden rustling.</text>
+      <text speaker="Narrator">You hear loud thuds approaching the door and sudden rustling. The door has been opened from the other side.</text>
       
     </textList>
   </Dialog>
@@ -238,7 +238,7 @@
     <!-- Texts -->
     <textList>
       <text speaker="Narrator">Placed the string on top of the pentagram. The house feels like it is shaking... You grab the ground for balance.</text>
-      <text speaker="Narrator">You hear loud thuds approaching the door and sudden rustling.</text>
+      <text speaker="Narrator">You hear loud thuds approaching the door and sudden rustling. The door has been opened from the other side.</text>
     </textList>
   </Dialog>
 
@@ -287,7 +287,8 @@
     <!-- Texts -->
     <textList>
       <text speaker="Me">I remember taking this photo now. I remember I hid something behind this frame long ago... I wonder if it's still there. </text>
-      <text speaker="Narrator">picked up a key </text>
+      <text speaker="Narrator">You spend the next 15 minutes using the screwdriver.</text>
+      <text speaker="Narrator">picked up a key.</text>
       <text speaker="Me">What was this for again...? </text>
     </textList>
   </Dialog>
@@ -300,12 +301,27 @@
     <useItem>key</useItem>
     <pickItem></pickItem>
     <triggerState>e3</triggerState>
-    <transitToState>e4</transitToState>
+    <transitToState>e5</transitToState>
     <!-- Texts -->
     <textList>
       <text speaker="Narrator">You used the key to open this door. </text>
       <text speaker="Me">Oh god, I remember this place... They used to make me sleep in here with chains, like an animal. I can't look at this anymore. The memories...</text>
       <text speaker="Narrator">You hear a loud thud coming from outside of the door. The door is unlocked.</text>
+    </textList>
+  </Dialog>
+    <Dialog>
+  <!-- Attributes -->
+    <id>20</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>closet</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>e5</triggerState>
+    <transitToState>e5</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">Oh god, I remember this place... They used to make me sleep in here with chains, like an animal. I can't look at this anymore. The memories...</text>
+      <text speaker="Narrator">I don't want to look at this anymore...</text>
     </textList>
   </Dialog>
   <Dialog>
@@ -319,10 +335,23 @@
     <transitToState>h1</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">The door has been opened from the other side.</text>
+      <text speaker="Narrator">...</text>
     </textList>
   </Dialog>
-
+  <Dialog>
+  <!-- Attributes -->
+    <id>21</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>hallway_door</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>e5</triggerState>
+    <transitToState>h1</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">...</text>
+    </textList>
+  </Dialog>
 
 
 </DialogList>
