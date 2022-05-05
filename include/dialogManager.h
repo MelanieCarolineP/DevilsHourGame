@@ -19,12 +19,12 @@ class DialogManager {
 
   void handleDialog(std::vector<std::string> speakers,
                     std::vector<std::string> texts) {
-    std::cout << "handle Dialog";
+    // std::cout << "handle Dialog";
     this->speakers.assign(speakers.begin(), speakers.end());
     this->texts.assign(texts.begin(), texts.end());
 
     max = speakers.size();
-    std::cout << max << std::endl;
+    // std::cout << max << std::endl;
     pointer = 0;
   };
 
