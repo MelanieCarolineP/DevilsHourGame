@@ -226,8 +226,19 @@ void EventManager::playerInteraction() {
   // retrieve dialog
   int id = curDialog.triggerDialog(mainActor.position, object, item,
                                    stateMonitor.currentState);
-  std::cout << "id: " << id << std::endl;
-  if (id < 0) return;
+  std::cout << "id: " << id + 1 << std::endl;
+
+  // if (id < 0) return;
+  if (id < 0) {
+    if (object.size() > 0 && item.size() > 0) {
+      isDialog = true;
+      std::vector<std::string> temp_name = {"Me"};
+      std::vector<std::string> temp_dialog = {"I can't use it here."};
+      displayDialog(temp_name, temp_dialog);
+    }
+    return;
+  }
+
   dialog* d = &(curDialog.dialogList[id]);
 
   // play sound
