@@ -88,3 +88,9 @@ void Inventory::removeItem() {
 void Inventory::changeSelectedItem() {
   Inventory::currentPosition = (Inventory::currentPosition + 1) % 8;
 }
+
+void Inventory::resetInventory() {
+  items = {
+      "hands", "", "", "", "", "", "", "",
+  };
+}

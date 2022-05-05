@@ -260,6 +260,8 @@ void EventManager::playerInteraction() {
     } else if (switchToRoom == 5) {
       audioView->playSound("door");
       roomChange(Rooms::hallway);
+      inventory
+          .resetInventory();  // Resets the inventory when you enter the hallway
     }
   }
 }
