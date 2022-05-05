@@ -19,6 +19,8 @@ class Inventory {
   const bool itemInInventory(
       std::string itemName); /**< returns true if the player
                           has an item, false if not */
+  const bool itemHasBeenUsed(std::string itemName); /**< returns true if the
+                        player has used an item, false if not */
 
   void changeSelectedItem();          /**< change the selected item*/
   bool addItem(std::string itemName); /**< adds a given item to the inventory*/

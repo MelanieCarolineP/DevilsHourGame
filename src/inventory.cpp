@@ -50,8 +50,17 @@ const std::vector<std::string> Inventory::getAllItems() { return items; }
  * @return false if the item is not contained in the inventory
  */
 const bool Inventory::itemInInventory(std::string itemName) {
-  for (int i = 0; i < 8; i++) {
+  for (int i = 0; i < items.size(); i++) {
     if (items.at(i) == itemName) {
+      return true;
+    }
+  }
+  return false;
+}
+
+const bool Inventory::itemHasBeenUsed(std::string itemName) {
+  for (int i = 0; i < usedItems.size(); i++) {
+    if (usedItems.at(i) == itemName) {
       return true;
     }
   }
@@ -64,6 +73,7 @@ const bool Inventory::itemInInventory(std::string itemName) {
  * @param itemName
  */
 bool Inventory::addItem(std::string itemName) {
+  if (itemHasBeenUsed(itemName)) return false;
   for (int i = 0; i < 8; i++) {
     if (items[i] == itemName) return false;
     if (items.at(i) == "") {
@@ -79,6 +89,7 @@ bool Inventory::addItem(std::string itemName) {
  *
  */
 void Inventory::removeItem() {
+  usedItems.push_back(items.at(currentPosition));
   items.at(currentPosition) = "";
 } /**< removes the item at the current position*/
 
@@ -94,4 +105,5 @@ void Inventory::resetInventory() {
   items = {
       "hands", "", "", "", "", "", "", "",
   };
+  usedItems = {};
 }
