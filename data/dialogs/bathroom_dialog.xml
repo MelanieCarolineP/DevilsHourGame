@@ -316,7 +316,7 @@
     <triggerObject>hallway_door</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
-    <triggerState>b4</triggerState>
+    <triggerState>b5</triggerState>
     <transitToState>h3</transitToState>
     <!-- Texts -->
     <textList>
