@@ -1,12 +1,12 @@
 <room>
   <!-- room settings -->
   <name>hallway</name>
-  <width>1024 </width>
+  <width>1024</width>
   <height>768</height>
-  <boundX>66</boundX>
-  <boundY>21</boundY>
-  <boundW>917</boundW>
-  <boundH>704</boundH>
+  <boundX>26</boundX>
+  <boundY>75</boundY>
+  <boundW>967</boundW>
+  <boundH>640</boundH>
   <bornX>154</bornX>
   <bornY>346.5</bornY>
   
@@ -22,9 +22,9 @@
 
   <entity>
     <name>foyer-door</name>
-    <w>155</w>
+    <w>145</w>
     <h>45</h>
-    <x>230</x>
+    <x>220</x>
     <y>50</y>
     <isEntity>1</isEntity>
   </entity>
@@ -71,6 +71,15 @@
     <h>170</h>
     <x>970</x>
     <y>120</y>
+    <isEntity>1</isEntity>
+  </entity>
+
+  <entity>
+    <name>placeholder</name>
+    <w>800</w>
+    <h>500</h>
+    <x>310</x>
+    <y>390</y>
     <isEntity>1</isEntity>
   </entity>
 </room>

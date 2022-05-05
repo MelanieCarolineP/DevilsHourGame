@@ -48,7 +48,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
   }
 
   if (event->key.keysym.sym == SDLK_x && !gameStarted) {
-    // startGame();
+    startGame();
     gameStarted = true;
   } else if (gameStarted) {
     if (!isDialog && !isPaused) {
