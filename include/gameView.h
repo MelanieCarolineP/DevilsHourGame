@@ -8,7 +8,6 @@
 #include "constants.h"
 #include "enum.h"
 #include "inventory.h"
-#include "pauseMenu.h"
 #include "room.h"
 #include "speechBox.h"
 #include "spriteSheet.h"
@@ -48,7 +47,6 @@ class GameView {
   SpriteSheet sprite;
 
   SpeechBox speechbox;
-  PauseMenu pauseMenu;
 
   TTF_Font *clockFont;
 

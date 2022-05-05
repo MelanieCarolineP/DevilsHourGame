@@ -277,7 +277,9 @@
       <text speaker="Me">Of course it won't work...</text>
       <text speaker="Narrator">You try to pick up the soap, but it slipped from your hand</text>
       <text speaker="Narrator">The soap slide to the side of the box, and you hear somthing is triggered. The box is suddenly opened.</text>
-      <text speaker="Narrator">You check it and find a note written with blood: </text>
+      <text speaker="Me">There must be something inside the soap!</text>
+      <text speaker="Narrator">You break the soap and find a magnet inside. That explains why the box opened.</text>
+      <text speaker="Narrator">You check the box and find a note written with blood: </text>
       <text speaker="Narrator">We share the same name, but mean two different things </text>
       <text speaker="Narrator">one goes up and down, and the other spins </text>
       <text speaker="Narrator">while one can make you sick, the other you cannot touch </text>
@@ -286,6 +288,9 @@
       <text speaker="Narrator">One is a messenger, the other is not </text>
       <text speaker="Narrator">One gives you a reading, the other helps the Oracle </text>
       <text speaker="Narrator">What are we? </text>
+      <text speaker="Me">...</text>
+      <text speaker="Me">...</text>
+      <text speaker="Me">...</text>
       <text speaker="Me">...</text>
       <text speaker="Me">...</text>
       <text speaker="Me">...</text>

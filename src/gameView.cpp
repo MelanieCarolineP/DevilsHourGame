@@ -2,7 +2,6 @@
 
 GameView::GameView(SDL_Renderer* renderer) {
   this->renderer = renderer;
-  this->pauseMenu = PauseMenu(renderer);
 
   this->speechbox = SpeechBox(renderer);
   this->speechbox.initFonts("../resource/fonts/jmh_cthulhumbus.ttf");
