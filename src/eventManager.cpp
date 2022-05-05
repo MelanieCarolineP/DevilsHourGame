@@ -16,11 +16,11 @@ EventManager::EventManager(GameView* gameView) {
   this->testText.assign(Text.begin(), Text.end());
 
   this->nameText.assign(name.begin(), name.end());
-  this->bathroomDialog = Dialog(Rooms::bathroom);
-  this->bedroomDialog = Dialog(Rooms::bedroom);
-  this->kitchenDialog = Dialog(Rooms::kitchen);
-  this->foyerDialog = Dialog(Rooms::foyer);
-  this->hallwayDialog = Dialog(Rooms::hallway);
+  // this->bathroomDialog = Dialog(Rooms::bathroom);
+  // this->bedroomDialog = Dialog(Rooms::bedroom);
+  // this->kitchenDialog = Dialog(Rooms::kitchen);
+  // this->foyerDialog = Dialog(Rooms::foyer);
+  // this->hallwayDialog = Dialog(Rooms::hallway);
 }
 
 /**
@@ -291,20 +291,20 @@ void EventManager::roomChange(Rooms r) {
   switch (r) {
     case Rooms::kitchen:
       s = "k1";
-      isDialog = true;
-      displayDialog(curDialog.dialogList[0].speakers,
-                    curDialog.dialogList[0].texts);
       break;
     case Rooms::bathroom:
       s = "b1";
-      isDialog = true;
-      displayDialog(curDialog.dialogList[0].speakers,
-                    curDialog.dialogList[0].texts);
+      break;
+    case Rooms::bedroom:
+      s = "e1";
       break;
 
     default:
       break;
   }
+  isDialog = true;
+  displayDialog(curDialog.dialogList[0].speakers,
+                curDialog.dialogList[0].texts);
   if (s.size() > 0) stateMonitor.update(s);
 }
 void EventManager::returnToGame(void) {

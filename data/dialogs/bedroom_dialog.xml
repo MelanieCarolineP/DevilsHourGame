@@ -16,8 +16,8 @@
     <transitToState></transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Me">What’s going on? My head feels like it's imploding.</text>
-      <text speaker="Me">It’s been years since I was here last. It looks different.</text>
+      <text speaker="Me">What's going on? My head feels like it's imploding.</text>
+      <text speaker="Me">It's been years since I was here last. It looks different.</text>
       <text speaker="Narrator">You notice the clock on your wrist, the countdown has started.</text>
     </textList>
   </Dialog>
@@ -66,7 +66,7 @@
     <transitToState></transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Me">This kid looks like me. I have a strong sense of deja vu, it’s giving me a headache. </text>
+      <text speaker="Me">This kid looks like me. I have a strong sense of deja vu, it's giving me a headache. </text>
     </textList>
   </Dialog>
 
@@ -142,7 +142,7 @@
     <transitToState></transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">The closet is locked, but the bottom drawer isn’t. </text>
+      <text speaker="Narrator">The closet is locked, but the bottom drawer isn't. </text>
       <text speaker="Narrator">picked up a stick. </text>
     </textList>
   </Dialog>

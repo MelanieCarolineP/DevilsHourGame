@@ -74,12 +74,6 @@ class EventManager {
   std::string text1 = "here";
   std::vector<std::string> nameText;
   Dialog curDialog;
-
-  Dialog bedroomDialog;
-  Dialog kitchenDialog;
-  Dialog bathroomDialog;
-  Dialog foyerDialog;
-  Dialog hallwayDialog;
 };
 
 #endif
