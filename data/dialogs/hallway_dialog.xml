@@ -266,8 +266,8 @@
     <!-- Texts -->
     <textList>
       <text speaker="Narrator">...</text>
-      <text speaker="Narrator">...</text>
-      <text speaker="Narrator">...</text>
+      <text speaker="Narrator">......</text>
+      <text speaker="Narrator">.........</text>
       <text speaker="Narrator">...There's nothing...</text>
     </textList>
   </Dialog>

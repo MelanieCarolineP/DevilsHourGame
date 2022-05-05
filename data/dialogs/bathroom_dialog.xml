@@ -326,12 +326,12 @@
       <text speaker="Narrator">One is a messenger, the other is not </text>
       <text speaker="Narrator">One gives you a reading, the other helps the Oracle </text>
       <text speaker="Narrator">What are we? </text>
+      <text speaker="Me">.</text>
+      <text speaker="Me">..</text>
       <text speaker="Me">...</text>
-      <text speaker="Me">...</text>
-      <text speaker="Me">...</text>
-      <text speaker="Me">...</text>
-      <text speaker="Me">...</text>
-      <text speaker="Me">...</text>
+      <text speaker="Me">....</text>
+      <text speaker="Me">.....</text>
+      <text speaker="Me">......</text>
       <text speaker="Me">Mercury! </text>
     </textList>
   </Dialog>

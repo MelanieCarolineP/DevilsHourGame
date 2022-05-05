@@ -90,7 +90,9 @@ bool Inventory::addItem(std::string itemName) {
  */
 void Inventory::removeItem() {
   usedItems.push_back(items.at(currentPosition));
-  items.at(currentPosition) = "";
+  if (items.at(currentPosition) != "steak-knife")  // Sepcial case: Never remove
+                                                   // steak knife from inventory
+    items.at(currentPosition) = "";
 }
 
 /**
