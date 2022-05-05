@@ -43,7 +43,7 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
   if (event->key.keysym.sym == SDLK_x && !gameStarted) {
     startGame();
     gameStarted = true;
-  } else if (gameStarted) {
+  } else if (gameStarted && !isDialog && !isPaused) {
     if (keystate[SDL_SCANCODE_W]) {
       playerMovement(deltaTime, direction::UP, renderer);
     }
