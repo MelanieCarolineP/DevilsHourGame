@@ -129,10 +129,23 @@
       <text speaker="Narrator">Wait... there's something peeking out.. but I don't want to put my hands inside. </text>
     </textList>
   </Dialog>
-  
   <Dialog>
   <!-- Attributes -->
     <id>9</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>closet</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>e5</triggerState>
+    <transitToState>e5</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">I don't want to look at this anymore...</text>
+    </textList>
+  </Dialog>
+  <Dialog>
+  <!-- Attributes -->
+    <id>10</id>
     <triggerLocation></triggerLocation>
     <triggerObject>closet</triggerObject>
     <useItem></useItem>
@@ -148,7 +161,7 @@
 
   <Dialog>
   <!-- Attributes -->
-    <id>10</id>
+    <id>11</id>
     <triggerLocation></triggerLocation>
     <triggerObject>side_table</triggerObject>
     <useItem></useItem>
@@ -164,7 +177,7 @@
   
   <Dialog>
   <!-- Attributes -->
-    <id>11</id>
+    <id>12</id>
     <triggerLocation></triggerLocation>
     <triggerObject>bucket</triggerObject>
     <useItem>stick</useItem>
@@ -181,7 +194,7 @@
 
   <Dialog>
   <!-- Attributes -->
-    <id>12</id>
+    <id>13</id>
     <triggerLocation></triggerLocation>
     <triggerObject>pentagram</triggerObject>
     <useItem>string</useItem>
@@ -196,7 +209,7 @@
 
   <Dialog>
   <!-- Attributes -->
-    <id>13</id>
+    <id>14</id>
     <triggerLocation></triggerLocation>
     <triggerObject>pentagram</triggerObject>
     <useItem>puppet</useItem>
@@ -213,7 +226,7 @@
 
   <Dialog>
   <!-- Attributes -->
-    <id>14</id>
+    <id>15</id>
     <triggerLocation></triggerLocation>
     <triggerObject>pentagram</triggerObject>
     <useItem>puppet</useItem>
@@ -228,7 +241,7 @@
 
   <Dialog>
   <!-- Attributes -->
-    <id>15</id>
+    <id>16</id>
     <triggerLocation></triggerLocation>
     <triggerObject>pentagram</triggerObject>
     <useItem>string</useItem>
@@ -244,7 +257,7 @@
 
   <Dialog>
   <!-- Attributes -->
-    <id>16</id>
+    <id>17</id>
     <triggerLocation></triggerLocation>
     <triggerObject>bottles</triggerObject>
     <useItem></useItem>
@@ -262,7 +275,7 @@
 
   <Dialog>
   <!-- Attributes -->
-    <id>17</id>
+    <id>18</id>
     <triggerLocation></triggerLocation>
     <triggerObject>bottles</triggerObject>
     <useItem></useItem>
@@ -277,7 +290,7 @@
 
   <Dialog>
   <!-- Attributes -->
-    <id>18</id>
+    <id>19</id>
     <triggerLocation></triggerLocation>
     <triggerObject>picture</triggerObject>
     <useItem>screwdriver</useItem>
@@ -295,7 +308,7 @@
 
   <Dialog>
   <!-- Attributes -->
-    <id>19</id>
+    <id>20</id>
     <triggerLocation></triggerLocation>
     <triggerObject>closet</triggerObject>
     <useItem>key</useItem>
@@ -309,24 +322,9 @@
       <text speaker="Narrator">You hear a loud thud coming from outside of the door. The door is unlocked.</text>
     </textList>
   </Dialog>
-    <Dialog>
-  <!-- Attributes -->
-    <id>20</id>
-    <triggerLocation></triggerLocation>
-    <triggerObject>closet</triggerObject>
-    <useItem></useItem>
-    <pickItem></pickItem>
-    <triggerState>e5</triggerState>
-    <transitToState>e5</transitToState>
-    <!-- Texts -->
-    <textList>
-      <text speaker="Me">Oh god, I remember this place... They used to make me sleep in here with chains, like an animal. I can't look at this anymore. The memories...</text>
-      <text speaker="Narrator">I don't want to look at this anymore...</text>
-    </textList>
-  </Dialog>
   <Dialog>
   <!-- Attributes -->
-    <id>20</id>
+    <id>21</id>
     <triggerLocation></triggerLocation>
     <triggerObject>hallway_door</triggerObject>
     <useItem></useItem>
@@ -340,7 +338,7 @@
   </Dialog>
   <Dialog>
   <!-- Attributes -->
-    <id>21</id>
+    <id>22</id>
     <triggerLocation></triggerLocation>
     <triggerObject>hallway_door</triggerObject>
     <useItem></useItem>
@@ -352,6 +350,19 @@
       <text speaker="Narrator">...</text>
     </textList>
   </Dialog>
-
+  <Dialog>
+    <!-- Attributes -->
+    <id>23</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>hallway_door</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">It's locked. Have to find a way out...</text>
+    </textList>
+  </Dialog>
 
 </DialogList>
