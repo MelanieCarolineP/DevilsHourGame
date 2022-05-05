@@ -1,6 +1,7 @@
 // Using SDL and standard IO
 #include <SDL.h>
 #include <SDL_image.h>
+#include <SDL_mixer.h>
 #include <stdio.h>
 
 #include <iostream>
@@ -47,18 +48,23 @@ int main(int argc, char** argv) {
   /*** Initialization ***/
 
   // Initialize SDL
-  if (SDL_Init(SDL_INIT_VIDEO) < 0) csci437_error("SDL could not initialize!");
-  TTF_Init();
+  if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) < 0)
+    csci437_error("SDL could not initialize!");
 
   // Create window
-  SDL_Window* window =
-      SDL_CreateWindow("Devil's Hour", SDL_WINDOWPOS_CENTERED,
-                       SDL_WINDOWPOS_CENTERED, 1400, 800, SDL_WINDOW_SHOWN);
+  SDL_Window* window = SDL_CreateWindow("Devil's Hour", SDL_WINDOWPOS_CENTERED,
+                                        SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH,
+                                        SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
   if (window == NULL) csci437_error("Window could not be created!");
 
   // Init Bitmap loading
   if (IMG_Init(IMG_INIT_JPG | IMG_INIT_PNG) < 0)
     csci437_img_error("SDL could not initialize bitmap loaders!");
+
+  // Initialize SDL_mixer
+  if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
+    csci437_img_error("SDL_mixer could not initialize! SDL_mixer Error");
+  }
 
   // Small delay to allow the system to create the window.
   SDL_Delay(100);
@@ -75,7 +81,11 @@ int main(int argc, char** argv) {
 
   int inactivityCount = 0;
 
-  GameView gameView(renderer);
+  GameView gameView = GameView(renderer);
+  AudioView audioView = AudioView();
+  audioView.loadMedia();
+  // audioView.playMusic();
+  audioView.playSound("door");
   EventManager eventManager(&gameView);
   SDL_Event e;
   Rooms current_room;
@@ -131,6 +141,9 @@ int main(int argc, char** argv) {
   Uint32 end_time = SDL_GetTicks();
 
   /*** Clean Up ***/
+
+  // Destroy audio
+  audioView.close();
 
   // Destroy texture
   // SDL_DestroyTexture(roomTx);

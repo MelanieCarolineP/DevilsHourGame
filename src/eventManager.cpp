@@ -41,20 +41,22 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
   }
 
   if (event->key.keysym.sym == SDLK_x && !gameStarted) {
-    startGame();
+    // startGame();
     gameStarted = true;
-  } else if (gameStarted && !isDialog && !isPaused) {
-    if (keystate[SDL_SCANCODE_W]) {
-      playerMovement(deltaTime, direction::UP, renderer);
-    }
-    if (keystate[SDL_SCANCODE_A]) {
-      playerMovement(deltaTime, direction::LEFT, renderer);
-    }
-    if (keystate[SDL_SCANCODE_S]) {
-      playerMovement(deltaTime, direction::DOWN, renderer);
-    }
-    if (keystate[SDL_SCANCODE_D]) {
-      playerMovement(deltaTime, direction::RIGHT, renderer);
+  } else if (gameStarted) {
+    if (!isDialog && !isPaused) {
+      if (keystate[SDL_SCANCODE_W]) {
+        playerMovement(deltaTime, direction::UP, renderer);
+      }
+      if (keystate[SDL_SCANCODE_A]) {
+        playerMovement(deltaTime, direction::LEFT, renderer);
+      }
+      if (keystate[SDL_SCANCODE_S]) {
+        playerMovement(deltaTime, direction::DOWN, renderer);
+      }
+      if (keystate[SDL_SCANCODE_D]) {
+        playerMovement(deltaTime, direction::RIGHT, renderer);
+      }
     }
     if (event->type == SDL_KEYDOWN) {
       if (isPaused == false && isDialog == false) {
