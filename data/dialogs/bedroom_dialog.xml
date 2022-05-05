@@ -314,7 +314,7 @@
     <useItem>key</useItem>
     <pickItem></pickItem>
     <triggerState>e3</triggerState>
-    <transitToState>e5</transitToState>
+    <transitToState>e4</transitToState>
     <!-- Texts -->
     <textList>
       <text speaker="Narrator">You used the key to open this door. </text>
@@ -337,22 +337,8 @@
     </textList>
   </Dialog>
   <Dialog>
-  <!-- Attributes -->
-    <id>22</id>
-    <triggerLocation></triggerLocation>
-    <triggerObject>hallway_door</triggerObject>
-    <useItem></useItem>
-    <pickItem></pickItem>
-    <triggerState>e5</triggerState>
-    <transitToState>h1</transitToState>
-    <!-- Texts -->
-    <textList>
-      <text speaker="Narrator">...</text>
-    </textList>
-  </Dialog>
-  <Dialog>
     <!-- Attributes -->
-    <id>23</id>
+    <id>22</id>
     <triggerLocation></triggerLocation>
     <triggerObject>hallway_door</triggerObject>
     <useItem></useItem>
