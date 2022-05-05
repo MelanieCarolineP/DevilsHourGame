@@ -169,7 +169,14 @@ void GameView::displayGame(Actor* actor) {
 
 void GameView::drawPauseMenu(void) {
   clearScreen();
-  SDL_RenderCopy(renderer, pauseMenu.returnTexture(), NULL, NULL);
+
+  sprite.storeImage("../resource/ui/pause.png", 1, 1);
+  sprite.selectSprite(0, 0);
+  rect.x = 200;
+  rect.y = 50;
+  rect.w = 1000;
+  rect.h = 700;
+  sprite.drawSprite(renderer, &rect);
 }
 
 void GameView::drawDialog(const char* text, const char* name) {
