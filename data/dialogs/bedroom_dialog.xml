@@ -34,8 +34,7 @@
     <!-- Texts -->
     <textList>
       <text speaker="Me">There's a note written in blood on the table. </text>
-      <text speaker="Narrator">The note says, A puppet master who pays no mind to its puppets is a swindler, </text>
-      <text speaker="Narrator">takes and takes but never gives, he is much like yourself, useless and greedy. </text>
+      <text speaker="Narrator">The note says, A puppet master who pays no mind to its puppets is a swindler, takes and takes but never gives, he is much like yourself, useless and greedy.</text>
       <text speaker="Me">Is this a riddle of some sort? This is so sick man. What does this even mean?! </text>
     </textList>
    </Dialog>
@@ -126,8 +125,8 @@
     <transitToState></transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Me">This bucket is filled to the brim with blood and it looks fresh… whose blood is this? </text>
-      <text speaker="Narrator">Wait... there's something peeking out... but I don't want to put my hands inside. </text>
+      <text speaker="Me">This bucket is filled to the brim with blood and it looks fresh...whose blood is this? </text>
+      <text speaker="Narrator">Wait... there's something peeking out.. but I don't want to put my hands inside. </text>
     </textList>
   </Dialog>
   
@@ -184,14 +183,14 @@
   <!-- Attributes -->
     <id>12</id>
     <triggerLocation></triggerLocation>
-    <triggerObject>pentagon</triggerObject>
+    <triggerObject>pentagram</triggerObject>
     <useItem>string</useItem>
     <pickItem></pickItem>
     <triggerState>e1</triggerState>
     <transitToState>e2</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">Placed the string on top of the pentagon. </text>
+      <text speaker="Narrator">Placed the string on top of the pentagram. </text>
     </textList>
   </Dialog>
 
@@ -199,15 +198,15 @@
   <!-- Attributes -->
     <id>13</id>
     <triggerLocation></triggerLocation>
-    <triggerObject>pentagon</triggerObject>
+    <triggerObject>pentagram</triggerObject>
     <useItem>puppet</useItem>
     <pickItem></pickItem>
     <triggerState>e2</triggerState>
-    <transitToState>e3</transitToState>
+    <transitToState>e4</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">Placed the puppet on top of the pentagon. The house feels like it is shaking... You grab the ground for balance. </text>
-      <text speaker="Narrator">You hear loud thuds approaching the door and sudden rustling. The door has been opened from the other side. </text>
+      <text speaker="Narrator">Placed the puppet on top of the pentagram. The house feels like it is shaking... You grab the ground for balance.</text>
+      <text speaker="Narrator">You hear loud thuds approaching the door and sudden rustling.</text>
       
     </textList>
   </Dialog>
@@ -216,14 +215,14 @@
   <!-- Attributes -->
     <id>14</id>
     <triggerLocation></triggerLocation>
-    <triggerObject>pentagon</triggerObject>
+    <triggerObject>pentagram</triggerObject>
     <useItem>puppet</useItem>
     <pickItem></pickItem>
     <triggerState>e1</triggerState>
     <transitToState>e2</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">Placed the puppet on top of the pentagon. </text>
+      <text speaker="Narrator">Placed the puppet on top of the pentagram.</text>
     </textList>
   </Dialog>
 
@@ -231,15 +230,15 @@
   <!-- Attributes -->
     <id>15</id>
     <triggerLocation></triggerLocation>
-    <triggerObject>pentagon</triggerObject>
+    <triggerObject>pentagram</triggerObject>
     <useItem>string</useItem>
     <pickItem></pickItem>
     <triggerState>e2</triggerState>
-    <transitToState>e3</transitToState>
+    <transitToState>e4</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">Placed the string on top of the pentagon. The house feels like it is shaking... You grab the ground for balance. </text>
-      <text speaker="Narrator">You hear loud thuds approaching the door and sudden rustling. The door has been opened from the other side. </text>
+      <text speaker="Narrator">Placed the string on top of the pentagram. The house feels like it is shaking... You grab the ground for balance.</text>
+      <text speaker="Narrator">You hear loud thuds approaching the door and sudden rustling.</text>
     </textList>
   </Dialog>
 
@@ -256,7 +255,7 @@
     <textList>
       <text speaker="Me">Looking at these bottles makes me feel terrible... but why? </text>
       <text speaker="Narrator">You recall a memory of when you were younger. Your parents used throw these bottles at your feet when they were fighting. </text>
-      <text speaker="Narrator">Upon further inspection, you see a blue handle inside the bottle. </text>
+      <text speaker="Narrator">Upon further inspection, you see a yellow handle inside the bottle. </text>
       <text speaker="Narrator">picked up a screwdriver. </text>
     </textList>
   </Dialog>
@@ -272,7 +271,7 @@
     <transitToState>e2</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Me">These bottles... </text>
+      <text speaker="Me">These bottles...</text>
     </textList>
   </Dialog>
 
@@ -281,13 +280,13 @@
     <id>18</id>
     <triggerLocation></triggerLocation>
     <triggerObject>picture</triggerObject>
-    <useItem></useItem>
-    <pickItem></pickItem>
+    <useItem>screwdriver</useItem>
+    <pickItem>key</pickItem>
     <triggerState>e2</triggerState>
     <transitToState>e3</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Me">I remember taking this photo now. I remember I hid something behind this frame long ago… I wonder if it’s still there. </text>
+      <text speaker="Me">I remember taking this photo now. I remember I hid something behind this frame long ago... I wonder if it's still there. </text>
       <text speaker="Narrator">picked up a key </text>
       <text speaker="Me">What was this for again...? </text>
     </textList>
@@ -305,8 +304,25 @@
     <!-- Texts -->
     <textList>
       <text speaker="Narrator">You used the key to open this door. </text>
-      <text speaker="Me">Oh god, I remember this place... They used to make me sleep in here with chains, like an animal. I can't look at this anymore. The memories... </text>
-      <text speaker="Narrator">You hear a loud thud coming from outside of the door. The door is unlocked. </text>
+      <text speaker="Me">Oh god, I remember this place... They used to make me sleep in here with chains, like an animal. I can't look at this anymore. The memories...</text>
+      <text speaker="Narrator">You hear a loud thud coming from outside of the door. The door is unlocked.</text>
     </textList>
   </Dialog>
+  <Dialog>
+  <!-- Attributes -->
+    <id>20</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>hallway_door</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>e4</triggerState>
+    <transitToState>h1</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">The door has been opened from the other side.</text>
+    </textList>
+  </Dialog>
+
+
+
 </DialogList>
