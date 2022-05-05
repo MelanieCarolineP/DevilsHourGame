@@ -3,6 +3,7 @@
 void Clock::start() {
   isPaused = false;
   startTime = SDL_GetTicks();
+  punishment = 0;
   // std::cout << "start time:" << startTime << std::endl;
 }
 

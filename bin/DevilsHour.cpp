@@ -93,7 +93,7 @@ int main(int argc, char** argv) {
   float deltaTime = 0.0f;
   uint32_t startTime, endTime;
   Uint16 current_time = 0;
-  eventManager.startGame();
+  eventManager.startScreen();
 
   // create the update time event
   Uint32 updateClockevent = SDL_RegisterEvents(1);

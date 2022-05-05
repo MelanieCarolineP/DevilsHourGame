@@ -293,10 +293,10 @@ void EventManager::winScreen(void) {
 }
 
 void EventManager::startGame(void) {
-  roomChange(Rooms::bedroom);
   clock.start();
+  roomChange(Rooms::bedroom);
 
-  startScreen();
+  // startScreen();
 }
 
 void EventManager::roomChange(Rooms r) {

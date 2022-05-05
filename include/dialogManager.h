@@ -24,7 +24,7 @@ class DialogManager {
     this->texts.assign(texts.begin(), texts.end());
 
     max = speakers.size();
-    std::cout << max;
+    std::cout << max << std::endl;
     pointer = 0;
   };
 
