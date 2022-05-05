@@ -303,6 +303,7 @@ void EventManager::pauseGame(float time) {
 }
 
 void EventManager::startScreen(void) {
+  audioView->playMusic("main");
   gameView->drawStartScreen();
   gameView->presentScreen();
 }
@@ -313,12 +314,14 @@ void EventManager::loseScreen(void) {
 }
 
 void EventManager::winScreen(void) {
+  audioView->playMusic("win");
   gameView->drawWinningScreen();
   gameView->presentScreen();
 }
 
 void EventManager::startGame(void) {
   clock.start();
+  audioView->playMusic("main");
   inventory.resetInventory();
   roomChange(Rooms::bedroom);
   // startScreen();

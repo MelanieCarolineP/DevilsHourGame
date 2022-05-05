@@ -2,12 +2,25 @@
 
 #include <iostream>
 
-AudioView::AudioView() { gMusic = NULL; }
+AudioView::AudioView() {
+  // Game music
+  gMainMusic = NULL;
+  gWinMusic = NULL;
+
+  // Game sounds
+  gInteract = NULL;
+  gDoor = NULL;
+}
 
 void AudioView::loadMedia() {
   // Load music
-  gMusic = Mix_LoadMUS("../resource/audio/bg_music.mp3");
-  if (gMusic == NULL) {
+  gMainMusic = Mix_LoadMUS("../resource/audio/bg_music.mp3");
+  if (gMainMusic == NULL) {
+    printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
+  }
+
+  gWinMusic = Mix_LoadMUS("../resource/audio/microfrog.wav");
+  if (gWinMusic == NULL) {
     printf("Failed to load beat music! SDL_mixer Error: %s\n", Mix_GetError());
   }
 
@@ -25,8 +38,17 @@ void AudioView::loadMedia() {
 
 void AudioView::close() {
   // Free the music
-  Mix_FreeMusic(gMusic);
-  gMusic = NULL;
+  Mix_FreeMusic(gMainMusic);
+  Mix_FreeMusic(gWinMusic);
+  gMainMusic = NULL;
+  gWinMusic = NULL;
+
+  // Free the sounds
+
+  Mix_FreeChunk(gInteract);
+  Mix_FreeChunk(gDoor);
+  gInteract = NULL;
+  gDoor = NULL;
 
   // Quit SDL music subsystem
   Mix_Quit();
@@ -42,4 +64,9 @@ void AudioView::playSound(std::string soundName) {
   }
 }
 
-void AudioView::playMusic() { Mix_PlayMusic(gMusic, -1); }
+void AudioView::playMusic(std::string musicName) {
+  if (musicName == "main")
+    Mix_PlayMusic(gMainMusic, -1);
+  else if (musicName == "win")
+    Mix_PlayMusic(gWinMusic, -1);
+}
