@@ -6,7 +6,6 @@
 
 #include "actor.h"
 #include "constants.h"
-#include "enum.h"
 #include "inventory.h"
 #include "room.h"
 #include "speechBox.h"
