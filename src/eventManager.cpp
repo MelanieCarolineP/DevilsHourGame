@@ -115,6 +115,9 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
           case SDLK_t:
             showEntity = !showEntity;
             break;
+          case SDLK_1:
+            clock.deductTime();
+            break;
 
           case SDLK_ESCAPE:
             pauseGame(time);
@@ -262,6 +265,8 @@ void EventManager::playerInteraction() {
       roomChange(Rooms::hallway);
       inventory
           .resetInventory();  // Resets the inventory when you enter the hallway
+    } else if (switchToRoom == 6) {
+      clock.deductTime();
     }
   }
 }

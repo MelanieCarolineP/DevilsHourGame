@@ -12,10 +12,12 @@ void Clock::update(float deltaTime) {
   std::cout << getCurTime() << std::endl;
 }
 
-bool Clock::isTimeOut() { return (SDL_GetTicks() - startTime) > totalTime; }
+bool Clock::isTimeOut() {
+  return (SDL_GetTicks() + punishment - startTime) > totalTime;
+}
 
 std::string Clock::getCurTime() {
-  Uint32 curTime = SDL_GetTicks();
+  Uint32 curTime = SDL_GetTicks() + punishment;
   // std::cout << "cur time:" << curTime << std::endl;
   std::string s = "02:";
   int minute = (curTime - startTime) / totalTime * 60;
@@ -25,3 +27,5 @@ std::string Clock::getCurTime() {
   // std::cout << s << std::endl;
   return s;
 }
+
+void Clock::deductTime() { punishment += 150000; }

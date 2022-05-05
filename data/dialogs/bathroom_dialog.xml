@@ -139,6 +139,10 @@
       <text speaker="Narrator">The woman walks towards you. You suddenly found her stepping out of the mirror. You cannot think too much and stab the woman. However, the knife directly goes through her body and breaks the mirror. You noticed a big wound on the woman's stomach. The blood was splashing out of her body.</text>
       <text speaker="Woman">So you did this again...As I expected...You will pay for it...You don't have to remember me...But I will remember you and come to you...Forever...</text>
       <text speaker="Narrator">The figure of the woman faded out. You see a hole behind the mirror and find a key there. Suddenly, a great noise came from the outside of the door. It seems that the mysterious force has disappeared and the door can open now.</text>
+      <text speaker="Narrator">When you reach your hand towards the key, you feel a strong force coming through your arms. It feels like something is sucking away your soul.</text>
+      <text speaker="Woman">You never try to escape from me...</text>
+      <text speaker="Narrator">The voice of the woman suddenly appears in your head. You feel a strong dizziness and fainted out on the ground.</text>
+      <text speaker="">[Time -15 min]</text>
     </textList>
   </Dialog>
 
@@ -265,7 +269,7 @@
     <useItem>soap</useItem>
     <pickItem></pickItem>
     <triggerState>b2</triggerState>
-    <transitToState></transitToState>
+    <transitToState>b4</transitToState>
     <!-- Texts -->
     <textList>
       <text speaker="Me">What would a soap do on the floor...</text>
@@ -297,7 +301,7 @@
     <useItem></useItem>
     <pickItem></pickItem>
     <triggerState>b2</triggerState>
-    <transitToState>b4</transitToState>
+    <transitToState></transitToState>
     <!-- Texts -->
     <textList>
       <text speaker="Narrator">You step on the carpet and notice there is something underneath it. It is a wooden box embedded on the floor. </text>
@@ -327,7 +331,7 @@
     <triggerObject>hallway_door</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
-    <triggerState>b5</triggerState>
+    <triggerState>b3</triggerState>
     <transitToState>h3</transitToState>
     <!-- Texts -->
     <textList>

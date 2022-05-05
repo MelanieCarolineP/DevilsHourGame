@@ -217,13 +217,14 @@ void GameView::displayTime(std::string time) {
  * @param r
  */
 void GameView::drawEntities(Room* r) {
-  SDL_Rect boundR;
-  boundR.x = 335 + r->boundX;
-  boundR.y = 15 + r->boundY;
-  boundR.w = r->boundW;
-  boundR.h = r->boundH;
-  SDL_SetRenderDrawColor(renderer, 0, 0, 255, 130);
-  SDL_RenderFillRect(renderer, &boundR);
+  // // draw boundary
+  // SDL_Rect boundR;
+  // boundR.x = 335 + r->boundX;
+  // boundR.y = 15 + r->boundY;
+  // boundR.w = r->boundW;
+  // boundR.h = r->boundH;
+  // SDL_SetRenderDrawColor(renderer, 0, 0, 255, 130);
+  // SDL_RenderFillRect(renderer, &boundR);
 
   // for each entity in the entity list
   for (int i = 0; i < r->entityList.size(); ++i) {
