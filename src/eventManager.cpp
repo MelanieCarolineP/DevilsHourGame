@@ -238,9 +238,11 @@ void EventManager::playerInteraction() {
   // Inventory Update and trigger dialog
   if (item != "hands") inventory.removeItem();
   if (d->pickItem.size() > 0) {
-    if (inventory.addItem(d->pickItem)) {  // If you successfully pick up an
-                                           // item, play the normal dialog
+    if (!inventory.itemHasBeenUsed(
+            d->pickItem)) {  // If you successfully pick up an
+                             // item, play the normal dialog
       displayDialog(d->speakers, d->texts);
+      inventory.addItem(d->pickItem);
     } else {  // If you already picked up the item, play default dialog
       std::vector<std::string> temp_name = {"Me"};
       std::vector<std::string> temp_dialog = {
