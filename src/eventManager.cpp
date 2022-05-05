@@ -3,10 +3,10 @@
 EventManager::EventManager(GameView* gameView) {
   this->curRoom.getEntities(Rooms::bathroom);
   this->gameView = gameView;
-  inventory.addItem("crowbar");
-  inventory.addItem("flashlight");
-  inventory.addItem("hairpin");
-  inventory.addItem("knife");
+  // inventory.addItem("crowbar");
+  // inventory.addItem("flashlight");
+  // inventory.addItem("hairpin");
+  // inventory.addItem("knife");
 
   std::vector<std::string> Text = {"test", "dsd"};
   std::vector<std::string> name = {"name1", "name2"};
@@ -16,11 +16,11 @@ EventManager::EventManager(GameView* gameView) {
   this->testText.assign(Text.begin(), Text.end());
 
   this->nameText.assign(name.begin(), name.end());
-  this->bathroomDialog = Dialog(Rooms::bathroom);
-  this->bedroomDialog = Dialog(Rooms::bedroom);
-  this->kitchenDialog = Dialog(Rooms::kitchen);
-  this->foyerDialog = Dialog(Rooms::foyer);
-  this->hallwayDialog = Dialog(Rooms::hallway);
+  // this->bathroomDialog = Dialog(Rooms::bathroom);
+  // this->bedroomDialog = Dialog(Rooms::bedroom);
+  // this->kitchenDialog = Dialog(Rooms::kitchen);
+  // this->foyerDialog = Dialog(Rooms::foyer);
+  // this->hallwayDialog = Dialog(Rooms::hallway);
 }
 
 /**
@@ -158,6 +158,7 @@ void EventManager::handleDialogEvent(SDL_Event* event, float deltaTime,
                                      SDL_Renderer* renderer) {
   switch (event->key.keysym.sym) {
     case SDLK_e:
+    case SDLK_SPACE:
       dialogManager.clearDialog();
 
       break;
@@ -203,21 +204,33 @@ void EventManager::playerInteraction() {
   // if (mainActor.collision(curRoom.entityList)) mainActor.interact();
   // otherwise do nothing
 
+  // Get current info
   std::string object = mainActor.interact(curRoom.entityList);
   std::cout << "object: " << object << std::endl;
   std::string item(inventory.getSelectedItem());
   std::cout << "item: " << item << std::endl;
   std::cout << "current state: " << stateMonitor.currentState << std::endl;
+
+  // retrieve dialog
   int id = curDialog.triggerDialog(mainActor.position, object, item,
                                    stateMonitor.currentState);
   std::cout << "id: " << id << std::endl;
   if (id < 0) return;
-
   dialog* d = &(curDialog.dialogList[id]);
+
+  // trigger dialog
+  isDialog = true;
+  displayDialog(d->speakers, d->texts);
+
+  // Inventory Update
+  if (item != "hands") inventory.removeItem();
+  if (d->pickItem.size() > 0) inventory.addItem(d->pickItem);
+
+  // State transision
   int switchToRoom;
   if (d->transitToState.size() > 0)
     switchToRoom = stateMonitor.update(d->transitToState);
-  std::cout << "transit to state: " << d->transitToState << std::endl;
+  // std::cout << "transit to state: " << d->transitToState << std::endl;
 
   // handle doors
   if (!stateMonitor.isRoomLocked()) {
@@ -277,15 +290,21 @@ void EventManager::roomChange(Rooms r) {
   std::string s;
   switch (r) {
     case Rooms::kitchen:
-      s = "k8";
+      s = "k1";
       break;
     case Rooms::bathroom:
-      s = "b5";
+      s = "b1";
+      break;
+    case Rooms::bedroom:
+      s = "e1";
       break;
 
     default:
       break;
   }
+  isDialog = true;
+  displayDialog(curDialog.dialogList[0].speakers,
+                curDialog.dialogList[0].texts);
   if (s.size() > 0) stateMonitor.update(s);
 }
 void EventManager::returnToGame(void) {

@@ -249,8 +249,8 @@
       <text speaker="Recipe">"This is a tragedy told in four parts, containing a wicked secret that reveals the proper way to catch a rat. This story revolves around the sinful actions of three colorful rodents: Red Rat, Blue Rat, and Yellow Rat."</text>
       <text speaker="Recipe">"1. For years, Red Rat had pined for Blue Rat. After gathering up the courage, Red Rat proposes to Blue Rat who eagerly accepts the flashy ring. However, Blue Rat would not prove faithful."</text>
       <text speaker="Recipe">"2. Secretly, Blue Rat and Yellow Rat met up for romantic nights of dalliance. Red Rat eventually caught on to this charade, and decided to take revenge on the two conniving rodents. Red Rat began simply by stabbing Yellow Rat to death in their home."</text>
-      <text speaker="Recipe">"3. After Yellow Rat goes ‘missing,’ Blue Rat expectedly falls back into Red Rat’s arms. However, having not forgiven Blue Rat, Red Rat slips a deadly poison into one of Blue Rat’s meals, causing them to die a slow, painful death."</text>
-      <text speaker="Recipe">"4. Finally, Red Rat was free of all the troubles of their life. Finally, they could eat all the delicious cheese they wanted. At least…before the police arrived."</text>
+      <text speaker="Recipe">"3. After Yellow Rat goes 'missing,' Blue Rat expectedly falls back into Red Rat's arms. However, having not forgiven Blue Rat, Red Rat slips a deadly poison into one of Blue Rat's meals, causing them to die a slow, painful death."</text>
+      <text speaker="Recipe">"4. Finally, Red Rat was free of all the troubles of their life. Finally, they could eat all the delicious cheese they wanted. At least...before the police arrived."</text>
       <text speaker="Recipe">"Add the appropriate 'ingredients' to the pot in the order they appear in the story, and even a Rat as sinful as you could escape this prison of your own making."</text>
       <text speaker="Me">...</text>
       <text speaker="Me">What kind of recipe is this?</text>
@@ -454,6 +454,7 @@
     <transitToState>h2</transitToState>
     <!-- Texts -->
     <textList>
+      <text speaker="Narrator">You open the door.</text>
     </textList>
   </Dialog>
 
@@ -468,6 +469,7 @@
     <transitToState>h2</transitToState>
     <!-- Texts -->
     <textList>
+      <text speaker="Narrator">You open the door.</text>
     </textList>
   </Dialog>
 

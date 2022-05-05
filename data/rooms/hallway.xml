@@ -1,8 +1,8 @@
 <room>
   <!-- room settings -->
   <name>hallway</name>
-  <width>1080</width>
-  <height>720</height>
+  <width>1024 </width>
+  <height>768</height>
   <boundX>66</boundX>
   <boundY>21</boundY>
   <boundW>917</boundW>
@@ -16,7 +16,7 @@
     <w>155</w>
     <h>45</h>
     <x>110</x>
-    <y>645</y>
+    <y>695</y>
     <isEntity>1</isEntity>
   </entity>
 
@@ -33,7 +33,7 @@
     <name>bathroom-door</name>
     <w>155</w>
     <h>45</h>
-    <x>800</x>
+    <x>760</x>
     <y>50</y>
     <isEntity>1</isEntity>
   </entity>
@@ -42,8 +42,8 @@
     <name>kitchen-door</name>
     <w>155</w>
     <h>45</h>
-    <x>410</x>
-    <y>345</y>
+    <x>390</x>
+    <y>375</y>
     <isEntity>1</isEntity>
   </entity>
   
@@ -60,7 +60,7 @@
     <name>bookshelf</name>
     <w>230</w>
     <h>50</h>
-    <x>470</x>
+    <x>450</x>
     <y>80</y>
     <isEntity>1</isEntity>
   </entity>
@@ -69,7 +69,7 @@
     <name>window</name>
     <w>40</w>
     <h>170</h>
-    <x>1010</x>
+    <x>970</x>
     <y>120</y>
     <isEntity>1</isEntity>
   </entity>

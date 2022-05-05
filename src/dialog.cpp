@@ -52,8 +52,6 @@ int Dialog::parseDialogFromFile(std::string& f) {
   XMLDocument xmlDoc;
   xmlDoc.LoadFile(f.c_str());
 
-  dialog d;
-
   // find root
   XMLElement* pRoot = xmlDoc.FirstChildElement("DialogList");
   if (!pRoot) {
@@ -65,6 +63,7 @@ int Dialog::parseDialogFromFile(std::string& f) {
   XMLElement* pListElement = pRoot->FirstChildElement("Dialog");
 
   while (pListElement) {
+    dialog d;
     XMLElement* pElement;
 
     // Query id
@@ -157,7 +156,7 @@ int Dialog::parseDialogFromFile(std::string& f) {
     while (pElement) {
       // Query speaker
       s = pElement->Attribute("speaker");
-      std::string speaker;
+      std::string speaker(s);
       d.speakers.push_back(speaker);
 
       // Query text
