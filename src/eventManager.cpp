@@ -233,13 +233,23 @@ void EventManager::playerInteraction() {
   // play sound
   audioView->playSound("interact");
 
-  // trigger dialog
   isDialog = true;
-  displayDialog(d->speakers, d->texts);
 
-  // Inventory Update
+  // Inventory Update and trigger dialog
   if (item != "hands") inventory.removeItem();
-  if (d->pickItem.size() > 0) inventory.addItem(d->pickItem);
+  if (d->pickItem.size() > 0) {
+    if (inventory.addItem(d->pickItem)) {  // If you successfully pick up an
+                                           // item, play the normal dialog
+      displayDialog(d->speakers, d->texts);
+    } else {  // If you already picked up the item, play default dialog
+      std::vector<std::string> temp_name = {"Me"};
+      std::vector<std::string> temp_dialog = {
+          "I don't think I can find anything else here."};
+      displayDialog(temp_name, temp_dialog);
+    }
+  } else {
+    displayDialog(d->speakers, d->texts);
+  }
 
   // State transision
   int switchToRoom;
@@ -308,6 +318,19 @@ void EventManager::roomChange(Rooms r) {
   mainActor.position.y = curRoom.bornY;
   mainActor.setBoundary(curRoom.boundX, curRoom.boundY, curRoom.boundW,
                         curRoom.boundH);
+
+  // Since the hallway has multiple doors, we need to account for which door the
+  // player just left
+  if (stateMonitor.currentState == "h1") {  // Bedroom door
+    mainActor.position.x = 154;
+    mainActor.position.y = 616;
+  } else if (stateMonitor.currentState == "h2") {  // Kitchen door
+    mainActor.position.x = 439.5;
+    mainActor.position.y = 296.5;
+  } else if (stateMonitor.currentState == "h3") {  // Bathroom door
+    mainActor.position.x = 812;
+    mainActor.position.y = 175;
+  }
 
   // DEBUG:
   std::string s;

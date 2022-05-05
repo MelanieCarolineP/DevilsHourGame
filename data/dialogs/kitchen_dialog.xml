@@ -382,7 +382,7 @@
     <triggerObject>mouse-hole</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
-    <triggerState></triggerState>
+    <triggerState>k1</triggerState>
     <transitToState></transitToState>
     <!-- Texts -->
     <textList>
@@ -487,6 +487,118 @@
       <text speaker="Narrator">You rattle the door's handle, but it seems firmly locked.</text>
       <text speaker="Me">I guess to unlock this door, I have to solve some sort of puzzle in this room.</text>
       <text speaker="Me">Well...what have I got to lose?</text>
+    </textList>
+  </Dialog>
+
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>28</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>mouse-hole</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>k7</triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">The door is unlocked...I should go.</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>29</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>mouse-hole</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>k8</triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">The door is unlocked...I should go.</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>30</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>mouse-hole</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>k2</triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">Small scratching sounds can be heard from inside this small hole.</text>
+      <text speaker="Me">This is the first sign of life I've seen from this place.</text>
+      <text speaker="Me">I wonder if this rat could be my ticket out?</text>
+    </textList>
+  </Dialog>
+  <Dialog>
+    <!-- Attributes -->
+    <id>31</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>mouse-hole</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>k3</triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">Small scratching sounds can be heard from inside this small hole.</text>
+      <text speaker="Me">This is the first sign of life I've seen from this place.</text>
+      <text speaker="Me">I wonder if this rat could be my ticket out?</text>
+    </textList>
+  </Dialog>
+  <Dialog>
+    <!-- Attributes -->
+    <id>32</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>mouse-hole</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>k4</triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">Small scratching sounds can be heard from inside this small hole.</text>
+      <text speaker="Me">This is the first sign of life I've seen from this place.</text>
+      <text speaker="Me">I wonder if this rat could be my ticket out?</text>
+    </textList>
+  </Dialog>
+  <Dialog>
+    <!-- Attributes -->
+    <id>33</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>mouse-hole</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>k5</triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">Small scratching sounds can be heard from inside this small hole.</text>
+      <text speaker="Me">This is the first sign of life I've seen from this place.</text>
+      <text speaker="Me">I wonder if this rat could be my ticket out?</text>
+    </textList>
+  </Dialog>
+  <Dialog>
+    <!-- Attributes -->
+    <id>34</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>mouse-hole</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState>k6</triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">Small scratching sounds can be heard from inside this small hole.</text>
+      <text speaker="Me">This is the first sign of life I've seen from this place.</text>
+      <text speaker="Me">I wonder if this rat could be my ticket out?</text>
     </textList>
   </Dialog>
 
