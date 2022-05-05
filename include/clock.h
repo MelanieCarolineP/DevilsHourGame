@@ -14,9 +14,11 @@ class Clock {
   void pause();
   bool isTimeOut();
   std::string getCurTime();
+  void deductTime();
 
  private:
   Uint32 startTime;
+  Uint32 punishment = 0;
   bool isPaused = true;
   float timeElapsed = 0.0f;
   float totalTime = 600000.0f;
