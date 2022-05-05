@@ -304,6 +304,7 @@ void EventManager::winScreen(void) {
 
 void EventManager::startGame(void) {
   clock.start();
+  inventory.resetInventory();
   roomChange(Rooms::bedroom);
 
   // startScreen();
