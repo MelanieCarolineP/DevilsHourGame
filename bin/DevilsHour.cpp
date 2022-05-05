@@ -97,7 +97,8 @@ int main(int argc, char** argv) {
   GameView gameView = GameView(renderer);
   AudioView audioView = AudioView();
   audioView.loadMedia();
-  audioView.playMusic();
+  // audioView.playMusic();
+  audioView.playSound("door");
   EventManager eventManager = EventManager(&gameView);
   SDL_Event e;
   Rooms current_room;
