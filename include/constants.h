@@ -24,4 +24,8 @@ static int dialogWidth = 1014;
 static Vec2d dialogBoxPosition(335, 500);
 static Vec2d dialogBoxSize(1019, 263);
 
+enum class direction { UP, DOWN, LEFT, RIGHT };
+static int SCREEN_WIDTH = 1400;
+static int SCREEN_HEIGHT = 800;
+
 #endif /* _CONSTANTS_H_ */

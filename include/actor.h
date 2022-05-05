@@ -4,7 +4,6 @@
 #include <vector>
 
 #include "entity.h"
-#include "enum.h"
 #include "room.h"
 /**
  * @brief Actor handles all the enities in the game that move independently

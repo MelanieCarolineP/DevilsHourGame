@@ -12,7 +12,6 @@
 #include "clock.h"
 #include "dialog.h"
 #include "dialogManager.h"
-#include "enum.h"
 #include "gameView.h"
 #include "room.h"
 #include "stateMonitor.h"
