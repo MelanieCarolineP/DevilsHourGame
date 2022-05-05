@@ -226,7 +226,7 @@ void EventManager::playerInteraction() {
   // retrieve dialog
   int id = curDialog.triggerDialog(mainActor.position, object, item,
                                    stateMonitor.currentState);
-  std::cout << "id: " << id + 1 << std::endl;
+  std::cout << "id: " << id << std::endl;
 
   // if (id < 0) return;
   if (id < 0) {
