@@ -14,6 +14,14 @@ Actor::Actor() {
   curDir = direction::RIGHT;
 }
 
+/**
+ * @brief Set the movement boundary of the actor
+ *
+ * @param x
+ * @param y
+ * @param w
+ * @param h
+ */
 void Actor::setBoundary(int x, int y, int w, int h) {
   this->boundX = x;
   this->boundY = y;
@@ -119,15 +127,16 @@ bool Actor::canWalkOnCollision(const Entity entity) {
   return false;
 }
 
+/**
+ * @brief Determine whether the actor is colliding with an entity in the given
+ * direction
+ *
+ * @param d
+ * @param e
+ * @return true if they collide
+ * @return false if they don't
+ */
 bool Actor::collideWith(direction d, Entity* e) {
-  // return (this->position.x >= e->position.x &&
-  //         this->position.x <= (e->position.x + e->size.x)) ||
-  //        (this->position.y >= e->position.y &&
-  //         this->position.y <= (e->position.y + e->size.y)) ||
-  //        (this->position.x + this->size.x >= e->position.x &&
-  //         this->position.x + this->size.x <= (e->position.x + e->size.x)) ||
-  //        (this->position.y + this->size.y >= e->position.y &&
-  //         this->position.y + this->size.y <= (e->position.y + e->size.y));
   auto x1min = this->position.x;
   auto x1max = this->position.x + this->size.x;
   auto y1min = this->position.y;
@@ -156,6 +165,14 @@ bool Actor::collideWith(direction d, Entity* e) {
   return false;
 }
 
+/**
+ * @brief Determine whether the actor collide with anything in the entity list
+ *
+ * @param d
+ * @param entityList
+ * @return true
+ * @return false
+ */
 bool Actor::collisionDetection(direction d, std::vector<Entity>& entityList) {
   Entity* e;
   for (int i = 0; i < entityList.size(); ++i) {
