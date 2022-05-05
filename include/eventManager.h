@@ -23,6 +23,7 @@ class EventManager {
  public:
   /* constructor */
   EventManager() { this->curRoom.getEntities(Rooms::bedroom); }
+  EventManager(GameView* gameView, AudioView* audioView);
   EventManager(GameView* gameView);
   void startScreen(void);
   void loseScreen(void);
@@ -61,6 +62,7 @@ class EventManager {
   bool showEntity = false;
 
   GameView* gameView;
+  AudioView* audioView;
   DialogManager dialogManager;
   Actor mainActor;
   direction curDir;
