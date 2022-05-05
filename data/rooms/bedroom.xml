@@ -20,12 +20,21 @@
     <y>341</y>
     <isEntity>1</isEntity>
   </entity>
+
   <entity>
    <name>side_table</name>
     <w>60</w>
     <h>86</h>
     <x>0</x>
     <y>255</y>
+    <isEntity>1</isEntity>
+  </entity>
+    <entity>
+   <name>side_table_bottom</name>
+    <w>75</w>
+    <h>50</h>
+    <x>0</x>
+    <y>477</y>
     <isEntity>1</isEntity>
   </entity>
   <entity>
@@ -38,9 +47,9 @@
   </entity>
   <entity>
     <name>closet</name>
-    <w>132</w>
-    <h>225</h>
-    <x>390</x>
+    <w>146</w>
+    <h>210</h>
+    <x>365</x>
     <y>115</y>
     <isEntity>1</isEntity>
   </entity>
@@ -70,7 +79,7 @@
   </entity>
   <entity>
     <name>pentagram</name>
-    <w>242</w>
+    <w>232</w>
     <h>167</h>
     <x>393</x>
     <y>375</y>
