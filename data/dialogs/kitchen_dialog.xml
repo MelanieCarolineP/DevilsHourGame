@@ -80,16 +80,16 @@
     <id>5</id>
     <triggerLocation></triggerLocation>
     <triggerObject>oven</triggerObject>
-    <useItem>steak-knife</useItem>
-    <pickItem>steak-knife</pickItem>
+    <useItem></useItem>
+    <pickItem></pickItem>
     <triggerState>k1</triggerState>
     <transitToState>k6</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">You drop the steak knife into the pot.</text>
+      <text speaker="Narrator">You touch the steak knife to the liquid in the pot.</text>
       <text speaker="Narrator">And it begins boiling over!</text>
       <text speaker="Me">No! It's ruinied now! I'll have to think of some other way to get out of here.</text>
-       <text speaker="Me">I think I can still salvage this steak knife, at least.</text>
+       <text speaker="Me">I still have this steak knife, at least.</text>
     </textList>
   </Dialog>
 
@@ -139,7 +139,8 @@
     <transitToState>k3</transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="Narrator">You drop the steak knife into the pot. It seems stable.</text>
+      <text speaker="Narrator">You dip the steak knife into the liquid in the pot. It seems stable.</text>
+      <text speaker="Me">I should probably hold onto this knife, never know when it might come in handy.</text>
       <text speaker="Me">I think I'm on the right track, but I don't think I'm finished just yet.</text>
     </textList>
   </Dialog>
@@ -200,7 +201,7 @@
     <triggerLocation></triggerLocation>
     <triggerObject>oven</triggerObject>
     <useItem>moldy-cheese</useItem>
-    <pickItem>steak-knife</pickItem>
+    <pickItem></pickItem>
     <triggerState>k3</triggerState>
     <transitToState>k6</transitToState>
     <!-- Texts -->
@@ -208,7 +209,7 @@
       <text speaker="Narrator">You drop the moldy cheese into the pot.</text>
       <text speaker="Narrator">And it begins boiling over!</text>
       <text speaker="Me">No! It's ruinied now! I'll have to think of some other way to get out of here.</text>
-      <text speaker="Me">I think I can still salvage this steak knife, at least.</text>
+      <text speaker="Me">I still have this steak knife, at least.</text>
     </textList>
   </Dialog>
 

@@ -248,7 +248,6 @@ void EventManager::playerInteraction() {
 
   // Inventory Update and trigger dialog
   if (item != "hands") inventory.removeItem();
-  if (d->transitToState == "k6") inventory.removeUsedItem("kitchen-knife");
   if (d->pickItem.size() > 0) {
     if (!(inventory.itemHasBeenUsed(d->pickItem) ||
           inventory.itemInInventory(
@@ -288,10 +287,10 @@ void EventManager::playerInteraction() {
     audioView->playSound("door");
     roomChange(Rooms::foyer);
   } else if (switchToRoom == 5) {
-    audioView->playSound("door");
-    roomChange(Rooms::hallway);
     inventory
         .resetInventory();  // Resets the inventory when you enter the hallway
+    audioView->playSound("door");
+    roomChange(Rooms::hallway);
   } else if (switchToRoom == 6) {
     clock.deductTime();
   }
