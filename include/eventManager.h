@@ -8,6 +8,7 @@
 #include <vector>
 
 #include "actor.h"
+#include "audioView.h"
 #include "clock.h"
 #include "dialog.h"
 #include "dialogManager.h"
