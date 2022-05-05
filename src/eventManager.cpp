@@ -232,7 +232,7 @@ void EventManager::playerInteraction() {
 
   isDialog = true;
 
-  // Inventory Update
+  // Inventory Update and trigger dialog
   if (item != "hands") inventory.removeItem();
   if (d->pickItem.size() > 0) {
     if (inventory.addItem(d->pickItem)) {  // If you successfully pick up an
@@ -247,8 +247,6 @@ void EventManager::playerInteraction() {
   } else {
     displayDialog(d->speakers, d->texts);
   }
-
-  // trigger dialog
 
   // State transision
   int switchToRoom;

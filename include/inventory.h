@@ -6,6 +6,8 @@
 
 class Inventory {
   std::vector<std::string> items; /**< holds the items */
+  std::vector<std::string>
+      usedItems; /**< holds the items the player has used */
 
  public:
   Inventory(); /**< constructor initializes currentPosition and item vector */
