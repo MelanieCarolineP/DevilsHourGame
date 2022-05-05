@@ -25,6 +25,8 @@ class Inventory {
   void changeSelectedItem();          /**< change the selected item*/
   bool addItem(std::string itemName); /**< adds a given item to the inventory*/
   void removeItem(); /**< removes the item at the current position*/
+  void removeUsedItem(
+      std::string itemName); /**< removes the item from the usedItems list*/
 
   void resetInventory(); /**< resets the inventory to hold nothing*/
 

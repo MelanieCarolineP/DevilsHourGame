@@ -237,10 +237,12 @@ void EventManager::playerInteraction() {
 
   // Inventory Update and trigger dialog
   if (item != "hands") inventory.removeItem();
+  if (d->transitToState == "k6") inventory.removeUsedItem("kitchen-knife");
   if (d->pickItem.size() > 0) {
-    if (!inventory.itemHasBeenUsed(
-            d->pickItem)) {  // If you successfully pick up an
-                             // item, play the normal dialog
+    if (!(inventory.itemHasBeenUsed(d->pickItem) ||
+          inventory.itemInInventory(
+              d->pickItem))) {  // If you successfully pick up an
+                                // item, play the normal dialog
       displayDialog(d->speakers, d->texts);
       inventory.addItem(d->pickItem);
     } else {  // If you already picked up the item, play default dialog
@@ -254,32 +256,33 @@ void EventManager::playerInteraction() {
   }
 
   // State transision
-  int switchToRoom;
-  if (d->transitToState.size() > 0)
+  int switchToRoom = 0;
+  if (d->transitToState.size() > 0) {
     switchToRoom = stateMonitor.update(d->transitToState);
+  }
+
   // std::cout << "transit to state: " << d->transitToState << std::endl;
 
   // handle doors
-  if (!stateMonitor.isRoomLocked()) {
-    if (switchToRoom == 1) {
-      roomChange(Rooms::bedroom);
-    } else if (switchToRoom == 2) {
-      audioView->playSound("door");
-      roomChange(Rooms::kitchen);
-    } else if (switchToRoom == 3) {
-      audioView->playSound("door");
-      roomChange(Rooms::bathroom);
-    } else if (switchToRoom == 4) {
-      audioView->playSound("door");
-      roomChange(Rooms::foyer);
-    } else if (switchToRoom == 5) {
-      audioView->playSound("door");
-      roomChange(Rooms::hallway);
-      inventory
-          .resetInventory();  // Resets the inventory when you enter the hallway
-    } else if (switchToRoom == 6) {
-      clock.deductTime();
-    }
+
+  if (switchToRoom == 1) {
+    roomChange(Rooms::bedroom);
+  } else if (switchToRoom == 2) {
+    audioView->playSound("door");
+    roomChange(Rooms::kitchen);
+  } else if (switchToRoom == 3) {
+    audioView->playSound("door");
+    roomChange(Rooms::bathroom);
+  } else if (switchToRoom == 4) {
+    audioView->playSound("door");
+    roomChange(Rooms::foyer);
+  } else if (switchToRoom == 5) {
+    audioView->playSound("door");
+    roomChange(Rooms::hallway);
+    inventory
+        .resetInventory();  // Resets the inventory when you enter the hallway
+  } else if (switchToRoom == 6) {
+    clock.deductTime();
   }
 }
 
@@ -308,7 +311,6 @@ void EventManager::startGame(void) {
   clock.start();
   inventory.resetInventory();
   roomChange(Rooms::bedroom);
-
   // startScreen();
 }
 

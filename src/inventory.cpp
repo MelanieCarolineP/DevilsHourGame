@@ -91,7 +91,20 @@ bool Inventory::addItem(std::string itemName) {
 void Inventory::removeItem() {
   usedItems.push_back(items.at(currentPosition));
   items.at(currentPosition) = "";
-} /**< removes the item at the current position*/
+}
+
+/**
+ * @brief Removes an item from usedItems list
+ *
+ * @param itemName
+ */
+void Inventory::removeUsedItem(std::string itemName) {
+  for (int i = 0; i < usedItems.size(); i++) {
+    if (usedItems.at(i) == itemName) {
+      usedItems.at(i) = "";
+    }
+  }
+}
 
 /**
  * @brief Moves the current position in the inventory up by one
