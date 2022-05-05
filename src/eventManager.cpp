@@ -230,13 +230,25 @@ void EventManager::playerInteraction() {
   // play sound
   audioView->playSound("interact");
 
-  // trigger dialog
   isDialog = true;
-  displayDialog(d->speakers, d->texts);
 
   // Inventory Update
   if (item != "hands") inventory.removeItem();
-  if (d->pickItem.size() > 0) inventory.addItem(d->pickItem);
+  if (d->pickItem.size() > 0) {
+    if (inventory.addItem(d->pickItem)) {  // If you successfully pick up an
+                                           // item, play the normal dialog
+      displayDialog(d->speakers, d->texts);
+    } else {  // If you already picked up the item, play default dialog
+      std::vector<std::string> temp_name = {"Me"};
+      std::vector<std::string> temp_dialog = {
+          "I don't think I can find anything else here."};
+      displayDialog(temp_name, temp_dialog);
+    }
+  } else {
+    displayDialog(d->speakers, d->texts);
+  }
+
+  // trigger dialog
 
   // State transision
   int switchToRoom;

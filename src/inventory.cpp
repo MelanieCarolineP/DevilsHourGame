@@ -63,14 +63,15 @@ const bool Inventory::itemInInventory(std::string itemName) {
  *
  * @param itemName
  */
-void Inventory::addItem(std::string itemName) {
+bool Inventory::addItem(std::string itemName) {
   for (int i = 0; i < 8; i++) {
-    if (items[i] == itemName) return;
+    if (items[i] == itemName) return false;
     if (items.at(i) == "") {
       items.at(i) = itemName;
-      return;
+      return true;
     }
   }
+  return false;
 }
 
 /**
