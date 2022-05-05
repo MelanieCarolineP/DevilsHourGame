@@ -93,6 +93,7 @@
     <transitToState>b2</transitToState>
     <!-- Texts -->
     <textList>
+      <text speaker="Narrator">You walk to the full-size mirror on the wall.</text>
       <text speaker="Me">Strange...This is the only shiny thing in this room. Looks like it has been cleaned regularly.</text>
       <text speaker="Me">Ahhh!</text>
       <text speaker="Narrator">You see a purple-skin dead woman standing behind you in the mirror. You immediately turn back but see nothing. The woman is staring at you with desperate and plaintive eyes. She is reaching her scraggy hands towards you in the mirror. </text>
@@ -237,8 +238,8 @@
     <triggerObject>ventilation</triggerObject>
     <useItem>screwdriver</useItem>
     <pickItem></pickItem>
-    <triggerState></triggerState>
-    <transitToState></transitToState>
+    <triggerState>b2</triggerState>
+    <transitToState>b7</transitToState>
     <!-- Texts -->
     <textList>
       <text speaker="Narrator">You uncovered the ventilation. But it's too dark inside and you can't see anything. </text>
@@ -252,12 +253,49 @@
     <triggerObject>ventilation</triggerObject>
     <useItem>flashlight</useItem>
     <pickItem>knife</pickItem>
-    <triggerState></triggerState>
-    <transitToState></transitToState>
+    <triggerState>b7</triggerState>
+    <transitToState>b2</transitToState>
     <!-- Texts -->
     <textList>
       <text speaker="Narrator">You light up the dark ventilation tunnel. You found a big piece of carrion inside. The smell is so disgusting that it makes you retch. </text>
       <text speaker="Narrator">You took a closer look, and found a stabber on the carrion.</text>
+    </textList>
+  </Dialog>
+
+<Dialog>
+    <!-- Attributes -->
+    <id>17</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>carpet</triggerObject>
+    <useItem>soap</useItem>
+    <pickItem></pickItem>
+    <triggerState>b7</triggerState>
+    <transitToState>b4</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">What would a soap do on the floor...</text>
+      <text speaker="Narrator">You put the soap on the box, nothing happended</text>
+      <text speaker="Me">Of course it won't work...</text>
+      <text speaker="Narrator">You try to pick up the soap, but it slipped from your hand</text>
+      <text speaker="Narrator">The soap slide to the side of the box, and you hear somthing is triggered. The box is suddenly opened.</text>
+      <text speaker="Me">There must be something inside the soap!</text>
+      <text speaker="Narrator">You break the soap and find a magnet inside. That explains why the box opened.</text>
+      <text speaker="Narrator">You check the box and find a note written with blood: </text>
+      <text speaker="Narrator">We share the same name, but mean two different things </text>
+      <text speaker="Narrator">one goes up and down, and the other spins </text>
+      <text speaker="Narrator">while one can make you sick, the other you cannot touch </text>
+      <text speaker="Narrator">you have heard of me before, whether you know it or not </text>
+      <text speaker="Narrator">you know our name, just give it a thought </text>
+      <text speaker="Narrator">One is a messenger, the other is not </text>
+      <text speaker="Narrator">One gives you a reading, the other helps the Oracle </text>
+      <text speaker="Narrator">What are we? </text>
+      <text speaker="Me">...</text>
+      <text speaker="Me">...</text>
+      <text speaker="Me">...</text>
+      <text speaker="Me">...</text>
+      <text speaker="Me">...</text>
+      <text speaker="Me">...</text>
+      <text speaker="Me">Mercury! </text>
     </textList>
   </Dialog>
 
@@ -305,7 +343,7 @@
     <triggerObject>carpet</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
-    <triggerState>b2</triggerState>
+    <triggerState></triggerState>
     <transitToState></transitToState>
     <!-- Texts -->
     <textList>
