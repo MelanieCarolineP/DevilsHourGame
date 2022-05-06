@@ -24,6 +24,21 @@
     <triggerObject>chair</triggerObject>
     <useItem></useItem>
     <pickItem></pickItem>
+    <triggerState>fixed</triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">The chair is fixed.</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>1</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>chair</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
     <triggerState></triggerState>
     <transitToState></transitToState>
     <!-- Texts -->
@@ -42,7 +57,7 @@
     <useItem>chair-leg</useItem>
     <pickItem></pickItem>
     <triggerState></triggerState>
-    <transitToState></transitToState>
+    <transitToState>fixed</transitToState>
     <!-- Texts -->
     <textList>
       <text speaker="Narrator">"You fixed the chair leg"</text>
@@ -248,6 +263,22 @@
     <textList>
       <text speaker="Narrator">You shift throught the dirt and discover a hairpin </text>
       <text speaker="Me">Hmm a hairpin, what a weird place. What can I use this for? </text>
+
+    </textList>
+  </Dialog>
+
+<Dialog>
+    <!-- Attributes -->
+    <id>13</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>cactus_right</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">A cactus...But the top priority now is to escape from here...</text>
 
     </textList>
   </Dialog>
