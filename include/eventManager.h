@@ -52,6 +52,7 @@ class EventManager {
 
   void exitEvent(SDL_Event* event, float time, bool* running);
 
+ private:
   int curItem = 0;
   bool gameStarted = false;
   bool isPaused = false;

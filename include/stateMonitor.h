@@ -13,10 +13,7 @@ class StateMonitor {
   /* update current game state */
   int update(std::string& s);
 
-  bool isRoomLocked();
-
   std::string currentState;
-  bool isPaused;
 };
 
 #endif /* _STATEMONITOR_H_ */

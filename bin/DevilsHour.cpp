@@ -9,13 +9,6 @@
 #include "eventManager.h"
 #include "room.h"
 
-// Screen dimension constants
-// static const int SCREEN_WIDTH = 1024;
-// static const int SCREEN_HEIGHT = 768;
-
-// Room enummerations
-enum rooms { Front_Foyer, Bedroom, Bathroom, Kitchen, Hallway };
-
 void csci437_error(const std::string& msg) {
   std::cerr << msg << " (" << SDL_GetError() << ")" << std::endl;
   exit(0);
@@ -24,24 +17,6 @@ void csci437_error(const std::string& msg) {
 void csci437_img_error(const std::string& msg) {
   std::cerr << msg << " (" << IMG_GetError() << ")" << std::endl;
   exit(0);
-}
-SDL_Surface* load_bitmap(SDL_Surface* input) {
-  // Load bitmap
-  if (input == NULL) csci437_img_error("Could not image!");
-  return input;
-}
-
-SDL_Texture* convert_image_to_texture(SDL_Renderer* renderer,
-                                      SDL_Surface* image) {
-  // convert to texture
-  SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, image);
-  if (texture == NULL) csci437_error("Could not create texture from surface!");
-
-  // delete image
-  SDL_FreeSurface(image);
-  image = NULL;
-
-  return texture;
 }
 
 int main(int argc, char** argv) {
@@ -110,28 +85,16 @@ int main(int argc, char** argv) {
     while (SDL_PollEvent(&e) != 0) {
       inactivityCount = 0;
 
-      // gameView.clearScreen();
-
-      // gameView.drawUI();
-      // gameView.drawInventory(eventManager.curItem + 1);
-      // gameView.drawRoom(room);
-      // gameView.drawActor(eventManager.mainActor.position,
-      //  eventManager.mainActor.size, eventManager.curDir);
-
+      // handle input events
       eventManager.handle_event(&e, deltaTime, startTime, &running, renderer);
       eventHappened = true;
 
-      // SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-      // SDL_RenderClear(renderer);
-      // SDL_SetTextureColorMod(texture, red * 255, green * 255, blue *
-      // 255);
-      // SDL_RenderCopy(renderer, roomTx, NULL, &dst);
-      // SDL_RenderPresent(renderer);
-
+      // compute delta time
       endTime = SDL_GetTicks();
       deltaTime = (endTime - startTime) / 1.0f;
     }
 
+    // if no input event detected, push a placeholder event into the event queue
     if (!eventHappened) {
       inactivityCount++;
       if (inactivityCount == 500) SDL_PushEvent(&no_event);

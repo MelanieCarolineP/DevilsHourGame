@@ -203,6 +203,13 @@ bool Actor::collisionDetection(direction d, std::vector<Entity>& entityList) {
   return false;
 }
 
+/**
+ * @brief Return the name of the entity among the entity list that you are
+ * interacting with
+ *
+ * @param entityList
+ * @return std::string : name of the entity
+ */
 std::string Actor::interact(std::vector<Entity>& entityList) {
   Entity* e;
   for (int i = 0; i < entityList.size(); ++i) {

@@ -15,7 +15,6 @@ static SDL_Color SILVER = {192, 192, 192};
 static SDL_Color BLACK = {0, 0, 0};
 
 // Dialog Box position constants
-
 // Text positioning
 static Vec2d dialogPosition(355, 510);
 static int dialogWidth = 1014;

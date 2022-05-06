@@ -228,7 +228,6 @@ void EventManager::playerInteraction() {
                                    stateMonitor.currentState);
   std::cout << "id: " << id << std::endl;
 
-  // if (id < 0) return;
   if (id < 0) {
     if (object.size() > 0 && item.size() > 0) {
       isDialog = true;
@@ -293,6 +292,9 @@ void EventManager::playerInteraction() {
     roomChange(Rooms::hallway);
   } else if (switchToRoom == 6) {
     clock.deductTime();
+  } else if (switchToRoom == 7) {
+    gameStarted = false;
+    this->winScreen();
   }
 }
 

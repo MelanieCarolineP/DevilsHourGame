@@ -1,5 +1,10 @@
 #include "gameView.h"
 
+/**
+ * @brief Construct a new Game View:: Game View object
+ *
+ * @param renderer
+ */
 GameView::GameView(SDL_Renderer* renderer) {
   this->renderer = renderer;
 
@@ -19,6 +24,10 @@ GameView::GameView(SDL_Renderer* renderer) {
   if (!clockFont) std::cout << "Font not loaded" << std::endl;
 }
 
+/**
+ * @brief Draw the start screen
+ *
+ */
 void GameView::drawStartScreen(void) {
   sprite.storeImage("../resource/titleScreen.png", 1, 1);
   rect.x = 0;
@@ -28,6 +37,7 @@ void GameView::drawStartScreen(void) {
   sprite.selectSprite(0, 0);
   sprite.drawSprite(renderer, &rect);
 }
+
 /**
  * @brief draws actor on screen given a direction it is facing
  *
@@ -157,15 +167,28 @@ void GameView::drawRoom(Room* r) {
   SDL_DestroyTexture(roomTx);
 }
 
+/**
+ * @brief Set the displayed room in the correct position on the screen
+ *
+ */
 void GameView::roomToPosition(void) {
   SDL_RenderCopy(renderer, this->roomTexture, NULL, &this->roomDest);
 }
+
+/**
+ * @brief display game on the screen
+ *
+ * @param actor
+ */
 void GameView::displayGame(Actor* actor) {
   clearScreen();
-
   drawActor(actor->position, actor->size, actor->getDirection());
 }
 
+/**
+ * @brief draw pause menu on the screen
+ *
+ */
 void GameView::drawPauseMenu(void) {
   clearScreen();
 
@@ -178,6 +201,12 @@ void GameView::drawPauseMenu(void) {
   sprite.drawSprite(renderer, &rect);
 }
 
+/**
+ * @brief display dialog on the screen
+ *
+ * @param text
+ * @param name
+ */
 void GameView::drawDialog(const char* text, const char* name) {
   SDL_Texture* dialogView = SDL_CreateTexture(
       this->renderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_TARGET,
@@ -198,13 +227,26 @@ void GameView::drawDialog(const char* text, const char* name) {
   SDL_RenderCopy(renderer, dialogView, NULL, &speechbox.dialogBoxRect);
 }
 
+/**
+ * @brief clear the whole screen to black
+ *
+ */
 void GameView::clearScreen(void) {
   SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
   SDL_RenderClear(renderer);
 }
 
+/**
+ * @brief Render current elments on screen
+ *
+ */
 void GameView::presentScreen(void) { SDL_RenderPresent(renderer); }
 
+/**
+ * @brief Show the timer on the top left corner of the screen
+ *
+ * @param time
+ */
 void GameView::displayTime(std::string time) {
   SDL_Color red = {255, 0, 0};
   SDL_Surface* loadingSurf = TTF_RenderText_Solid(clockFont, time.c_str(), red);
@@ -249,6 +291,11 @@ void GameView::drawEntities(Room* r) {
   }
 }
 
+/**
+ * @brief Draw items in current inventory
+ *
+ * @param inv
+ */
 void GameView::drawItems(Inventory* inv) {
   for (int i = 0; i < 8; ++i) {
     std::string item = inv->getItemAtPos(i);
@@ -263,6 +310,10 @@ void GameView::drawItems(Inventory* inv) {
   }
 }
 
+/**
+ * @brief Draw winning screen
+ *
+ */
 void GameView::drawWinningScreen() {
   SDL_Surface* loadingSurf = IMG_Load("../resource/winScreen.png");
   SDL_Texture* winTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);
@@ -271,6 +322,10 @@ void GameView::drawWinningScreen() {
   SDL_DestroyTexture(winTx);
 }
 
+/**
+ * @brief Draw losing screen
+ *
+ */
 void GameView::drawLosingScreen() {
   SDL_Surface* loadingSurf = IMG_Load("../resource/loseScreen.png");
   SDL_Texture* loseTx = SDL_CreateTextureFromSurface(renderer, loadingSurf);

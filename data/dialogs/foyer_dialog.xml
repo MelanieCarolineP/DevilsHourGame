@@ -1,20 +1,32 @@
 <?xml version="1.0" ?>
 <DialogList>
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 640bd05e502a75deda692508b94b4c96d8c6be4e
   <Dialog>
     <!-- Attributes -->
     <id>1</id>
     <triggerLocation></triggerLocation>
+<<<<<<< HEAD
     <triggerObject>chair</triggerObject>
+=======
+    <triggerObject></triggerObject>
+>>>>>>> 640bd05e502a75deda692508b94b4c96d8c6be4e
     <useItem></useItem>
     <pickItem></pickItem>
     <triggerState></triggerState>
     <transitToState></transitToState>
     <!-- Texts -->
     <textList>
+<<<<<<< HEAD
       <text speaker="Narrator">The leg appears to be missing</text>
       <text speaker="Me">Oh no the chair, It is broken !!!!</text>
       
+=======
+      <text speaker="Narrator">You entered the main foyer.</text>
+>>>>>>> 640bd05e502a75deda692508b94b4c96d8c6be4e
     </textList>
   </Dialog>
 
@@ -22,6 +34,7 @@
     <!-- Attributes -->
     <id>2</id>
     <triggerLocation></triggerLocation>
+<<<<<<< HEAD
     <triggerObject>chair</triggerObject>
     <useItem>chair_leg</useItem>
     <pickItem></pickItem>
@@ -287,6 +300,16 @@
       <text speaker="Me">Got it, I am too fast with these cards</text>
       <text speaker-"Me">Oh a key, maybe I ... I can finally get out of here</text>
 
+=======
+    <triggerObject>exit</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState>f9</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">The door is unlocked. You escaped from the purgatory.</text>
+>>>>>>> 640bd05e502a75deda692508b94b4c96d8c6be4e
     </textList>
   </Dialog>
 
