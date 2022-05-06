@@ -68,23 +68,6 @@ void SpeechBox::drawTextLine(const char *text, int x, int y) {
   }
 }
 
-// SDL_Texture * SpeechBox::getTextTexture(const char* text){
-//     SDL_Surface *surface;
-//     surface = TTF_RenderUTF8_Blended(font, text, white);
-//     return toTexture(surface, 1);
-// }
-
-// SDL_Texture * SpeechBox::toTexture(SDL_Surface* surface, int destroySurface){
-
-//     SDL_Texture *texture;
-// 	texture = SDL_CreateTextureFromSurface(renderer, surface);
-// 	if (destroySurface){
-// 		SDL_FreeSurface(surface);
-// 	}
-
-// 	return texture;
-// }
-
 int SpeechBox::drawTextWrapped(const char *text, int x, int y, int maxWidth,
                                bool toScreen) {
   char word[MAX_WORD_LENGTH], line[MAX_LINE_LENGTH];
@@ -145,21 +128,6 @@ int SpeechBox::drawTextWrapped(const char *text, int x, int y, int maxWidth,
   // gets the height of the glyph
   return y + glyphs.at(space).h;
 }
-
-// void SpeechBox::blit(SDL_Texture* texture, int x, int y, int center ){
-//     SDL_Rect dest;
-
-// 	dest.x = x;
-// 	dest.y = y;
-// 	SDL_QueryTexture(texture, NULL, NULL, &dest.w, &dest.h);
-
-// 	if (center){
-// 		dest.x -= dest.w / 2;
-// 		dest.y -= dest.h / 2;
-// 	}
-
-// 	SDL_RenderCopy(renderer, texture, NULL, &dest);
-// }
 
 void SpeechBox::textDimensions(const char *text, int *w, int *h) {
   int i, character;
