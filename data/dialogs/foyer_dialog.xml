@@ -1,5 +1,20 @@
 <?xml version="1.0" ?>
 <DialogList>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>0</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject></triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">You entered the main foyer.</text>
+    </textList>
+  </Dialog>
   
   <Dialog>
     <!-- Attributes -->
@@ -14,7 +29,6 @@
     <textList>
       <text speaker="Narrator">The leg appears to be missing</text>
       <text speaker="Me">Oh no the chair, It is broken !!!!</text>
-      
     </textList>
   </Dialog>
 
@@ -63,8 +77,8 @@
     <transitToState></transitToState>
     <!-- Texts -->
     <textList>
-      <text speaker="NOTEEE">Make sure to check all windows of excape</text>
-      <text speake="Me"> What the fuck is this shit supposed to mean, there are no fucking windows</text>
+      <text speaker="NOTEEE">Make sure to check all windows of escape</text>
+      <text speaker="Me"> What the fuck is this shit supposed to mean, there are no fucking windows</text>
     </textList>
   </Dialog>
 
@@ -243,7 +257,7 @@
       <text speaker="Narrator">Something you learned after all those times your parents locked you in your room, then passed out drunk.</text>
       <text speaker="Narrator">......</text>
       <text speaker="Me">Got it, I am too fast with these cards</text>
-      <text speaker-"Me">Oh a key, maybe I... I can finally get out of here </text>
+      <text speaker="Me">Oh a key, maybe I... I can finally get out of here </text>
 
     </textList>
   </Dialog>
@@ -265,7 +279,6 @@
       <text speaker="Narrator">.....</text>
       <text speaker="Me">Got it, I am too fast with these cards</text>
       <text speaker="Me">Oh a key, maybe I ... I can finally get out of here</text>
-
     </textList>
   </Dialog>
 
@@ -285,8 +298,7 @@
       <text speaker="Narrator">Something you learned after all those times your parents locked you in your room, then passed out drunk.</text>
       <text speaker="Narrator">......</text>
       <text speaker="Me">Got it, I am too fast with these cards</text>
-      <text speaker-"Me">Oh a key, maybe I ... I can finally get out of here</text>
-
+      <text speaker="Me">Oh a key, maybe I ... I can finally get out of here</text>
     </textList>
   </Dialog>
 

@@ -72,6 +72,8 @@ int Dialog::parseDialogFromFile(std::string& f) {
     if (!pElement) return 0;
     pElement->QueryIntText(&(d.id));
 
+    if (f == "../data/dialogs/foyer_dialog.xml") std::cout << d.id << std::endl;
+
     // Query trigger location
     XMLElement* pSubElement =
         pListElement->FirstChildElement("triggerLocation");

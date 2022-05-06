@@ -331,13 +331,16 @@ void EventManager::startGame(void) {
 
 void EventManager::roomChange(Rooms r) {
   curRoom = Room(r);
+  // std::cout << "Successfully switched room" << std::endl;
   currRoomName = r;
   curDialog = Dialog(r);
+  // std::cout << "Successfully switched dialog" << std::endl;
   // gameView->drawRoom(&curRoom);
   mainActor.position.x = curRoom.bornX;
   mainActor.position.y = curRoom.bornY;
   mainActor.setBoundary(curRoom.boundX, curRoom.boundY, curRoom.boundW,
                         curRoom.boundH);
+  // std::cout << "Successfully set boundary" << std::endl;
 
   // Since the hallway has multiple doors, we need to account for which door the
   // player just left
