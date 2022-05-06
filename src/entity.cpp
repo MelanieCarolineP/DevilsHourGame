@@ -1,13 +1,8 @@
 #include "entity.h"
 
 /**
- * @brief Entity constructor
- *
- * @param x x- cordinate
- * @param y y-cordinate
- * @param w width dimension
- * @param h height dimension
- * @return Entity object
+ * @brief Construct a new Entity:: Entity object
+ * 
  */
 Entity::Entity() {
   Vec2d location = Vec2d(0, 0);
@@ -18,6 +13,16 @@ Entity::Entity() {
   this->isEntity = isEntity;
 }
 
+/**
+ * @brief Construct a new Entity:: Entity object
+ * 
+ * @param x 
+ * @param y 
+ * @param w 
+ * @param h 
+ * @param name 
+ * @param isEntity 
+ */
 Entity::Entity(float x, float y, float w, float h, std::string name,
                bool isEntity) {
   Vec2d location = Vec2d(x, y);

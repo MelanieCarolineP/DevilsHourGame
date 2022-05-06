@@ -11,6 +11,7 @@ void SpeechBox::initFonts(const char *font_name) {
   TTF_Init();
   this->font = TTF_OpenFont(font_name, FONT_SIZE);
 }
+
 void SpeechBox::initGlyph() {
   SDL_Surface *surface, *text;
   SDL_Rect dest;
@@ -48,6 +49,7 @@ void SpeechBox::drawText(const char *text, int x, int y, int maxWidth) {
     drawTextLine(text, x, y);
   }
 }
+
 void SpeechBox::drawTextLine(const char *text, int x, int y) {
   int i, character;
   SDL_Rect dest;

@@ -2,6 +2,10 @@
 
 #include <iostream>
 
+/**
+ * @brief Construct a new Audio View:: Audio View object
+ * 
+ */
 AudioView::AudioView() {
   // Game music
   gMainMusic = NULL;
@@ -12,6 +16,10 @@ AudioView::AudioView() {
   gDoor = NULL;
 }
 
+/**
+ * @brief Load media files
+ * 
+ */
 void AudioView::loadMedia() {
   // Load music
   gMainMusic = Mix_LoadMUS("../resource/audio/bg_music.mp3");
@@ -36,6 +44,10 @@ void AudioView::loadMedia() {
   }
 }
 
+/**
+ * @brief Cleanup
+ * 
+ */
 void AudioView::close() {
   // Free the music
   Mix_FreeMusic(gMainMusic);
@@ -54,6 +66,11 @@ void AudioView::close() {
   Mix_Quit();
 }
 
+/**
+ * @brief Play specified sound
+ * 
+ * @param soundName 
+ */
 void AudioView::playSound(std::string soundName) {
   if (soundName == "interact") {
     Mix_PlayChannel(-1, gInteract, 0);
@@ -64,6 +81,11 @@ void AudioView::playSound(std::string soundName) {
   }
 }
 
+/**
+ * @brief Play specified music
+ * 
+ * @param musicName 
+ */
 void AudioView::playMusic(std::string musicName) {
   if (musicName == "main")
     Mix_PlayMusic(gMainMusic, -1);
