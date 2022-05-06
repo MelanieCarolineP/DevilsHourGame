@@ -94,12 +94,15 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
             inventoryChange();
             break;
 
+          case SDLK_ESCAPE:
+            pauseGame(time);
+            break;
+
             // // DEBUG
 
             // case SDLK_z:
             //   isDialog = true;
             //   displayDialog(this->nameText, this->testText);
-
             //   break;
 
             // case SDLK_h:
@@ -128,14 +131,10 @@ void EventManager::handle_event(SDL_Event* event, float deltaTime, float time,
             //   gameStarted = false;
             //   break;
             // case SDLK_t:
-            //   showEntity = !showEntity;
+            //   showEntity = !showEntity
             //   break;
             // case SDLK_1:
             //   clock.deductTime();
-            //   break;
-
-            // case SDLK_ESCAPE:
-            //   pauseGame(time);
             //   break;
         }
 
@@ -356,9 +355,9 @@ void EventManager::playerInteraction() {
 }
 
 /**
- * @brief Pause event 
- * 
- * @param time 
+ * @brief Pause event
+ *
+ * @param time
  */
 void EventManager::pauseGame(float time) {
   isPaused = true;
@@ -368,7 +367,7 @@ void EventManager::pauseGame(float time) {
 
 /**
  * @brief Present start screen
- * 
+ *
  */
 void EventManager::startScreen(void) {
   audioView->playMusic("main");
@@ -378,7 +377,7 @@ void EventManager::startScreen(void) {
 
 /**
  * @brief Losing event
- * 
+ *
  */
 void EventManager::loseScreen(void) {
   gameView->drawLosingScreen();
@@ -387,7 +386,7 @@ void EventManager::loseScreen(void) {
 
 /**
  * @brief Winning event
- * 
+ *
  */
 void EventManager::winScreen(void) {
   audioView->playMusic("win");
@@ -397,7 +396,7 @@ void EventManager::winScreen(void) {
 
 /**
  * @brief Handles start game event
- * 
+ *
  */
 void EventManager::startGame(void) {
   clock.start();
@@ -409,8 +408,8 @@ void EventManager::startGame(void) {
 
 /**
  * @brief Handles room changes
- * 
- * @param r : type of room to change to 
+ *
+ * @param r : type of room to change to
  */
 void EventManager::roomChange(Rooms r) {
   // reset room type
@@ -463,7 +462,7 @@ void EventManager::roomChange(Rooms r) {
 
 /**
  * @brief Resume game event
- * 
+ *
  */
 void EventManager::returnToGame(void) {
   isPaused = false;
@@ -474,16 +473,16 @@ void EventManager::returnToGame(void) {
 
 /**
  * @brief Inventory item selection change event
- * 
+ *
  */
 void EventManager::inventoryChange() { inventory.changeSelectedItem(); }
 
 /**
  * @brief Exit game event
- * 
- * @param event 
- * @param time 
- * @param running 
+ *
+ * @param event
+ * @param time
+ * @param running
  */
 void EventManager::exitEvent(SDL_Event* event, float time, bool* running) {
   *running = false;
@@ -491,7 +490,7 @@ void EventManager::exitEvent(SDL_Event* event, float time, bool* running) {
 
 /**
  * @brief Display all elements of the game to the screen
- * 
+ *
  */
 void EventManager::displayGame() {
   gameView->clearScreen();
@@ -509,9 +508,9 @@ void EventManager::displayGame() {
 
 /**
  * @brief Display dialog on screen
- * 
- * @param name 
- * @param text 
+ *
+ * @param name
+ * @param text
  */
 void EventManager::showDialog(const char* name, const char* text) {
   gameView->clearScreen();
