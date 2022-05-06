@@ -8,7 +8,10 @@
 
 class Clock {
  public:
+  /* constructor */
   Clock(){};
+
+  /* methods */
   void start();
   void update(float deltaTime);
   void pause();

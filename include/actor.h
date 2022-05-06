@@ -13,22 +13,14 @@ class Actor : public Entity {
  public:
   /* constructor */
   Actor();
-  /* methods */
 
+  /* methods */
   void move(direction d, float deltaTime,
             std::vector<Entity>& entityList); /**< handles movement */
   bool collision(const std::vector<Entity> entityList);
   bool collisionDetection(direction d, std::vector<Entity>& entityList);
-
   void setBoundary(int x, int y, int w, int h);
-
-  /**
-   * @brief returns entity most recently in contact with
-   * @returns object in room
-   */
-  // Entity interact() { return entity; }
   std::string interact(std::vector<Entity>& entityList);
-
   direction getDirection(void) { return curDir; }
 
  private:
@@ -42,7 +34,6 @@ class Actor : public Entity {
   int boundH;
 
   bool collideWith(direction d, Entity* e);
-
   bool canWalkOnCollision(const Entity entity);
 };
 
