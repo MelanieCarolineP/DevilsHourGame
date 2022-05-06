@@ -294,13 +294,26 @@
     <useItem>hairpin</useItem>
     <pickItem>pink-key</pickItem>
     <triggerState></triggerState>
-    <transitToState>f9</transitToState>
+    <transitToState></transitToState>
     <!-- Texts -->
     <textList>
       <text speaker="Me">I found another key</text>
       <text speaker="Me">Maybe this one wont break like the other one</text>
       <text speaker="Me">It looks a little cooler too</text>
-      <text speaker="Narrator"> Door unlocks</text>
+    </textList>
+  </Dialog>
+  <Dialog>
+    <!-- Attributes -->
+    <id>16</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>exit</triggerObject>
+    <useItem>pink-key</useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState>f9</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">Door unlocks</text>
     </textList>
   </Dialog>
 
