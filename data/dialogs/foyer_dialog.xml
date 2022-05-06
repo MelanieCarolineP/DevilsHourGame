@@ -1,0 +1,293 @@
+<?xml version="1.0" ?>
+<DialogList>
+  
+  <Dialog>
+    <!-- Attributes -->
+    <id>1</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>chair</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">The leg appears to be missing</text>
+      <text speaker="Me">Oh no the chair, It is broken !!!!</text>
+      
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>2</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>chair</triggerObject>
+    <useItem>chair_leg</useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">"You fixed the chair leg"</text>
+      <text speaker="Note">"Water is the miracle of life"</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>3</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>cactus_left</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">I don't know this is kind of messy</text>
+      <text speaker="Me"> What is that smell</text>
+      <text speaker="Me"> Wait didn't my dad get drunk one night and pee in this cactus</text>
+    </textList>
+  </Dialog>
+
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>4</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>cabinet</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="NOTEEE">Make sure to check all windows of excape</text>
+      <text speake="Me"> What the fuck is this shit supposed to mean, there are no fucking windows</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>5</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>couch</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">Probably shouldn't sit down right now.</text>
+      <text speaker="Narrator"> Upon further inspection, you discover a giftcard</text>
+      <text speaker="Me"> So thats where my mother hid my giftcard, Probably won't get a chance to use this again</text> 
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>6</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>painting</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Visual">*Ugly ass picture of a cabin in the woods*</text>
+      <text speaker="Me"> I hate this damn picture, its just to cover the hole in the wall that my stepdad sent my head through</text>
+      <text speaker="Narrator"> Yea that shit is ugly asf and so are you, can you die already</text>
+      <text speaker="Me"> "Well fuck you too"</text>
+    </textList>
+  </Dialog>
+  
+  <Dialog>
+    <!-- Attributes -->
+    <id>7</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>painting</triggerObject>
+    <useItem>screwdriver</useItem>
+    <pickItem></pickItem>
+    <triggerState>f3</triggerState>
+    <transitToState>f4</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">You attempt to move the picture to check behind it</text>
+      <text speaker="Narrator">A spider appears from the whole in the wall</text>
+      <text speaker="Me"> Ahhhhhhhhhhhh............</text>
+      <text speaker="Me"> Die you big shit!</text>
+      <text speaker="Narrator"> You kill the spider with the screwdriver, breaking it</text>
+      <text speaker="Me"> Thats my father tarantula that he used to put in my bed while I was sleeping</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>8</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>painting</triggerObject>
+    <useItem>screwdriver</useItem>
+    <pickItem></pickItem>
+    <triggerState>f1</triggerState>
+    <transitToState>f2</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">You attempt to move the picture to check behind it</text>
+      <text speaker="Narrator">A spider appears from the whole in the wall</text>
+      <text speaker="Me"> Ahhhhhhhhhhhh.....</text>
+      <text speaker="Me"> Die you big shit!</text>
+      <text speaker="Narrator"> You kill the spider with the screwdriver, breaking it</text>
+      <text speaker="Me"> Thats my father tarantula that he used to put in my bed while I was sleeping</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>9</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>closet</triggerObject>
+    <useItem></useItem>
+    <pickItem>chair_leg</pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">It is dark as hell</text>
+      <text speaker="Me">I knowww, but I think I found something </text>
+      <text speaker="Narrator"> ... </text>
+      <text speaker="Me"> It is a chair leg </text>
+    </textList>
+  </Dialog>
+
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>10</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>left_table</triggerObject>
+    <useItem></useItem>
+    <pickItem>screwdriver</pickItem>
+    <triggerState></triggerState>
+    <transitToState>f1</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator"> You find another screwdriver, hidden underneath a bunch of cigarette boxes</text>
+      <text speaker="Me">A screwdriver, I am about to Handy Manny some shit</text>
+    </textList>
+  </Dialog>
+  <Dialog>
+    <!-- Attributes -->
+    <id>11</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>left_table</triggerObject>
+    <useItem></useItem>
+    <pickItem>screwdriver</pickItem>
+    <triggerState>f4</triggerState>
+    <transitToState>f3</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator"> You find another screwdriver, hidden underneath a bunch of cigarette boxes</text>
+      <text speaker="Me">A screwdriver, I am about to Handy Manny some shit</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>12</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>right_table</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">Locked, but the lock is exposed</text>
+      <text speaker="Me">Gotdammnit.</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>13</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>right_table</triggerObject>
+    <useItem>screwdriver</useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState>f2</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">You use the screwdriver to pop the lock on the table</text>
+      <text speaker="Narrator">However, that took away 15 minutes of time</text>
+      <text speaker="Me">Wow, that took way too long. I am terrible with tools</text>
+      <text speaker="Me">I found a key though, but I ... I should keep going.</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>14</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>right_table</triggerObject>
+    <useItem>giftcard</useItem>
+    <pickItem>key</pickItem>
+    <triggerState></triggerState>
+    <transitToState>f3</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">Lets see if I still got it </text>
+      <text speaker="Narrator">You use the giftcard to comprimise the drawer.</text>
+      <text speaker="Narrator">Something you learned after all those times your parents locked you in your room, then passed out drunk.</text>
+      <text speaker="Narrator">......</text>
+      <text speaker="Me">Got it, I am too fast with these cards</text>
+      <text speaker-"Me">Oh a key, maybe I... I can finally get out of here </text>
+
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>15</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>right_table</triggerObject>
+    <useItem>giftcard</useItem>
+    <pickItem>key</pickItem>
+    <triggerState>f1</triggerState>
+    <transitToState>f3</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">Lets see if I still got it </text>
+      <text speaker="Narrator">You use the giftcard to comprimise the drawer.</text>
+      <text speaker="Narrator">Something you learned after all those times your parents locked you in your room, then passed out drunk.</text>
+      <text speaker="Narrator">.....</text>
+      <text speaker="Me">Got it, I am too fast with these cards</text>
+      <text speaker="Me">Oh a key, maybe I ... I can finally get out of here</text>
+
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>16</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>right_table</triggerObject>
+    <useItem>giftcard</useItem>
+    <pickItem>key</pickItem>
+    <triggerState>f2</triggerState>
+    <transitToState>f4</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Me">Lets see if I still got it </text>
+      <text speaker="Narrator">You use the giftcard to comprimise the drawer.</text>
+      <text speaker="Narrator">Something you learned after all those times your parents locked you in your room, then passed out drunk.</text>
+      <text speaker="Narrator">......</text>
+      <text speaker="Me">Got it, I am too fast with these cards</text>
+      <text speaker-"Me">Oh a key, maybe I ... I can finally get out of here</text>
+
+    </textList>
+  </Dialog>
+
+</DialogList>
