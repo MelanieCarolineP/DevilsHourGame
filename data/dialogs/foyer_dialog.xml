@@ -273,6 +273,23 @@
     <triggerLocation></triggerLocation>
     <triggerObject>cactus_right</triggerObject>
     <useItem></useItem>
+    <pickItem>hairpin</pickItem>
+    <triggerState>fixed</triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">You shift throught the dirt and discover a hairpin </text>
+      <text speaker="Me">Hmm a hairpin, what a weird place. What can I use this for? </text>
+
+    </textList>
+  </Dialog>
+
+<Dialog>
+    <!-- Attributes -->
+    <id>13</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>cactus_right</triggerObject>
+    <useItem></useItem>
     <pickItem></pickItem>
     <triggerState></triggerState>
     <transitToState></transitToState>
