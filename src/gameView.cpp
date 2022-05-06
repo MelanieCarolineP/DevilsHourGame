@@ -195,7 +195,7 @@ void GameView::drawPauseMenu(void) {
   sprite.storeImage("../resource/ui/pause.png", 1, 1);
   sprite.selectSprite(0, 0);
   rect.x = 200;
-  rect.y = 50;
+  rect.y = 40;
   rect.w = 1000;
   rect.h = 700;
   sprite.drawSprite(renderer, &rect);
