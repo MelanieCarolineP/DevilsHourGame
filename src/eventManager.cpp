@@ -292,6 +292,9 @@ void EventManager::playerInteraction() {
     roomChange(Rooms::hallway);
   } else if (switchToRoom == 6) {
     clock.deductTime();
+  } else if (switchToRoom == 7) {
+    gameStarted = false;
+    this->winScreen();
   }
 }
 

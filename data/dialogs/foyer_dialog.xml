@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<DialogList>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>1</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject></triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState></transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">You entered the main foyer.</text>
+    </textList>
+  </Dialog>
+
+  <Dialog>
+    <!-- Attributes -->
+    <id>2</id>
+    <triggerLocation></triggerLocation>
+    <triggerObject>exit</triggerObject>
+    <useItem></useItem>
+    <pickItem></pickItem>
+    <triggerState></triggerState>
+    <transitToState>f9</transitToState>
+    <!-- Texts -->
+    <textList>
+      <text speaker="Narrator">The door is unlocked. You escaped from the purgatory.</text>
+    </textList>
+  </Dialog>
+
+</DialogList>
