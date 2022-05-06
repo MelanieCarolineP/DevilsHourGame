@@ -1,17 +1,20 @@
 
 #include "speechBox.h"
 
+// inline array to init a array of 0's
 inline void SpeechBox::fillArray(char arr[], int max, char value) {
   for (int i = 0; i < max; i++) {
     arr[i] = value;
   }
 }
 
+// Loads the font file
 void SpeechBox::initFonts(const char *font_name) {
   TTF_Init();
   this->font = TTF_OpenFont(font_name, FONT_SIZE);
 }
 
+// takes characters and add it to a glyph(vector of  textures)
 void SpeechBox::initGlyph() {
   SDL_Surface *surface, *text;
   SDL_Rect dest;
@@ -42,6 +45,7 @@ void SpeechBox::initGlyph() {
   }
 }
 
+// draw the text to the screen
 void SpeechBox::drawText(const char *text, int x, int y, int maxWidth) {
   if (maxWidth > 0) {
     drawTextWrapped(text, x, y, maxWidth);
@@ -50,6 +54,7 @@ void SpeechBox::drawText(const char *text, int x, int y, int maxWidth) {
   }
 }
 
+// draw a single line of text
 void SpeechBox::drawTextLine(const char *text, int x, int y) {
   int i, character;
   SDL_Rect dest;
@@ -70,6 +75,7 @@ void SpeechBox::drawTextLine(const char *text, int x, int y) {
   }
 }
 
+// draw multiline text to fit the box
 int SpeechBox::drawTextWrapped(const char *text, int x, int y, int maxWidth,
                                bool toScreen) {
   char word[MAX_WORD_LENGTH], line[MAX_LINE_LENGTH];
@@ -131,6 +137,7 @@ int SpeechBox::drawTextWrapped(const char *text, int x, int y, int maxWidth,
   return y + glyphs.at(space).h;
 }
 
+// gets the dimensions of the text to set the boc
 void SpeechBox::textDimensions(const char *text, int *w, int *h) {
   int i, character;
   glyph g;
@@ -152,7 +159,9 @@ int SpeechBox::getWrappedTextHeight(const char *text, int maxWidth) {
   return drawTextWrapped(text, 0, 0, maxWidth, false);
 }
 
+// draws the dialog box to the screen
 void SpeechBox::drawDialogBox(void) {
+  // surface from imagae
   SDL_Surface *dialogBoxImage = IMG_Load("../resource/ui/dialog_box.png");
 
   dialogBoxRect.x = dialogBoxPosition.x;
@@ -162,7 +171,9 @@ void SpeechBox::drawDialogBox(void) {
 
   SDL_Texture *dialogBox =
       SDL_CreateTextureFromSurface(this->renderer, dialogBoxImage);
-
+  // copy to renderer
   SDL_RenderCopy(this->renderer, dialogBox, NULL, NULL);
+  // destroy surface and texture
   SDL_FreeSurface(dialogBoxImage);
+  SDL_DestroyTexture(dialogBox);
 }
