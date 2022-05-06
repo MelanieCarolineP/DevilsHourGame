@@ -43,12 +43,8 @@ class SpeechBox {
   void drawTextLine(const char *text, int x, int y);
 
   void initFonts(const char *font_name);
-  // void showText(void);
+
   void fillArray(char arr[], int max, char value);
   void drawDialogBox(void);
-
-  // SDL_Texture* getTextTexture(const char* text);
-  // SDL_Texture* toTexture(SDL_Surface* surface, int destroySurface);
-  // void blit(SDL_Texture* texture, int x, int y, int center);
 };
 #endif
