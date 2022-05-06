@@ -20,7 +20,8 @@ int StateMonitor::update(std::string& s) {
   if (currentState == "f1") return 4;
   if (currentState == "h1" || currentState == "h2" || currentState == "h3")
     return 5;
-  if (currentState == "b3" || currentState == "k7" || currentState == "e4")
+  if (currentState == "b3" || currentState == "k7" || currentState == "e4" ||
+      currentState == "f2")
     return 6;
   if (currentState == "f9") return 7;
   return 0;
