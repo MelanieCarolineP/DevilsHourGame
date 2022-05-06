@@ -228,7 +228,6 @@ void EventManager::playerInteraction() {
                                    stateMonitor.currentState);
   std::cout << "id: " << id << std::endl;
 
-  // if (id < 0) return;
   if (id < 0) {
     if (object.size() > 0 && item.size() > 0) {
       isDialog = true;

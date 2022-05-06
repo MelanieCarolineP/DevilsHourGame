@@ -1,5 +1,9 @@
 #include "clock.h"
 
+/**
+ * @brief Start/Reset the timer
+ * 
+ */
 void Clock::start() {
   isPaused = false;
   startTime = SDL_GetTicks();
@@ -7,16 +11,21 @@ void Clock::start() {
   // std::cout << "start time:" << startTime << std::endl;
 }
 
-void Clock::update(float deltaTime) {
-  timeElapsed += deltaTime;
-  std::cout << deltaTime << std::endl;
-  std::cout << getCurTime() << std::endl;
-}
-
+/**
+ * @brief Check if time is out.
+ * 
+ * @return true 
+ * @return false 
+ */
 bool Clock::isTimeOut() {
   return (SDL_GetTicks() + punishment - startTime) > totalTime;
 }
 
+/**
+ * @brief Get current time to display in the game
+ * 
+ * @return std::string : current time by string
+ */
 std::string Clock::getCurTime() {
   Uint32 curTime = SDL_GetTicks() + punishment;
   // std::cout << "cur time:" << curTime << std::endl;
@@ -29,4 +38,8 @@ std::string Clock::getCurTime() {
   return s;
 }
 
+/**
+ * @brief Deduct 15 min from the player's total time. 
+ * 
+ */
 void Clock::deductTime() { punishment += 150000; }

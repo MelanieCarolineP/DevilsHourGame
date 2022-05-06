@@ -103,6 +103,7 @@ int Room::generateEntityList(std::string& f) {
 
   this->size = Vec2d(width, height);
 
+  // Query room boundaries
   pElement = pRoot->FirstChildElement("boundX");
   pElement->QueryIntText(&boundX);
 
@@ -115,6 +116,7 @@ int Room::generateEntityList(std::string& f) {
   pElement = pRoot->FirstChildElement("boundH");
   pElement->QueryIntText(&boundH);
 
+  // Query player born position
   pElement = pRoot->FirstChildElement("bornX");
   pElement->QueryIntText(&bornX);
 
@@ -161,5 +163,6 @@ int Room::generateEntityList(std::string& f) {
     pListElement = pListElement->NextSiblingElement("entity");
   }
 
+  // Success.
   return 1;
 }

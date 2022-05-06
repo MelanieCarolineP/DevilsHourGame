@@ -13,7 +13,6 @@ class Clock {
 
   /* methods */
   void start();
-  void update(float deltaTime);
   void pause();
   bool isTimeOut();
   std::string getCurTime();

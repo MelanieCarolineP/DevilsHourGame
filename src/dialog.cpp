@@ -73,11 +73,6 @@ int Dialog::parseDialogFromFile(std::string& f) {
     pElement->QueryIntText(&(d.id));
 
     // Query trigger location
-    // int x1 = -1;
-    // int x2 = -1;
-    // int y1 = -1;
-    // int y2 = -1;
-
     XMLElement* pSubElement =
         pListElement->FirstChildElement("triggerLocation");
 
@@ -213,11 +208,6 @@ int Dialog::triggerDialog(Vec2d loc, std::string& object, std::string& item,
                           std::string& curState) {
   for (int i = 1; i < dialogList.size(); ++i) {
     dialog d = dialogList[i];
-    // if (i == 23) {
-    //   std::cout << matchObject(d, object) << std::endl;
-    //   std::cout << matchItem(d, item) << std::endl;
-    //   std::cout << matchState(d, curState) << std::endl;
-    // }
     if (matchObject(d, object) && matchItem(d, item) && matchState(d, curState))
       return i;
   }
